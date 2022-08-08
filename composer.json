@@ -1,0 +1,17 @@
+{
+  "name": "sensasi-delight/material-blade",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "SensasiDelight\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Zain Adam",
+      "email": "zainadam.id@gmail.com"
+    }
+  ],
+  "require": {}
+}
