@@ -6,23 +6,34 @@ use Illuminate\View\Component;
 
 class Button extends Component
 {
+  // public $color;
+  public $endIcon;
+  public $fullwidth;
   public $label;
-  public $variantClass;
-
-  public $VARIANTS_CLASSMAP = [
-    'contained' => 'mdc-button--raised',
-    'outlined' => 'mdc-button--outlined',
-    'text' => ''
-  ];
+  public $ripple;
+  // public $size;
+  public $startIcon;
+  public $variant;
 
   /**
    * Create a new component instance.
    *
    * @return void
    */
-  public function __construct()
-  {
-    //
+  public function __construct(
+    string $endIcon = null,
+    bool $fullwidth = false,
+    string $label = null,
+    bool $ripple = true,
+    string $startIcon = null,
+    string $variant = 'contained'
+  ) {
+    $this->endIcon = $endIcon;
+    $this->fullwidth = $fullwidth;
+    $this->label = $label;
+    $this->ripple = $ripple;
+    $this->startIcon = $startIcon;
+    $this->variant = $variant;
   }
 
   /**
@@ -32,6 +43,6 @@ class Button extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::button');
+    return view('MaterialBlade::components.button');
   }
 }
