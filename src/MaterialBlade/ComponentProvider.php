@@ -25,6 +25,6 @@ class ComponentProvider extends ServiceProvider
   public function boot()
   {
     $this->loadViewsFrom(__DIR__ . '/views', 'MaterialBlade');
-    Blade::componentNamespace('Components', 'MaterialBlade');
+    Blade::componentNamespace('MaterialBlade\\Components', 'MaterialBlade');
   }
 }
