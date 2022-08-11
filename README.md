@@ -1,6 +1,6 @@
 # Material Blade
 
-Material Blade is a simple package that provides the beautiful Material Design components by Google as Blade's components in Laravel. For fast layouting your Laravel app, inspired by [MaterialUI](https://github.com/mui/material-ui)
+Material Blade is a simple package that provides the beautifulness of Google [Material Design](https://material.io/) components as Laravel Blade components. Material Blade aims to assist you in prototyping the UI/UX of your Laravel app faster, inspired by [MaterialUI](https://github.com/mui/material-ui).
 
 ## Installation
 
@@ -28,7 +28,7 @@ After Material Blade has installed on your Laravel project, you have to [registe
 
 ## Quick Start
 
-This is minimal example using Material Blade component to your Blade view:
+This is minimal example using Material Blade component on your Blade view:
 
 ```html
 <!DOCTYPE html>
