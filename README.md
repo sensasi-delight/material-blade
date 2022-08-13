@@ -4,6 +4,48 @@ Material Blade is a simple package that provides the beautifulness of Google [Ma
 
 General knowledge of Laravel and Blade components i'ts required for using this package. however, the fully understand about this feature is helpful for optimizing the usages of this package. If you never heard about [Blade Components](https://laravel.com/docs/8.x/blade#components), it is a good start to understand it and plays with Material Blade package.
 
+## Status
+
+This package is still under development, please contribute to make it release faster. The status of [Material Design Web components](https://material.io/components?platform=web) that implemented on this package are shown on the list below.
+
+### Components
+
+- [ ] App bar: top
+- [ ] Banner
+- [x] Button
+- [ ] Button: floating action button
+- [ ] Card
+- [ ] Checkbox
+- [ ] Chip
+- [ ] Data table
+- [ ] Dialog
+- [ ] Image list
+- [ ] List
+- [ ] Menu
+- [ ] Navigation drawer
+- [ ] Progress indicator
+- [ ] Radio button
+- [ ] Slider
+- [ ] Snackbar
+- [ ] Switch
+- [ ] Tab
+- [ ] Text field
+- [ ] Tooltip
+
+### Unsupported Components
+
+The implementation for these components are not supported by default for Material Design Web.
+
+- App bar: bottom
+- Backdrop
+- Bottom navigation
+- Date picker
+- Divider
+- Navigation rail
+- Sheet: bottom
+- Sheet: side
+- Time picker
+
 ## Installation
 
 Material Blade is available on [packagist.org](https://packagist.org/packages/sensasi-delight/material-blade), You can import the package to your Laravel project using Composer by command-line below:
@@ -51,12 +93,6 @@ Next step, you must includes once the `<x-MaterialBlade::_assets />` inside `<he
 </html>
 ```
 
-## Components
-
-### Button
-
-<figure style="height: 500px;"><iframe src="https://phpsandbox.io/e/x/hoaeo?&layout=Preview&iframeId=738617sr51&theme=dark&defaultPath=/button&showExplorer=no" style="display: block" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" height="100%" width="100%"></iframe></figure>
-
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -75,6 +111,6 @@ The code is released under the MIT license.
 
 ## Contact
 
-Email - [zainadam.id@gmail.com](mailto:zainadam.id@gmail.com?subject=[GitHub]%20EigenvectorCentralityPHP)
+Email - [zainadam.id@gmail.com](mailto:zainadam.id@gmail.com?subject=[GitHub]%20MaterialBlade)
 
 Twitter - [@sensasi_DELIGHT](https://twitter.com/sensasi_DELIGHT)
