@@ -53,11 +53,14 @@
 </div>
 
 @once
-  @push('scripts')
-      <script>
-        [...document.querySelectorAll('.mdc-button')].map(button => {
-          (new mdc.ripple.MDCRipple.attachTo(button)).unbounded = true;
-        });
-      </script>
-  @endpush
+    @push('MaterialBlade-scripts')
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                [...document.querySelectorAll('.mdc-button')].map(button => {
+                    (new mdc.ripple.MDCRipple.attachTo(button))
+                    .unbounded = true;
+                });
+            });
+        </script>
+    @endpush
 @endonce
