@@ -48,7 +48,7 @@ This is minimal example using Material Blade component on your Blade view:
 <body>
 
     <!-- this is Material Blade component -->
-    <x-MaterialBlade::button href="This is a Button" />
+    <x-MaterialBlade::button label="This is a Button" />
 
     <!-- MATERIAL DESIGN REQUIRED SCRIPTS -->
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
