@@ -1,12 +1,14 @@
 <?php
 
-namespace MaterialBlade\Components;
+// namespace MaterialBlade\Components;
+namespace App\View\Components;
+
 
 use Illuminate\View\Component;
 
 class Button extends Component
 {
-  // public $color;
+  public $color;
   public $endIcon;
   public $fullwidth;
   public $label;
@@ -21,19 +23,23 @@ class Button extends Component
    * @return void
    */
   public function __construct(
+    string $color = null,
     string $endIcon = null,
     bool $fullwidth = false,
     string $label = null,
     bool $ripple = true,
+    // string $size = null,
     string $startIcon = null,
     string $variant = 'contained'
   ) {
-    $this->endIcon = $endIcon;
+    $this->color = $color;
+    $this->endIcon = $endIcon ?: null;
     $this->fullwidth = $fullwidth;
-    $this->label = $label;
+    $this->label = $label ?: null;
     $this->ripple = $ripple;
-    $this->startIcon = $startIcon;
-    $this->variant = $variant;
+    // $this->size = $size;
+    $this->startIcon = $startIcon ?: null;
+    $this->variant = $variant ?: 'contained';
   }
 
   /**
@@ -43,6 +49,6 @@ class Button extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::components.button');
+    return view('MaterialBlade::button');
   }
 }
