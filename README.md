@@ -51,6 +51,12 @@ Next step, you must includes once the `<x-MaterialBlade::_assets />` inside `<he
 </html>
 ```
 
+## Components
+
+### Button
+
+<figure style="height: 500px;"><iframe src="https://phpsandbox.io/e/x/hoaeo?&layout=Preview&iframeId=738617sr51&theme=dark&defaultPath=/button&showExplorer=no" style="display: block" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" height="100%" width="100%"></iframe></figure>
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
