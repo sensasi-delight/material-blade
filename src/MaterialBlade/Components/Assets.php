@@ -5,7 +5,7 @@ namespace MaterialBlade\Components;
 
 use Illuminate\View\Component;
 
-class _assets extends Component
+class Assets extends Component
 {
     /**
      * Create a new component instance.
