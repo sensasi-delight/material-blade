@@ -1,7 +1,6 @@
 <?php
 
-// namespace MaterialBlade\Components;
-namespace App\View\Components;
+namespace MaterialBlade\Components;
 
 
 use Illuminate\View\Component;
