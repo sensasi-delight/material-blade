@@ -19,6 +19,8 @@ This package is still under development, please contribute to make it release fa
 - [ ] Chip
 - [ ] Data table
 - [ ] Dialog
+- [x] Icon
+- [ ] Icon Button
 - [ ] Image list
 - [ ] List
 - [ ] Menu

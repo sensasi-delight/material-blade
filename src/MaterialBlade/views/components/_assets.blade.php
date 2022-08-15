@@ -1,14 +1,26 @@
 <style>
     @import url(https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css);
-    @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+    @import url(https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp);
 
     :root {
-        --mdc-theme-primary: #1565c0 !important;
-        --mdc-theme-secondary: #7b1fa2 !important;
-        --mdc-theme-error: #c62828 !important;
-        --mdc-theme-warning: #e65100 !important;
-        --mdc-theme-info: #01579b !important;
-        --mdc-theme-success: #1b5e20 !important;
+        --mdc-theme-primary: #1565c0;
+        --mdc-theme-secondary: #7b1fa2;
+        --mdc-theme-error: #c62828;
+        --mdc-theme-warning: #e65100;
+        --mdc-theme-info: #01579b;
+        --mdc-theme-success: #1b5e20;
+    }
+
+    .mdc-theme--warning{
+      color: var(--mdc-theme-warning) !important
+    }
+
+    .mdc-theme--info{
+      color: var(--mdc-theme-info) !important
+    }
+
+    .mdc-theme--success{
+      color: var(--mdc-theme-success) !important
     }
 
     .materialblade-theme--secondary {
@@ -60,3 +72,9 @@
     src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 
 @stack('MaterialBlade-scripts')
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    @stack('MaterialBlade-scripts-on-ready')
+  });
+</script>
