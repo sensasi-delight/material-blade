@@ -4,6 +4,8 @@ Material Blade is a simple package that provides the beautifulness of Google [Ma
 
 General knowledge of Laravel and Blade components i'ts required for using this package. however, the fully understand about this feature is helpful for optimizing the usages of this package. If you never heard about [Blade Components](https://laravel.com/docs/8.x/blade#components), it is a good start to understand it and plays with Material Blade package.
 
+demo: [https://pex9l.ciroue.com/](https://pex9l.ciroue.com/)
+
 ## Status
 
 This package is still under development, please contribute to make it release faster. The status of [Material Design Web components](https://material.io/components?platform=web) that implemented on this package are shown on the list below.
@@ -20,7 +22,7 @@ This package is still under development, please contribute to make it release fa
 - [ ] Data table
 - [ ] Dialog
 - [x] Icon
-- [ ] Icon Button
+- [x] Icon Button
 - [ ] Image list
 - [ ] List
 - [ ] Menu
