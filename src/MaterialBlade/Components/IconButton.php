@@ -20,10 +20,10 @@ class IconButton extends Component
    * @return void
    */
   public function __construct(
-    string $color = null,
+    ?string $color = null,
     string $icon,
-    string $toggle = null,
-    string $offIcon = null,
+    ?string $toggle = null,
+    ?string $offIcon = null,
     string $ripple = "true"
     // string $size = null
   ) {
