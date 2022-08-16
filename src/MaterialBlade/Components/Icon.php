@@ -18,8 +18,8 @@ class Icon extends Component
    * @return void
    */
   public function __construct(
-    ?string $color = null,
     string $icon,
+    ?string $color = null,
     string $variant = 'filled'
     // string $size = null,
   ) {
