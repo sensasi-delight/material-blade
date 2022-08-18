@@ -4,14 +4,15 @@ namespace MaterialBlade\Components;
 
 
 use Illuminate\View\Component;
+use Illuminate\View\ComponentAttributeBag;
 
 class IconButton extends Component
 {
   public ?string $color;
   public string $icon;
-  public ?bool $toggle;
+  public ?bool $isToggle;
   public ?string $offIcon;
-  public bool $ripple;
+  public bool $isRipple;
   // public $size;
 
   /**
@@ -28,10 +29,10 @@ class IconButton extends Component
     // string $size = null
   ) {
     $this->color = $color;
-    $this->toggle = is_null($toggle) ? null : ($toggle == 'on' ? true : false);
+    $this->isToggle = is_null($toggle) ? null : ($toggle == 'on' ? true : false);
     $this->icon = $icon;
     $this->offIcon = $offIcon;
-    $this->ripple = filter_var($ripple, FILTER_VALIDATE_BOOLEAN);
+    $this->isRipple = filter_var($ripple, FILTER_VALIDATE_BOOLEAN);
     // $this->size = $size;
   }
 
@@ -43,5 +44,22 @@ class IconButton extends Component
   public function render()
   {
     return view('MaterialBlade::icon-button');
+  }
+
+  public function attributesPreprocess(ComponentAttributeBag $attributes) {
+    $attributes = $attributes->class([
+      'mdc-icon-button',
+      is_null($this->isToggle) ? null : 'mdc-icon-button-toggle',
+      'mdc-icon-button--on' => $this->isToggle,
+      $attributes->has('disabled') ? 'mdc-theme--text-disabled-on-light' : 'mdc-theme--text-secondary-on-light'
+    ]);
+    
+    $attributes = $attributes->merge(['aria-label' => $this->icon]);
+    
+    if (! is_null($this->isToggle)) {
+        $attributes = $attributes->merge(['aria-pressed' => $this->isToggle]);
+    }
+
+    return $attributes;
   }
 }
