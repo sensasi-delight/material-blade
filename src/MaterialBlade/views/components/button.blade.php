@@ -1,66 +1,33 @@
-@php
-  // if ($size) {
-  //   $attributes = $attributes->class([
-  //     'materialblade-size--' . $size
-  //   ]);
-  // }
+@if ($attributes->has('href'))
+    <a {{ $attributesPreprocess($attributes)->merge(['aria-label' => $label ?: $slot]) }}>
+@else
+    <button {{ $attributesPreprocess($attributes)->merge(['aria-label' => $label ?: $slot]) }}>
+@endif
 
-  $attributes = $attributes->class([
-    'mdc-button',
-    'mdc-button--touch',
-    'mdc-button--raised' => $variant === 'contained',
-    'mdc-button--unelevated' => $variant === 'unelevated',
-    'mdc-button--outlined' => $variant === 'outlined',
-    'mdc-button--icon-leading' => $startIcon ? true : false,
-    'mdc-button--icon-trailing' => $endIcon ? true : false,
-    'fullwidth' => $fullwidth,
-  ]);
-
-  if ($color) {
-    $attributes = $attributes->class([
-      'materialblade-theme--' . $color
-    ]);
-  }
-@endphp
-
-
-<div class="mdc-touch-target-wrapper">
-    @if ($attributes['href'])
-        <a {{ $attributes }}>
-    @else
-        <button {{ $attributes }}>
+    @if ($isRipple)
+        <span class="mdc-button__ripple"></span>
     @endif
 
-        @if ($ripple)
-            <span class="mdc-button__ripple"></span>
-        @endif
-
-        @if ($startIcon)
-            <span class="material-icons mdc-button__icon" aria-hidden="true">{{ $startIcon }}</span>
-        @endif
-
-        <span class="mdc-button__label">{{ $slot == '' ? $label : $slot }}</span>
-
-        @if ($endIcon)
-            <span class="material-icons mdc-button__icon" aria-hidden="true">{{ $endIcon }}</span>
-        @endif
-
-    @if ($attributes['href'])
-        </a>
-    @else
-        </button>
+    @if ($startIcon)
+        <x-MaterialBlade::Icon :icon="$startIcon" class="mdc-button__icon" aria-hidden="true" />
     @endif
-</div>
+
+    <span class="mdc-button__label">{{ $label ?: $slot }}</span>
+
+    @if ($endIcon)
+        <x-MaterialBlade::Icon :icon="$endIcon" class="mdc-button__icon" aria-hidden="true" />
+    @endif
+
+@if ($attributes->has('href'))
+    </a>
+@else
+    </button>
+@endif
 
 @once
-    @push('MaterialBlade-scripts')
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                [...document.querySelectorAll('.mdc-button')].map(button => {
-                    (new mdc.ripple.MDCRipple.attachTo(button))
-                    .unbounded = true;
-                });
-            });
-        </script>
+    @push('MaterialBlade-scripts-on-ready')
+        [...document.querySelectorAll('.mdc-button')].map(buttonEl => {
+          (mdc.ripple.MDCRipple.attachTo(buttonEl)).unbounded = true;
+        });
     @endpush
 @endonce
