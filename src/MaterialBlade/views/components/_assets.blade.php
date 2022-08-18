@@ -1,5 +1,5 @@
 <style>
-    @import url(https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css);
+    @import url(https://unpkg.com/material-components-web@14.0.0/dist/material-components-web.min.css);
     @import url(https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp);
 
     :root {
@@ -66,12 +66,15 @@
     .fullwidth {
         width: 100%;
     }
+
+    .mdc-tooltip__surface a {
+      text-decoration: none;
+      color: var(--mdc-theme-primary);
+    }
 </style>
 
 <script type="text/javascript"
-    src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-
-@stack('MaterialBlade-scripts')
+    src="https://unpkg.com/material-components-web@14.0.0/dist/material-components-web.min.js"></script>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
