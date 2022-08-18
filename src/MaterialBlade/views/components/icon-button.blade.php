@@ -1,14 +1,5 @@
 @php
-$attributes = $attributes->class([
-  'mdc-icon-button',
-  is_null($toggle) ? null : 'mdc-icon-button-toggle',
-  'mdc-icon-button--on' => $toggle,
-  $attributes->has('disabled') ? 'mdc-theme--text-disabled-on-light' : 'mdc-theme--text-secondary-on-light'
-]);
-
-if (! is_null($toggle)) {
-    $attributes = $attributes->merge(['aria-pressed' => $toggle]);
-}
+  $attributes = $attributesPreprocess($attributes);
 @endphp
 
 @if ($attributes->has('href') && ! $attributes->has('disabled'))
@@ -17,11 +8,11 @@ if (! is_null($toggle)) {
     <button {{ $attributes }}>
 @endif
 
-    @if ($ripple)
+    @if ($isRipple)
         <div class="mdc-icon-button__ripple"></div>
     @endif
 
-    @if (! is_null($toggle))
+    @if (! is_null($isToggle))
       <x-MaterialBlade::Icon :icon="$icon" :color="$attributes->has('disabled') ? null : ($color ?: 'primary')" class="mdc-icon-button__icon mdc-icon-button__icon--on" />
       <x-MaterialBlade::Icon :icon="$offIcon ?: $icon" class="mdc-icon-button__icon" />
     @else
