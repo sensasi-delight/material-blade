@@ -4,17 +4,18 @@ namespace MaterialBlade\Components;
 
 
 use Illuminate\View\Component;
+use Illuminate\View\ComponentAttributeBag;
 
 class Button extends Component
 {
-  public $color;
-  public $endIcon;
-  public $fullwidth;
-  public $label;
-  public $ripple;
-  // public $size;
-  public $startIcon;
-  public $variant;
+  public ?string $color;
+  public ?string $endIcon;
+  public bool $isFullwidth;
+  public ?string $label;
+  public bool $isRipple;
+  // public string $size;
+  public ?string $startIcon;
+  public ?string $variant;
 
   /**
    * Create a new component instance.
@@ -22,23 +23,23 @@ class Button extends Component
    * @return void
    */
   public function __construct(
-    string $color = null,
-    string $endIcon = null,
+    ?string $color = null,
+    ?string $endIcon = null,
     bool $fullwidth = false,
-    string $label = null,
-    bool $ripple = true,
+    ?string $label = null,
+    ?bool $ripple = true,
     // string $size = null,
-    string $startIcon = null,
+    ?string $startIcon = null,
     string $variant = 'contained'
   ) {
     $this->color = $color;
-    $this->endIcon = $endIcon ?: null;
-    $this->fullwidth = $fullwidth;
-    $this->label = $label ?: null;
-    $this->ripple = $ripple;
+    $this->endIcon = $endIcon;
+    $this->isFullwidth = $fullwidth;
+    $this->label = $label;
+    $this->isRipple = $ripple;
     // $this->size = $size;
-    $this->startIcon = $startIcon ?: null;
-    $this->variant = $variant ?: 'contained';
+    $this->startIcon = $startIcon;
+    $this->variant = $variant;
   }
 
   /**
@@ -48,6 +49,38 @@ class Button extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::button');
+    return function (array $data) {
+      $data['attributes'] = $this->attributesPreprocess($data['attributes']);
+
+      return 'MaterialBlade::button';
+    };
+  }
+
+  public function conponentValidation(array $data)
+  {
+    if (! $data['attributes']->has('label') && $data['slot']->isEmpty()) {
+      throw new \Exception('Please fill the "label" attribute or the component slot', 1);
+    }
+  }
+
+  public function attributesPreprocess(ComponentAttributeBag $attributes)
+  {
+
+    if ($this->color) {
+      $attributes = $attributes->class([
+        'materialblade-theme--' . $this->color
+      ]);
+    }
+
+    return $attributes->class([
+      'mdc-button',
+      'mdc-button--touch',
+      'mdc-button--raised' => $this->variant === 'contained',
+      'mdc-button--unelevated' => $this->variant === 'unelevated',
+      'mdc-button--outlined' => $this->variant === 'outlined',
+      'mdc-button--icon-leading' => $this->startIcon ? true : false,
+      'mdc-button--icon-trailing' => $this->endIcon ? true : false,
+      'fullwidth' => $this->isFullwidth,
+    ]);
   }
 }
