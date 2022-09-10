@@ -1,6 +1,6 @@
 {
   "name": "sensasi-delight/material-blade",
-  "description": "Material Blade is a simple package that provides the beautifulness of Google Material Design components as Laravel Blade components. Material Blade aims to assist you in prototyping the UI/UX of your Laravel app faster, inspired by MaterialUI.",
+  "description": "Material Blade is a simple package that provides the beautifulness of Google Material Design components as Laravel Blade components. Material Blade aims to assist you in prototyping the UI/UX of your Laravel app faster, inspired by Material UI.",
   "type": "library",
   "license": "MIT",
   "keywords": [

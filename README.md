@@ -1,6 +1,6 @@
 # Material Blade
 
-Material Blade is a simple package that provides the beautifulness of Google [Material Design](https://material.io/) components as Laravel Blade components. Material Blade aims to assist you in prototyping the UI/UX of your Laravel app faster, inspired by [MaterialUI](https://github.com/mui/material-ui).
+Material Blade is a simple package that provides the beautifulness of Google [Material Design](https://material.io/) components as Laravel Blade components. Material Blade aims to assist you in prototyping the UI/UX of your Laravel app faster, inspired by [Material UI](https://github.com/mui/material-ui).
 
 General knowledge of Laravel and Blade components i'ts required for using this package. however, the fully understand about this feature is helpful for optimizing the usages of this package. If you never heard about [Blade Components](https://laravel.com/docs/8.x/blade#components), it is a good start to understand it and plays with Material Blade package.
 
@@ -17,7 +17,7 @@ This package is still under development, please contribute to make it release fa
 - [x] Button
 - [ ] Button: floating action button
 - [ ] Card
-- [ ] Checkbox
+- [x] Checkbox
 - [ ] Chip
 - [ ] Data table
 - [ ] Dialog
