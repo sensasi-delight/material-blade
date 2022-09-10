@@ -1,10 +1,21 @@
 # Material Blade
 
-Material Blade is a simple package that provides the beautifulness of Google [Material Design](https://material.io/) components as Laravel Blade components. Material Blade aims to assist you in prototyping the UI/UX of your Laravel app faster, inspired by [Material UI](https://github.com/mui/material-ui).
+Material Blade is a simple package that provides the beautifulness of Google [Material Design](https://material.io/) components as Laravel Blade components. Material Blade aims to make UI/UX development of your Laravel app faster, inspired by [Material UI](https://mui.com/).
 
-General knowledge of Laravel and Blade components i'ts required for using this package. however, the fully understand about this feature is helpful for optimizing the usages of this package. If you never heard about [Blade Components](https://laravel.com/docs/8.x/blade#components), it is a good start to understand it and plays with Material Blade package.
+```html
+<!-- from this -->
+<button class="mdc-button">
+    <span class="mdc-button__ripple"></span>
+    <span class="mdc-button__label">This is a Button</span>
+</button>
 
-demo: [https://phpsandbox.io/n/nx3iy](https://phpsandbox.io/n/nx3iy)
+<!-- to this -->
+<x-MaterialBlade::button label="This is a Button" />
+```
+
+General knowledge of Laravel and Blade components i'ts required for using this package. However, the fully understand about this feature is helpful for optimizing the usages of this package. If you never heard about [Blade Components](https://laravel.com/docs/8.x/blade#components), it is a good start to understand it and plays with Material Blade package.
+
+> The usage examples of this package can be seen on [this repository](https://github.com/sensasi-delight/material-blade-examples).
 
 ## Status
 
@@ -34,7 +45,7 @@ This package is still under development, please contribute to make it release fa
 - [ ] Switch
 - [ ] Tab
 - [ ] Text field
-- [ ] Tooltip
+- [x] Tooltip
 
 ### Unsupported Components
 
