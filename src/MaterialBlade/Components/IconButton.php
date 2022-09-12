@@ -12,6 +12,7 @@ class IconButton extends Component
   public string $icon;
   public ?bool $isToggle;
   public ?string $offIcon;
+  public ?string $offColor;
   public bool $isRipple;
   // public $size;
 
@@ -22,16 +23,18 @@ class IconButton extends Component
    */
   public function __construct(
     string $icon,
-    ?string $color = null,
+    string $color = 'var(--mdc-theme-text-secondary-on-light)',
+    string $offColor = 'var(--mdc-theme-text-secondary-on-light)',
+    string $ripple = "true",
     ?string $toggle = null,
-    ?string $offIcon = null,
-    string $ripple = "true"
+    ?string $offIcon = null
     // string $size = null
   ) {
     $this->color = $color;
     $this->isToggle = is_null($toggle) ? null : ($toggle == 'on' ? true : false);
     $this->icon = $icon;
     $this->offIcon = $offIcon;
+    $this->offColor = $offColor;
     $this->isRipple = filter_var($ripple, FILTER_VALIDATE_BOOLEAN);
     // $this->size = $size;
   }
@@ -49,9 +52,7 @@ class IconButton extends Component
   public function attributesPreprocess(ComponentAttributeBag $attributes) {
     $attributes = $attributes->class([
       'mdc-icon-button',
-      is_null($this->isToggle) ? null : 'mdc-icon-button-toggle',
-      'mdc-icon-button--on' => $this->isToggle,
-      $attributes->has('disabled') ? 'mdc-theme--text-disabled-on-light' : 'mdc-theme--text-secondary-on-light'
+      'mdc-icon-button--on' => $this->isToggle
     ]);
     
     $attributes = $attributes->merge(['aria-label' => $this->icon]);

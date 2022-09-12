@@ -11,38 +11,6 @@
         --mdc-theme-success: #1b5e20;
     }
 
-    .mdc-theme--warning{
-      color: var(--mdc-theme-warning) !important
-    }
-
-    .mdc-theme--info{
-      color: var(--mdc-theme-info) !important
-    }
-
-    .mdc-theme--success{
-      color: var(--mdc-theme-success) !important
-    }
-
-    .materialblade-theme--secondary {
-        --mdc-theme-primary: var(--mdc-theme-secondary);
-    }
-
-    .materialblade-theme--error {
-        --mdc-theme-primary: var(--mdc-theme-error);
-    }
-
-    .materialblade-theme--warning {
-        --mdc-theme-primary: var(--mdc-theme-warning);
-    }
-
-    .materialblade-theme--info {
-        --mdc-theme-primary: var(--mdc-theme-info);
-    }
-
-    .materialblade-theme--success {
-        --mdc-theme-primary: var(--mdc-theme-success);
-    }
-
     .mdc-button {
         --mdc-outlined-button-outline-color: var(--mdc-theme-primary);
         /* --padding-x: 6px;
@@ -68,8 +36,8 @@
     }
 
     .mdc-tooltip__surface a {
-      text-decoration: none;
-      color: var(--mdc-theme-primary);
+        text-decoration: none;
+        color: var(--mdc-theme-primary);
     }
 </style>
 
@@ -77,7 +45,7 @@
     src="https://unpkg.com/material-components-web@14.0.0/dist/material-components-web.min.js"></script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    @stack('MaterialBlade-scripts-on-ready')
-  });
+    document.addEventListener("DOMContentLoaded", function() {
+        @stack('MaterialBlade-scripts-on-ready')
+    });
 </script>

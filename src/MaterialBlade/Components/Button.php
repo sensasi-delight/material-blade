@@ -5,6 +5,7 @@ namespace MaterialBlade\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
+use MaterialBlade\Helper;
 
 class Button extends Component
 {
@@ -58,7 +59,7 @@ class Button extends Component
 
   public function conponentValidation(array $data)
   {
-    if (! $data['attributes']->has('label') && $data['slot']->isEmpty()) {
+    if (!$data['attributes']->has('label') && $data['slot']->isEmpty()) {
       throw new \Exception('Please fill the "label" attribute or the component slot', 1);
     }
   }
@@ -67,8 +68,8 @@ class Button extends Component
   {
 
     if ($this->color) {
-      $attributes = $attributes->class([
-        'materialblade-theme--' . $this->color
+      $attributes = $attributes->merge([
+        'style' => $attributes->prepends('--mdc-theme-primary: ' . Helper::getColor($this->color))
       ]);
     }
 
