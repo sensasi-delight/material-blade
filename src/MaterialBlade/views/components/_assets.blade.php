@@ -1,7 +1,8 @@
-<style>
-    @import url(https://unpkg.com/material-components-web@14.0.0/dist/material-components-web.min.css);
-    @import url(https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp);
+<link rel="stylesheet" href="https://unpkg.com/material-components-web@14.0.0/dist/material-components-web.min.css">
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
 
+<style>
     :root {
         --mdc-theme-primary: #1565c0;
         --mdc-theme-secondary: #7b1fa2;
@@ -13,23 +14,18 @@
 
     .mdc-button {
         --mdc-outlined-button-outline-color: var(--mdc-theme-primary);
-        /* --padding-x: 6px;
-      --padding-y: 16px;
-      --mdc-typography-button-font-size: .875rem;
-      padding: var(--padding-x) var(--padding-y); */
     }
 
-    /* TODO: button size */
-    /* .materialblade-size--small {
-      font-size: calc(var(--mdc-typography-button-font-size) - 0.0625rem);
-      padding: calc(var(--padding-x) - 2px) calc(var(--padding-y) - 6px);
-      height: unset;
+    .mdc-banner .mdc-button:not(:disabled) {
+        --mdc-text-button-label-text-color: var(--mdc-theme-primary);
+        --mdc-text-button-hover-state-layer-color: var(--mdc-theme-primary);
     }
-    .materialblade-size--large {
-      font-size: calc(var(--mdc-typography-button-font-size) + 0.0625rem);
-      padding: calc(var(--padding-x) + 2px) calc(var(--padding-y) + 6px);
-      height: unset;
-    } */
+
+    .mdc-banner .mdc-button--raised:not(:disabled),
+    .mdc-banner .mdc-button--unelevated:not(:disabled) {
+        --mdc-text-button-label-text-color: var(--mdc-theme-on-primary);
+        --mdc-text-button-hover-state-layer-color: var(--mdc-theme-on-primary);
+    }
 
     .fullwidth {
         width: 100%;
