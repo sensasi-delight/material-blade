@@ -24,7 +24,7 @@ This package is still under development, please contribute to make it release fa
 ### Components
 
 - [x] App bar: top
-- [ ] Banner
+- [x] Banner
 - [x] Button
 - [ ] Button: floating action button
 - [ ] Card
