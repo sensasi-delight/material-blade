@@ -51,8 +51,8 @@ class AppBar extends Component
     
     return $attributes->class([
       'mdc-top-app-bar',
-      'mdc-top-app-bar--fixed' => $this->isFixed,
-      'mdc-top-app-bar--' . ($this->variant === 'short-collapsed' ? 'short mdc-top-app-bar--short-collapsed' : $this->variant) => $this->variant
+      'mdc-top-app-bar--' . ($this->variant === 'short-collapsed' ? 'short mdc-top-app-bar--short-collapsed' : $this->variant) => $this->variant,
+      'mdc-top-app-bar--fixed' => $this->isFixed
     ]);
   }
 
