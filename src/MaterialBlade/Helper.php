@@ -14,4 +14,18 @@ class Helper
     $isThemeColor = Self::isThemeColor($colorText);
     return $isThemeColor ? 'var(--mdc-theme-' . $colorText . ')' : $colorText;
   }
+
+  static function parseIconString(?string $iconText)
+  {
+    $icon = $iconText;
+    $variant = null;
+
+    $iconArr = explode(':', $iconText, 3);
+
+    if (count($iconArr) > 1) {
+      [$icon, $variant] = $iconArr;      
+    }
+
+    return [$icon, $variant];
+  }
 }

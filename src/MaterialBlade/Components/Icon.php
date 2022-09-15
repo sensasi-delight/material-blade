@@ -26,14 +26,10 @@ class Icon extends Component
     // string $size = null,
   ) {
 
-    $explodedIcon = explode(':', $icon);
-
-    if (count($explodedIcon) === 2) {
-      [$icon, $variant] = $explodedIcon;
-    }
+    [$icon, $variantTemp] = Helper::parseIconString($icon);
 
     $this->icon = $icon;
-    $this->variant = $variant;
+    $this->variant = $variantTemp ?: $variant;
     $this->color = $color;
     // $this->size = $size;
   }
