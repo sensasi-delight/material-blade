@@ -26,7 +26,7 @@ This package is still under development, please contribute to make it release fa
 - [x] App bar: top
 - [x] Banner
 - [x] Button
-- [ ] Button: floating action button
+- [x] Button: floating action button
 - [ ] Card
 - [x] Checkbox
 - [ ] Chip
