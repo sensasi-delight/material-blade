@@ -2,18 +2,19 @@
 
 namespace MaterialBlade\Components;
 
-
+use Illuminate\Support\HtmlString;
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 use MaterialBlade\Helper;
 
 class Button extends Component
 {
-  public ?string $color;
-  public ?string $endIcon;
+  public string $color;
   public bool $isFullwidth;
-  public ?string $label;
   public bool $isRipple;
+  public bool $withWrapper;
+  public ?string $endIcon;
+  public ?string $label;
   // public string $size;
   public ?string $startIcon;
   public ?string $variant;
@@ -24,23 +25,25 @@ class Button extends Component
    * @return void
    */
   public function __construct(
-    ?string $color = null,
-    ?string $endIcon = null,
     bool $fullwidth = false,
-    ?string $label = null,
-    ?bool $ripple = true,
     // string $size = null,
-    ?string $startIcon = null,
-    string $variant = 'contained'
+    string $variant = 'text',
+    bool $withWrapper = false,
+    string $color = 'primary',
+    bool $disableRipple = false,
+    ?string $endIcon = null,
+    ?string $label = null,
+    ?string $startIcon = null
   ) {
     $this->color = $color;
     $this->endIcon = $endIcon;
     $this->isFullwidth = $fullwidth;
     $this->label = $label;
-    $this->isRipple = $ripple;
-    // $this->size = $size;
+    $this->isRipple = !$disableRipple;
     $this->startIcon = $startIcon;
     $this->variant = $variant;
+    $this->withWrapper = $withWrapper;
+    // $this->size = $size;
   }
 
   /**
@@ -50,24 +53,19 @@ class Button extends Component
    */
   public function render()
   {
-    return function (array $data) {
-      $data['attributes'] = $this->attributesPreprocess($data['attributes']);
-
-      return 'MaterialBlade::button';
-    };
+    return 'MaterialBlade::button';
   }
 
-  public function conponentValidation(array $data)
+  public function validateComponent(HtmlString $slot)
   {
-    if (!$data['attributes']->has('label') && $data['slot']->isEmpty()) {
+    if (!$this->label && $slot->isEmpty()) {
       throw new \Exception('Please fill the "label" attribute or the component slot', 1);
     }
   }
 
   public function attributesPreprocess(ComponentAttributeBag $attributes)
   {
-
-    if ($this->color) {
+    if ($this->color !== 'primary') {
       $attributes = $attributes->merge([
         'style' => $attributes->prepends('--mdc-theme-primary: ' . Helper::getColor($this->color))
       ]);
@@ -75,10 +73,8 @@ class Button extends Component
 
     return $attributes->class([
       'mdc-button',
-      'mdc-button--touch',
-      'mdc-button--raised' => $this->variant === 'contained',
-      'mdc-button--unelevated' => $this->variant === 'unelevated',
-      'mdc-button--outlined' => $this->variant === 'outlined',
+      'mdc-button--touch' => $this->withWrapper,
+      'mdc-button--' . ($this->variant) => $this->variant !== 'text' && in_array($this->variant, ['raised', 'unelevated', 'outlined']),
       'mdc-button--icon-leading' => $this->startIcon ? true : false,
       'mdc-button--icon-trailing' => $this->endIcon ? true : false,
       'fullwidth' => $this->isFullwidth,

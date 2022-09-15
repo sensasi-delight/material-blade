@@ -1,11 +1,16 @@
 <?php
+$validateComponent($slot);
 $attributes = $attributesPreprocess($attributes)->merge(['aria-label' => $label ?: $slot]);
 ?>
 
+@if ($withWrapper)
+  <div class="mdc-touch-target-wrapper">
+@endif
+
 @if ($attributes->has('href'))
     <a {{ $attributes }}>
-    @else
-        <button {{ $attributes }}>
+@else
+    <button {{ $attributes }}>
 @endif
 
 @if ($isRipple)
@@ -28,11 +33,14 @@ $attributes = $attributesPreprocess($attributes)->merge(['aria-label' => $label 
     </button>
 @endif
 
+@if ($withWrapper)
+  </div>
+@endif
+
 @once
     @push('MaterialBlade-scripts-on-ready')
         [...document.querySelectorAll('.mdc-button')].map(buttonEl => {
-        (mdc.ripple.MDCRipple.attachTo(buttonEl))
-        .unbounded = true;
+        mdc.ripple.MDCRipple.attachTo(buttonEl)
         });
     @endpush
 @endonce
