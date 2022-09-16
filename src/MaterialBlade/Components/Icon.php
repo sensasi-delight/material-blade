@@ -47,7 +47,7 @@ class Icon extends Component
   public function attributesPreprocess(ComponentAttributeBag $attributes)
   {
     if ($this->color) {
-      $attributes = $attributes->merge(['style' => $attributes->prepends('color: ' . Helper::getColor($this->color))]);
+      $attributes = $attributes->merge(['style' => $attributes->prepends('color: ' . Helper::getColor($this->color) . ';')]);
     }
 
     return $attributes->class([
