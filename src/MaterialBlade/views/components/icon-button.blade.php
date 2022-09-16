@@ -6,6 +6,9 @@ $isDefaultColor = $color === 'var(--mdc-theme-text-secondary-on-light)';
 
 @endphp
 
+@if ($isWithWrapper)
+    <div class="mdc-touch-target-wrapper">
+@endif
 
 @if ($attributes->has('href') && !$isDisabled)
     <a {{ $attributes }}>
@@ -32,10 +35,18 @@ $isDefaultColor = $color === 'var(--mdc-theme-text-secondary-on-light)';
     <x-MaterialBlade::Icon :icon="$icon" :color="$isDisabled ? null : $color" />
 @endif
 
+@if ($isWithWrapper)
+    <div class="mdc-icon-button__touch"></div>
+@endif
+
 @if ($attributes->has('href') && !$isDisabled)
     </a>
 @else
     </button>
+@endif
+
+@if ($isWithWrapper)
+    </div>
 @endif
 
 @once
@@ -43,11 +54,13 @@ $isDefaultColor = $color === 'var(--mdc-theme-text-secondary-on-light)';
         [...document.querySelectorAll('.mdc-icon-button')].map(button => {
 
         if (button.querySelector('.mdc-icon-button__icon--on')) {
-        return mdc.iconButton.MDCIconButtonToggle.attachTo(button);
+        return button.MDCIconButtonToggle = new mdc.iconButton.MDCIconButtonToggle(button);
+
         }
 
         if (button.querySelector('.mdc-icon-button__ripple')) {
-        return mdc.ripple.MDCRipple.attachTo(button).unbounded = true;
+        button.MDCRipple = new mdc.ripple.MDCRipple(button)
+        return button.MDCRipple.unbounded = true
         }
         });
     @endpush

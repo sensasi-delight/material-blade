@@ -8,12 +8,14 @@ use Illuminate\View\ComponentAttributeBag;
 
 class IconButton extends Component
 {
-  public ?string $color;
   public string $icon;
+  public bool $isRipple;
+  public bool $isWithWrapper;
+  public ?string $color;
   public ?bool $isToggle;
   public ?string $offIcon;
   public ?string $offColor;
-  public bool $isRipple;
+
   // public $size;
 
   /**
@@ -25,7 +27,8 @@ class IconButton extends Component
     string $icon,
     string $color = 'var(--mdc-theme-text-secondary-on-light)',
     string $offColor = 'var(--mdc-theme-text-secondary-on-light)',
-    string $ripple = "true",
+    bool $disableRipple = false,
+    bool $withWrapper = false,
     ?string $toggle = null,
     ?string $offIcon = null
     // string $size = null
@@ -35,7 +38,8 @@ class IconButton extends Component
     $this->icon = $icon;
     $this->offIcon = $offIcon;
     $this->offColor = $offColor;
-    $this->isRipple = filter_var($ripple, FILTER_VALIDATE_BOOLEAN);
+    $this->isRipple = !$disableRipple;
+    $this->isWithWrapper = $withWrapper;
     // $this->size = $size;
   }
 
@@ -52,6 +56,7 @@ class IconButton extends Component
   public function attributesPreprocess(ComponentAttributeBag $attributes) {
     $attributes = $attributes->class([
       'mdc-icon-button',
+      'mdc-icon-button--touch' => $this->isWithWrapper,
       'mdc-icon-button--on' => $this->isToggle
     ]);
     
