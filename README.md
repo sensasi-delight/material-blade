@@ -27,7 +27,7 @@ This package is still under development, please contribute to make it release fa
 - [x] Banner
 - [x] Button
 - [x] Button: floating action button
-- [ ] Card
+- [x] Card
 - [x] Checkbox
 - [ ] Chip
 - [ ] Data table
@@ -46,10 +46,12 @@ This package is still under development, please contribute to make it release fa
 - [ ] Tab
 - [ ] Text field
 - [x] Tooltip
+- [x] Typography
+
 
 ### Unsupported Components
 
-The implementation for these components are not supported by default for Material Design Web.
+The implementation of these components below are not supported by default for Material Design Web.
 
 - App bar: bottom
 - Backdrop
