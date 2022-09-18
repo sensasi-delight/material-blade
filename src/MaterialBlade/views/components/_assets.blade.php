@@ -12,6 +12,10 @@
         --mdc-theme-success: #1b5e20;
     }
 
+    .mdc-chip-set--choice .mdc-chip.mdc-chip--selected .mdc-chip__icon--leading {
+      color: var(--mdc-theme-primary);
+    }
+
     .mdc-button {
         --mdc-outlined-button-outline-color: var(--mdc-theme-primary);
     }
