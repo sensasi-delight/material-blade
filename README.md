@@ -15,7 +15,7 @@ Material Blade is a simple package that provides the beautifulness of Google [Ma
 
 General knowledge of Laravel and Blade components i'ts required for using this package. However, the fully understand about this feature is helpful for optimizing the usages of this package. If you never heard about [Blade Components](https://laravel.com/docs/8.x/blade#components), it is a good start to understand it and plays with Material Blade package.
 
-> The usage examples of this package can be seen on [this repository](https://github.com/sensasi-delight/material-blade-examples).
+> The examples of package usages can be seen on [this repository](https://github.com/sensasi-delight/material-blade-examples).
 
 ## Status
 
@@ -29,8 +29,8 @@ This package is still under development, please contribute to make it release fa
 - [x] Button: floating action button
 - [x] Card
 - [x] Checkbox
-- [ ] Chip
-- [ ] Data table
+- [x] Chip
+- [x] Data table
 - [ ] Dialog
 - [x] Icon
 - [x] Icon Button
