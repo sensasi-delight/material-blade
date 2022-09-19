@@ -24,7 +24,7 @@ class CardPrimaryAction extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::card-primary-action');
+    return view('mbv::card-primary-action');
   }
 
   public function attributesPreprocess(ComponentAttributeBag $attributes)

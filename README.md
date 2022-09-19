@@ -11,6 +11,9 @@ Material Blade is a simple package that provides the beautifulness of Google [Ma
 
 <!-- to this -->
 <x-MaterialBlade::button label="This is a Button" />
+
+<!-- or this for more shorter -->
+<x-mbc::button label="This is a Button" />
 ```
 
 General knowledge of Laravel and Blade components i'ts required for using this package. However, the fully understand about this feature is helpful for optimizing the usages of this package. If you never heard about [Blade Components](https://laravel.com/docs/8.x/blade#components), it is a good start to understand it and plays with Material Blade package.

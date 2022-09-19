@@ -8,7 +8,7 @@
     <div class="mdc-chip__ripple"></div>
 
     @if ($icon)
-        <x-MaterialBlade::Icon :icon="$icon"
+        <x-mbc::Icon :icon="$icon"
             class="mdc-chip__icon mdc-chip__icon--leading{{ $isSelected ? ' mdc-chip__icon--leading-hidden' : null }}" />
     @endif
 

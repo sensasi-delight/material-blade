@@ -38,7 +38,7 @@ class Banner extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::banner');
+    return view('mbv::banner');
   }
 
   public function attributesPreprocess(ComponentAttributeBag $attributes)

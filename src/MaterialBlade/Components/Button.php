@@ -53,7 +53,7 @@ class Button extends Component
    */
   public function render()
   {
-    return 'MaterialBlade::button';
+    return 'mbv::button';
   }
 
   public function validateComponent(HtmlString $slot)

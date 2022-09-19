@@ -8,7 +8,7 @@
 
             @if ($icon)
                 <div class="mdc-banner__graphic" role="img" alt="">
-                    <x-MaterialBlade::Icon class="mdc-banner__icon" :icon="$icon" />
+                    <x-mbc::Icon class="mdc-banner__icon" :icon="$icon" />
                 </div>
             @endif
 

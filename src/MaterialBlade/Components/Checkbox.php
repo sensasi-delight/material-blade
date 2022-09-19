@@ -35,7 +35,7 @@ class Checkbox extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::checkbox');
+    return view('mbv::checkbox');
   }
 
   public function attributesPreprocess(ComponentAttributeBag $attributes)

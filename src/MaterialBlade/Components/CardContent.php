@@ -24,7 +24,7 @@ class CardContent extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::_plain-div');
+    return view('mbv::_plain-div');
   }
 
   public function attributesPreprocess(ComponentAttributeBag $attributes)

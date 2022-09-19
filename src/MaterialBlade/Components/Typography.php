@@ -36,7 +36,7 @@ class Typography extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::typography');
+    return view('mbv::typography');
   }
 
   public function variantPreprocess(?string $variant)

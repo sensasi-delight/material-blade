@@ -50,7 +50,7 @@ class IconButton extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::icon-button');
+    return view('mbv::icon-button');
   }
 
   public function attributesPreprocess(ComponentAttributeBag $attributes) {

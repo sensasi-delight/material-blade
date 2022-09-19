@@ -40,7 +40,7 @@ class Chip extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::chip');
+    return view('mbv::chip');
   }
 
   public function attributesPreprocess(ComponentAttributeBag $attributes)

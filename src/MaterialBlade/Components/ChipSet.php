@@ -28,7 +28,7 @@ class ChipSet extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::chip-set');
+    return view('mbv::chip-set');
   }
 
   public function attributesPreprocess(ComponentAttributeBag $attributes)

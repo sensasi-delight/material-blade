@@ -37,7 +37,7 @@ class CardHeader extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::card-header');
+    return view('mbv::card-header');
   }
 
   public function attributesPreprocess(ComponentAttributeBag $attributes)

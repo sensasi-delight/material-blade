@@ -41,7 +41,7 @@ class FAB extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::fab');
+    return view('mbv::fab');
   }
 
   public function validateComponent()

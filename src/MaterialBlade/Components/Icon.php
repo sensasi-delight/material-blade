@@ -41,7 +41,7 @@ class Icon extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::icon');
+    return view('mbv::icon');
   }
 
   public function attributesPreprocess(ComponentAttributeBag $attributes)

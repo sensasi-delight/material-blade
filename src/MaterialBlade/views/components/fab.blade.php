@@ -6,7 +6,7 @@
     <div class="mdc-fab__ripple"></div>
     
     @if ($iconString)
-        <x-MaterialBlade::Icon :icon="$iconString" class="mdc-fab__icon" />
+        <x-mbc::Icon :icon="$iconString" class="mdc-fab__icon" />
     @endif
 
     @if ($label)

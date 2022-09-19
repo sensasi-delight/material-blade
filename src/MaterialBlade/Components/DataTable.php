@@ -33,6 +33,6 @@ class DataTable extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::data-table');
+    return view('mbv::data-table');
   }
 }

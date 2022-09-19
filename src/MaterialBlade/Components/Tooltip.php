@@ -35,10 +35,9 @@ class Tooltip extends Component
    */
   public function render()
   {
-    // return view('MaterialBlade::tooltip');
     return function (array $data) {
       $this->componentValidation($data);
-      return 'MaterialBlade::tooltip';
+      return 'mbv::tooltip';
     };
   }
 

@@ -38,7 +38,7 @@ class AppBar extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::app-bar');
+    return view('mbv::app-bar');
   }
 
   public function attributesPreprocess(ComponentAttributeBag $attributes)

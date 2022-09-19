@@ -28,11 +28,11 @@ $isDefaultColor = $color === 'var(--mdc-theme-text-secondary-on-light)';
             $onColor = null;
         }
     @endphp
-    <x-MaterialBlade::Icon class="mdc-icon-button__icon mdc-icon-button__icon--on" :icon="$icon" :color="$onColor" />
+    <x-mbc::Icon class="mdc-icon-button__icon mdc-icon-button__icon--on" :icon="$icon" :color="$onColor" />
 
-    <x-MaterialBlade::Icon class="mdc-icon-button__icon" :icon="$offIcon ?: $icon" :color="$isDisabled ? null : ($offColor ?: $color)" />
+    <x-mbc::Icon class="mdc-icon-button__icon" :icon="$offIcon ?: $icon" :color="$isDisabled ? null : ($offColor ?: $color)" />
 @else
-    <x-MaterialBlade::Icon :icon="$icon" :color="$isDisabled ? null : $color" />
+    <x-mbc::Icon :icon="$icon" :color="$isDisabled ? null : $color" />
 @endif
 
 @if ($isWithWrapper)

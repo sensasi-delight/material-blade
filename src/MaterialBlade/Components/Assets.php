@@ -24,6 +24,6 @@ class Assets extends Component
      */
     public function render()
     {
-        return view('MaterialBlade::_assets');
+        return view('mbv::_assets');
     }
 }

@@ -25,7 +25,7 @@ class CardActions extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::card-actions');
+    return view('mbv::card-actions');
   }
 
   public function attributesPreprocess(ComponentAttributeBag $attributes)

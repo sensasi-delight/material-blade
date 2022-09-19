@@ -30,7 +30,7 @@ class CardMedia extends Component
    */
   public function render()
   {
-    return view('MaterialBlade::card-media');
+    return view('mbv::card-media');
   }
 
   public function attributesPreprocess(ComponentAttributeBag $attributes)
