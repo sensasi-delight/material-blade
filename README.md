@@ -18,7 +18,7 @@ Material Blade is a simple package that provides the beautifulness of Google [Ma
 
 General knowledge of Laravel and Blade components i'ts required for using this package. However, the fully understand about this feature is helpful for optimizing the usages of this package. If you never heard about [Blade Components](https://laravel.com/docs/8.x/blade#components), it is a good start to understand it and plays with Material Blade package.
 
-> The examples of package usages can be seen on [this repository](https://github.com/sensasi-delight/material-blade-examples).
+> The examples of package usages can be seen on [this repository](https://github.com/sensasi-delight/material-blade-demo).
 
 ## Status
 
@@ -46,7 +46,7 @@ This package is still under development, please contribute to make it release fa
 - [ ] Slider
 - [ ] Snackbar
 - [ ] Switch
-- [ ] Tab
+- [x] Tab Bar
 - [ ] Text field
 - [x] Tooltip
 - [x] Typography

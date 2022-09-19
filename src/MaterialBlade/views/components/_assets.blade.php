@@ -13,7 +13,7 @@
     }
 
     .mdc-chip-set--choice .mdc-chip.mdc-chip--selected .mdc-chip__icon--leading {
-      color: var(--mdc-theme-primary);
+        color: var(--mdc-theme-primary);
     }
 
     .mdc-button {
@@ -21,13 +21,13 @@
     }
 
     .mdc-icon-button {
-      display: inline-flex;
-      width: unset;
-      height: unset;
+        display: inline-flex;
+        width: unset;
+        height: unset;
     }
 
     .material-icons {
-      font-size: unset;
+        font-size: unset;
     }
 
     .mdc-banner .mdc-button:not(:disabled) {
@@ -77,15 +77,30 @@
         padding: 0 1rem 8px;
     }
 
-    .mdc-card__header + .mdc-card__content > p,
-    .mdc-card__primary-action:has(.mdc-card__header:nth-last-child(2)) + .mdc-card__content > p {
-      margin-top: 0;
+    .mdc-card__header+.mdc-card__content>p,
+    .mdc-card__primary-action:has(.mdc-card__header:nth-last-child(2))+.mdc-card__content>p {
+        margin-top: 0;
     }
-        
+
     .mdc-card__content :last-child {
-      margin-bottom: 0;
+        margin-bottom: 0;
     }
-    
+
+
+    .mdc-tab:not(.mdc-tab--active) .mdc-tab__text-label,
+    .mdc-tab:not(.mdc-tab--active) .mdc-tab__icon {
+        color: var(--mdc-theme-text-secondary-on-light);
+    }
+
+    .mdc-tab.light-text:not(.mdc-tab--active) .mdc-tab__text-label,
+    .mdc-tab.light-text:not(.mdc-tab--active) .mdc-tab__icon {
+        color: var(--mdc-theme-text-secondary-on-dark);
+    }
+
+    .mdc-tab--active.light-text {
+        --mdc-theme-primary: #fff;
+
+    }
 </style>
 
 <script type="text/javascript"
