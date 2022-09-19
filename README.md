@@ -41,7 +41,7 @@ This package is still under development, please contribute to make it release fa
 - [ ] List
 - [ ] Menu
 - [ ] Navigation drawer
-- [ ] Progress indicator
+- [x] Progress indicator
 - [ ] Radio button
 - [ ] Slider
 - [ ] Snackbar
