@@ -26,26 +26,29 @@ This package is still under development, please contribute to make it release fa
 
 ### Components
 
-- [x] App bar: top
+- [x] App bar: Top
 - [x] Banner
 - [x] Button
-- [x] Button: floating action button
+  - [x] Basic Button
+  - [x] Floating Action Button
+  - [x] Icon Button
 - [x] Card
 - [x] Checkbox
 - [x] Chip
 - [x] Data table
 - [ ] Dialog
 - [x] Icon
-- [x] Icon Button
 - [ ] Image list
 - [ ] List
 - [ ] Menu
 - [ ] Navigation drawer
 - [x] Progress indicator
+  - [x] Linear Progress
+  - [x] Circular Progress
 - [ ] Radio button
 - [ ] Slider
 - [ ] Snackbar
-- [ ] Switch
+- [x] Switch
 - [x] Tab Bar
 - [ ] Text field
 - [x] Tooltip
