@@ -47,7 +47,7 @@ This package is still under development, please contribute to make it release fa
   - [x] Circular Progress
 - [ ] Radio button
 - [ ] Slider
-- [ ] Snackbar
+- [x] Snackbar
 - [x] Switch
 - [x] Tab Bar
 - [ ] Text field
