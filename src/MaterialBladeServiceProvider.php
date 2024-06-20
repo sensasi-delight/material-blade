@@ -5,7 +5,7 @@ namespace MaterialBlade;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
-class ComponentProvider extends ServiceProvider
+class MaterialBladeServiceProvider extends ServiceProvider
 {
   /**
    * Register any application services.
@@ -25,7 +25,7 @@ class ComponentProvider extends ServiceProvider
   public function boot()
   {
     $this->loadViewsFrom(__DIR__ . '/views/components', 'mbv');
-    
+
     Blade::componentNamespace('MaterialBlade\\Components', 'MaterialBlade');
     Blade::componentNamespace('MaterialBlade\\Components', 'mbc');
   }
