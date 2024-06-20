@@ -1,29 +1,38 @@
 {
-  "name": "sensasi-delight/material-blade",
-  "description": "Material Blade is a simple package that provides the beautifulness of Google Material Design components as Laravel Blade components. Material Blade aims to make UI/UX development of your Laravel app faster, inspired by Material UI.",
-  "type": "library",
-  "license": "MIT",
-  "keywords": [
-    "laravel",
-    "blade",
-    "components",
-    "package",
-    "google",
-    "material design"
-  ],
-  "autoload": {
-    "psr-4": {
-      "MaterialBlade\\": "src/MaterialBlade/"
+    "name": "sensasi-delight/material-blade",
+    "description": "Material Blade is a simple package that provides the beautifulness of Google Material Design components as Laravel Blade components. Material Blade aims to make UI/UX development of your Laravel app faster, inspired by Material UI.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "blade",
+        "components",
+        "package",
+        "google",
+        "material design"
+    ],
+    "autoload": {
+        "psr-4": {
+            "MaterialBlade\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zain Adam",
+            "email": "zainadam.id@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "illuminate/support": "^8|^9|^10|^11",
+        "illuminate/view": "^8|^9|^10|^11",
+        "php": "^7|^8"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MaterialBlade\\MaterialBladeServiceProvider"
+            ]
+        }
     }
-  },
-  "authors": [
-    {
-      "name": "Zain Adam",
-      "email": "zainadam.id@gmail.com"
-    }
-  ],
-  "minimum-stability": "stable",
-  "require": {
-    "laravel/framework": "^8.75"
-  }
 }
