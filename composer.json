@@ -24,6 +24,8 @@
   ],
   "minimum-stability": "stable",
   "require": {
-    "laravel/framework": "^8.75"
+    "illuminate/support": "^8|^9|^10|^11",
+    "illuminate/view": "^8|^9|^10|^11",
+    "php": "^7|^8"
   }
 }
