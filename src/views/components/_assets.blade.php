@@ -49,12 +49,6 @@
         color: var(--mdc-theme-primary);
     }
 
-
-
-    .mdc-card {
-        max-width: 350px;
-    }
-
     .mdc-card__header * {
         margin: 0
     }
