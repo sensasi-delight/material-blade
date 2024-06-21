@@ -1,31 +1,24 @@
 @if ($isWithWrapper)
-    <div class="mdc-touch-target-wrapper">
-@endif
+<div class="mdc-touch-target-wrapper">
+    @endif
 
-<button {{ $attributesPreprocess($attributes) }}>
-    <div class="mdc-fab__ripple"></div>
-    
-    @if ($iconString)
+    <button {{ $attributesPreprocess($attributes) }}>
+        <div class="mdc-fab__ripple"></div>
+
+        @if ($iconString)
         <x-mbc::Icon :icon="$iconString" class="mdc-fab__icon" />
-    @endif
+        @endif
 
-    @if ($label)
+        @if ($label)
         <span class="mdc-fab__label">{{ $label }}</span>
-    @endif
+        @endif
+
+        @if ($isWithWrapper)
+        <div class="mdc-fab__touch"></div>
+        @endif
+
+    </button>
 
     @if ($isWithWrapper)
-        <div class="mdc-fab__touch"></div>
-    @endif
-
-</button>
-
-@if ($isWithWrapper)
-    </div>
+</div>
 @endif
-@once
-    @push('MaterialBlade-scripts-on-ready')
-        [...document.querySelectorAll('.mdc-fab')].map(fabEl => {
-        mdc.ripple.MDCRipple.attachTo(fabEl);
-        });
-    @endpush
-@endonce
