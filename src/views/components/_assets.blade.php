@@ -25,9 +25,9 @@
         height: unset;
     }
 
-    .material-icons {
+    /* .material-icons {
         font-size: unset;
-    }
+    } */
 
     .mdc-banner .mdc-button:not(:disabled) {
         --mdc-text-button-label-text-color: var(--mdc-theme-primary);
@@ -257,6 +257,16 @@
         })
     }
 
+    function initDrawers() {
+        const {
+            MDCDrawer
+        } = mdc.drawer;
+
+        document.querySelectorAll('.mdc-drawer').forEach(el => {
+            el.MBC = MDCDrawer.attachTo(el)
+        })
+    }
+
     function initFabs() {
         document.querySelectorAll('.mdc-fab').forEach(mdc.ripple.MDCRipple.attachTo)
     }
@@ -286,6 +296,28 @@
             if (el.dataset.bufferValue && el.dataset.bufferValue != 1) {
                 el.linearProgress.buffer = el.dataset.bufferValue
             }
+        })
+    }
+
+    function initLists() {
+        const {
+            MDCRipple
+        } = mdc.ripple
+
+        const {
+            MDCList
+        } = mdc.list
+
+        document.querySelectorAll('.mdc-deprecated-list').forEach(el => {
+            el.MBC = new mdc.list.MDCList(el)
+            el.MBC.listElements.map((listItemEl) => new MDCRipple(listItemEl));
+
+            if (el.getAttribute('role') === 'listbox') {
+                el.MBC.singleSelection = true;
+            }
+
+            // exist on drawer fn
+            // list.wrapFocus = true;
         })
     }
 
@@ -333,6 +365,7 @@
         initFabs()
         initIconButtons()
         initLinearProgresses()
+        initLists()
         initSnackbars()
         initSwitches()
         initTabBars()
