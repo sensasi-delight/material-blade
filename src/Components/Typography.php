@@ -8,7 +8,6 @@ use Illuminate\View\ComponentAttributeBag;
 
 class Typography extends Component
 {
-    public bool $gutterBottom;
     public ?string $element;
     public ?string $variant;
     public ?string $propSlot;
@@ -19,7 +18,7 @@ class Typography extends Component
      * @return void
      */
     public function __construct(
-        bool $gutterBottom = false,
+        private bool $disableGutter = false,
         ?string $element = null,
         ?string $slot = null,
         ?string $variant = null
@@ -27,7 +26,6 @@ class Typography extends Component
         [$elementTemp, $variant] = $this->variantPreprocess($variant);
 
         $this->element = $element ?: $elementTemp;
-        $this->gutterBottom = $gutterBottom;
         $this->variant = $variant;
         $this->propSlot = $slot;
     }
@@ -64,7 +62,7 @@ class Typography extends Component
     {
         return $attributes->class([
             'mbc-typography',
-            'mbc-typography--gutter-bottom' => $this->gutterBottom,
+            'mbc-typography--gutter-bottom' => !$this->disableGutter,
             'mdc-typography' . ($this->variant ? '--' . $this->variant : null)
         ]);
     }
