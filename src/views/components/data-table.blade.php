@@ -66,7 +66,7 @@
                     @endphp
 
                     <{{ $el }} id="{{ $uuid }}" class="mdc-data-table__cell{{ $classAdd }}" {{ $scope }}>
-                        {{ $cell }}
+                        {!! $cell !!}
                     </{{ $el }}>
                     @endforeach
                 </tr>
