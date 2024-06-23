@@ -156,14 +156,6 @@
     .mbc-container--xl {
         max-width: 1400px;
     }
-
-    .mbc-typography {
-        margin: 0;
-    }
-
-    .mbc-typography--gutter-bottom {
-        margin-bottom: 0.35em;
-    }
 </style>
 
 <script type="text/javascript" src="https://unpkg.com/material-components-web@14.0.0/dist/material-components-web.min.js"></script>

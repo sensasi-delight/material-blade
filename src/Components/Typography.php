@@ -60,9 +60,10 @@ class Typography extends Component
 
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
-        return $attributes->class([
-            'mbc-typography',
-            'mbc-typography--gutter-bottom' => !$this->disableGutter,
+        return $attributes->style([
+            'margin: 0',
+            'margin-bottom: 0.35em' => !$this->disableGutter
+        ])->class([
             'mdc-typography' . ($this->variant ? '--' . $this->variant : null)
         ]);
     }
