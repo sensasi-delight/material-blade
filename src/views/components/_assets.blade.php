@@ -302,10 +302,12 @@
 
         document.querySelectorAll('.mdc-deprecated-list').forEach(el => {
             el.MBC = new mdc.list.MDCList(el)
-            el.MBC.listElements.map((listItemEl) => new MDCRipple(listItemEl));
+            el.MBC.listElements.map((listItemEl) => new MDCRipple(listItemEl))
+
+            el.MBC.listElements[0]?.setAttribute('tabindex', 0)
 
             if (el.getAttribute('role') === 'listbox') {
-                el.MBC.singleSelection = true;
+                el.MBC.singleSelection = true
             }
 
             // exist on drawer fn
