@@ -4,6 +4,7 @@ namespace MaterialBlade;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use MaterialBlade\Components\MbcList;
 
 class MaterialBladeServiceProvider extends ServiceProvider
 {
@@ -28,5 +29,7 @@ class MaterialBladeServiceProvider extends ServiceProvider
 
         Blade::componentNamespace('MaterialBlade\\Components', 'MaterialBlade');
         Blade::componentNamespace('MaterialBlade\\Components', 'mbc');
+
+        Blade::component('mbc::list', MbcList::class);
     }
 }
