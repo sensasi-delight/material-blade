@@ -17,13 +17,13 @@ trait PropertyEnum
         $availableValues = static::getValues();
 
         if (in_array($value, $availableValues)) {
-            return new static($value);
+            return static::from($value);
         }
 
         throw new \InvalidArgumentException('Invalid value \'' . $value  . '\' for ' . static::class . ' Expected one of: ' . implode(', ', $availableValues));
     }
 
-    private static function getValues(): array
+    public static function getValues(): array
     {
         return array_map(fn (BackedEnum $case) => $case->value, static::cases());
     }
