@@ -1,3 +1,3 @@
 <{{ $element }} {{ $attributesPreprocess($attributes) }}>
-    {{ $slot ?: $propSlot }}
+    {{ $propSlot ?? $slot }}
 </{{ $element }}>
