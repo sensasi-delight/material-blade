@@ -2,7 +2,6 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 
 class Assets extends Component
@@ -24,6 +23,6 @@ class Assets extends Component
      */
     public function render()
     {
-        return view('mbv::_assets');
+        return 'mbv::_assets';
     }
 }

@@ -7,26 +7,26 @@ use Illuminate\Support\ServiceProvider;
 
 class MaterialBladeServiceProvider extends ServiceProvider
 {
-  /**
-   * Register any application services.
-   *
-   * @return void
-   */
-  public function register()
-  {
-    //
-  }
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
 
-  /**
-   * Bootstrap any application services.
-   *
-   * @return void
-   */
-  public function boot()
-  {
-    $this->loadViewsFrom(__DIR__ . '/views/components', 'mbv');
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->loadViewsFrom(__DIR__ . '/views/components', 'mbv');
 
-    Blade::componentNamespace('MaterialBlade\\Components', 'MaterialBlade');
-    Blade::componentNamespace('MaterialBlade\\Components', 'mbc');
-  }
+        Blade::componentNamespace('MaterialBlade\\Components', 'MaterialBlade');
+        Blade::componentNamespace('MaterialBlade\\Components', 'mbc');
+    }
 }
