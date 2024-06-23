@@ -2,13 +2,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
 
 <style>
+    /* https://mui.com/material-ui/customization/palette/ light mode */
     :root {
-        --mdc-theme-primary: #1565c0;
-        --mdc-theme-secondary: #7b1fa2;
-        --mdc-theme-error: #c62828;
-        --mdc-theme-warning: #e65100;
-        --mdc-theme-info: #01579b;
-        --mdc-theme-success: #1b5e20;
+        --mdc-theme-primary: #1976d2;
+        --mdc-theme-secondary: #9c27b0;
+        --mdc-theme-error: #d32f2f;
+        --mdc-theme-warning: #ed6c02;
+        --mdc-theme-info: #0288d1;
+        --mdc-theme-success: #2e7d32;
     }
 
     .mdc-chip-set--choice .mdc-chip.mdc-chip--selected .mdc-chip__icon--leading {
