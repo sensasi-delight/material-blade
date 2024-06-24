@@ -3,10 +3,10 @@
 namespace MaterialBlade;
 
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use MaterialBlade\Components\MbcList;
 
-class MaterialBladeServiceProvider extends ServiceProvider
+class ServiceProvider extends BaseServiceProvider
 {
     /**
      * Register any application services.
