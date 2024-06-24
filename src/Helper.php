@@ -2,6 +2,8 @@
 
 namespace MaterialBlade;
 
+use Illuminate\Support\Facades\Response;
+
 class Helper
 {
     static function isThemeColor(string $colorText)
@@ -27,5 +29,20 @@ class Helper
         }
 
         return [$icon, $variant];
+    }
+
+    static function generateAssetResponse(string $assetPath, string $contentType)
+    {
+        $response = Response::make(
+            file_get_contents(__DIR__ . '/assets/dist/' . $assetPath),
+            200,
+            ['Content-Type' => $contentType]
+        );
+
+        $response->setSharedMaxAge(31536000);
+        $response->setMaxAge(31536000);
+        $response->setExpires(new \DateTime('+1 year'));
+
+        return $response;
     }
 }
