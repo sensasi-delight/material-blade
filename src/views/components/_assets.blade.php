@@ -10,9 +10,13 @@
         --mdc-theme-warning: #ed6c02;
         --mdc-theme-info: #0288d1;
         --mdc-theme-success: #2e7d32;
+        --mbc-theme-scaling-factor: 8px;
     }
 
-    .mdc-chip-set--choice .mdc-chip.mdc-chip--selected .mdc-chip__icon--leading {
+    .mdc-chip-set--choice .mdc-chip.mdc-chip--selected .mdc-chip__icon--leading,
+    .mdc-deprecated-list-item--activated,
+    .mdc-drawer .mdc-deprecated-list-item--activated,
+    .mdc-drawer .mdc-deprecated-list-item--activated .mdc-deprecated-list-item__graphic {
         color: var(--mdc-theme-primary);
     }
 
@@ -25,10 +29,6 @@
         width: unset;
         height: unset;
     }
-
-    /* .material-icons {
-        font-size: unset;
-    } */
 
     .mdc-banner .mdc-button:not(:disabled) {
         --mdc-text-button-label-text-color: var(--mdc-theme-primary);
@@ -68,7 +68,7 @@
     }
 
     .mdc-card__content {
-        padding: 0 1rem 8px;
+        padding: 0 1rem var(--mbc-theme-scaling-factor);
     }
 
     .mdc-card__header+.mdc-card__content>p,
@@ -257,6 +257,15 @@
 
         document.querySelectorAll('.mdc-drawer').forEach(el => {
             el.MBC = MDCDrawer.attachTo(el)
+
+            el.MBC.querySelectorAll('.mdc-deprecated-list').forEach(listEl => {
+                if (!listEl.MBC) {
+                    listEl.MBC = MDCList.attachTo(listEl)
+                }
+
+                el.MBC.wrapFocus = true;
+            });
+
         })
     }
 
@@ -302,6 +311,8 @@
         } = mdc.list
 
         document.querySelectorAll('.mdc-deprecated-list').forEach(el => {
+            if (el.MBC) return
+
             el.MBC = new mdc.list.MDCList(el)
             el.MBC.listElements.map((listItemEl) => new MDCRipple(listItemEl))
 
@@ -310,9 +321,6 @@
             if (el.getAttribute('role') === 'listbox') {
                 el.MBC.singleSelection = true
             }
-
-            // exist on drawer fn
-            // list.wrapFocus = true;
         })
     }
 

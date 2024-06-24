@@ -4,7 +4,6 @@ namespace MaterialBlade\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
-use MaterialBlade\Components\MbcList\Enum\Variant;
 
 /**
  * @see https://mui.com/material-ui/react-list/
@@ -12,13 +11,14 @@ use MaterialBlade\Components\MbcList\Enum\Variant;
  * @see https://material-components.github.io/material-components-web-catalog/#/component/list
  * @see https://github.com/material-components/material-components-web/tree/v14.0.0/packages/mdc-list
  */
-class MbcList extends Component
+class ListItem extends Component
 {
-    private bool $isDense;
-
-    private Variant $variant = Variant::SINGLE_LINE;
+    private bool $isActivated;
+    private bool $isDisabled;
 
     public string $htmlElement;
+    public ?string $primaryText;
+    public ?string $secondaryText;
 
     /**
      * Create a new component instance.
@@ -26,21 +26,23 @@ class MbcList extends Component
      * @return void
      */
     public function __construct(
-        bool $dense = false,
+        bool $activated = false,
+        bool $disabled = false,
 
-        string $variant = null,
+        string $primary = null,
+        string $secondary = null,
+
         string $element = null,
 
-        public bool $disableRipple = false,
         public ?string $icon = null
     ) {
-        $this->isDense = $dense;
+        $this->isActivated = $activated;
+        $this->isDisabled = $disabled;
 
-        if ($variant) {
-            $this->variant = Variant::from($variant);
-        }
+        $this->primaryText = $primary;
+        $this->secondaryText = $secondary;
 
-        $this->htmlElement = $element ?? 'ul';
+        $this->htmlElement = $element ?? 'li';
     }
 
     /**
@@ -50,7 +52,7 @@ class MbcList extends Component
      */
     public function render()
     {
-        return 'mbv::_plain-div';
+        return 'mbv::list.item';
     }
 
     /**
@@ -61,9 +63,9 @@ class MbcList extends Component
     public function attributesPreprocess(ComponentAttributeBag $attributes): ComponentAttributeBag
     {
         return $attributes->class([
-            'mdc-deprecated-list',
-            'mdc-deprecated-list--two-line' => $this->variant === Variant::TWO_LINE,
-            'mdc-deprecated-list--dense' => $this->isDense,
+            'mdc-deprecated-list-item',
+            'mdc-deprecated-list-item--activated' => $this->isActivated,
+            'mdc-deprecated-list-item--disabled' => $this->isDisabled,
         ]);
     }
 }
