@@ -1,0 +1,163 @@
+@import 'components/list.scss';
+
+// https://mui.com/material-ui/customization/palette/ light mode
+:root {
+    --mdc-theme-primary: #1976d2;
+    --mdc-theme-secondary: #9c27b0;
+    --mdc-theme-error: #d32f2f;
+    --mdc-theme-warning: #ed6c02;
+    --mdc-theme-info: #0288d1;
+    --mdc-theme-success: #2e7d32;
+    --mbc-theme-scaling-factor: 8px;
+}
+
+.mdc-chip-set--choice .mdc-chip.mdc-chip--selected .mdc-chip__icon--leading {
+    color: var(--mdc-theme-primary);
+}
+
+.mdc-button {
+    --mdc-outlined-button-outline-color: var(--mdc-theme-primary);
+}
+
+.mdc-icon-button {
+    display: inline-flex;
+    width: unset;
+    height: unset;
+}
+
+.mdc-banner .mdc-button:not(:disabled) {
+    --mdc-text-button-label-text-color: var(--mdc-theme-primary);
+    --mdc-text-button-hover-state-layer-color: var(--mdc-theme-primary);
+}
+
+.mdc-banner .mdc-button--raised:not(:disabled),
+.mdc-banner .mdc-button--unelevated:not(:disabled) {
+    --mdc-text-button-label-text-color: var(--mdc-theme-on-primary);
+    --mdc-text-button-hover-state-layer-color: var(--mdc-theme-on-primary);
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.mdc-tooltip__surface a {
+    text-decoration: none;
+    color: var(--mdc-theme-primary);
+}
+
+.mdc-card__header * {
+    margin: 0;
+}
+
+.mdc-card__header {
+    padding: 1rem;
+}
+
+.mdc-card__media-content {
+    color: var(--mdc-theme-text-primary-on-dark, white);
+}
+
+.mdc-card__content,
+.mdc-card__header-subtitle:not(
+        .mdc-card__media-content .mdc-card__header-subtitle
+    ) {
+    color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, 0.54));
+}
+
+.mdc-card__content {
+    padding: 0 1rem var(--mbc-theme-scaling-factor);
+}
+
+.mdc-card__header + .mdc-card__content > p,
+.mdc-card__primary-action:has(.mdc-card__header:nth-last-child(2))
+    + .mdc-card__content
+    > p {
+    margin-top: 0;
+}
+
+.mdc-card__content :last-child {
+    margin-bottom: 0;
+}
+
+.mdc-tab:not(.mdc-tab--active) .mdc-tab__text-label,
+.mdc-tab:not(.mdc-tab--active) .mdc-tab__icon {
+    color: var(--mdc-theme-text-secondary-on-light);
+}
+
+.mdc-tab.light-text:not(.mdc-tab--active) .mdc-tab__text-label,
+.mdc-tab.light-text:not(.mdc-tab--active) .mdc-tab__icon {
+    color: var(--mdc-theme-text-secondary-on-dark);
+}
+
+.mdc-tab--active.light-text {
+    --mdc-theme-primary: #fff;
+}
+
+.mdc-switch__icon.material-icons {
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mdc-switch {
+    --mdc-switch-selected-focus-track-color: var(--mdc-theme-primary);
+    --mdc-switch-selected-track-color: var(--mdc-theme-primary);
+    --mdc-switch-selected-hover-track-color: var(--mdc-theme-primary);
+    --mdc-switch-selected-pressed-track-color: var(--mdc-theme-primary);
+
+    --mdc-switch-selected-focus-handle-color: var(--mdc-theme-primary);
+    --mdc-switch-selected-hover-handle-color: var(--mdc-theme-primary);
+    --mdc-switch-selected-pressed-handle-color: var(--mdc-theme-primary);
+}
+
+.mdc-switch:enabled .mdc-switch__track::after,
+.mdc-switch:enabled:active .mdc-switch__track::after,
+.mdc-switch:enabled:focus:not(:active) .mdc-switch__track::after,
+.mdc-switch:enabled:hover:not(:focus):not(:active) .mdc-switch__track::after {
+    background-image: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.4) 100%
+    );
+}
+
+.mdc-switch.mdc-switch--selected:enabled:active .mdc-switch__handle::after,
+.mdc-switch.mdc-switch--selected:enabled:focus:not(:active)
+    .mdc-switch__handle::after,
+.mdc-switch.mdc-switch--selected:enabled:hover:not(:focus):not(:active)
+    .mdc-switch__handle::after {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.24) 0%,
+        rgba(0, 0, 0, 0.24) 100%
+    );
+}
+
+.mbc-container {
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mbc-container--xs {
+    max-width: 400px;
+}
+
+.mbc-container--sm {
+    max-width: 600px;
+}
+
+.mbc-container--md {
+    max-width: 800px;
+}
+
+.mbc-container--lg {
+    max-width: 1200px;
+}
+
+.mbc-container--xl {
+    max-width: 1400px;
+}
