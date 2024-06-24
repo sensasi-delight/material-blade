@@ -4,7 +4,7 @@ namespace MaterialBlade\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
-use MaterialBlade\Components\MbcList\Enum\Variant;
+use MaterialBlade\Components\ListDivider\Properties\Variant;
 
 /**
  * @see https://mui.com/material-ui/react-list/
@@ -12,13 +12,10 @@ use MaterialBlade\Components\MbcList\Enum\Variant;
  * @see https://material-components.github.io/material-components-web-catalog/#/component/list
  * @see https://github.com/material-components/material-components-web/tree/v14.0.0/packages/mdc-list
  */
-class MbcList extends Component
+class ListDivider extends Component
 {
-    private bool $isDense;
-
-    private Variant $variant = Variant::SINGLE_LINE;
-
     public string $htmlElement;
+    private Variant $variant;
 
     /**
      * Create a new component instance.
@@ -26,21 +23,14 @@ class MbcList extends Component
      * @return void
      */
     public function __construct(
-        bool $dense = false,
-
-        string $variant = null,
         string $element = null,
-
-        public bool $disableRipple = false,
-        public ?string $icon = null
+        string $variant = null
     ) {
-        $this->isDense = $dense;
+        $this->htmlElement = $element ?? 'li';
 
-        if ($variant) {
-            $this->variant = Variant::from($variant);
-        }
-
-        $this->htmlElement = $element ?? 'ul';
+        $this->variant = $variant
+            ? Variant::fromString($variant)
+            : Variant::STANDARD;
     }
 
     /**
@@ -61,9 +51,8 @@ class MbcList extends Component
     public function attributesPreprocess(ComponentAttributeBag $attributes): ComponentAttributeBag
     {
         return $attributes->class([
-            'mdc-deprecated-list',
-            'mdc-deprecated-list--two-line' => $this->variant === Variant::TWO_LINE,
-            'mdc-deprecated-list--dense' => $this->isDense,
+            'mdc-deprecated-list-divider',
+            'mdc-deprecated-list-divider--padded' => $this->variant === Variant::PADDED,
         ]);
     }
 }
