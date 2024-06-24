@@ -1,0 +1,11 @@
+@use '@material/list';
+
+@include list.deprecated-core-styles;
+
+.mdc-deprecated-list-item--activated,
+.mdc-drawer .mdc-deprecated-list-item--activated,
+.mdc-drawer
+    .mdc-deprecated-list-item--activated
+    .mdc-deprecated-list-item__graphic {
+    color: var(--mdc-theme-primary);
+}
