@@ -1,0 +1,18 @@
+{
+    "name": "material-blade-assets",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "@material/list": "^14.0.0",
+        "@material/ripple": "^14.0.0",
+        "sass": "^1.77.6",
+        "typescript": "^5.5.2",
+        "vite": "^5.3.1"
+    }
+}
