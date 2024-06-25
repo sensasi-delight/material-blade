@@ -101,22 +101,6 @@ document.addEventListener('DOMContentLoaded', () =>
 //     })
 // }
 
-// function initDrawers() {
-//     const { MDCDrawer } = mdc.drawer
-
-//     document.querySelectorAll('.mdc-drawer').forEach(el => {
-//         el.MBC = MDCDrawer.attachTo(el)
-
-//         el.MBC.querySelectorAll('.mdc-deprecated-list').forEach(listEl => {
-//             if (!listEl.MBC) {
-//                 listEl.MBC = MDCList.attachTo(listEl)
-//             }
-
-//             el.MBC.wrapFocus = true
-//         })
-//     })
-// }
-
 // function initFabs() {
 //     document.querySelectorAll('.mdc-fab').forEach(mdc.ripple.MDCRipple.attachTo)
 // }
