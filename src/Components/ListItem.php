@@ -60,8 +60,16 @@ class ListItem extends Component
      * 
      * @see https://github.com/material-components/material-components-web/tree/v14.0.0/packages/mdc-list#style-customization
      */
-    public function attributesPreprocess(ComponentAttributeBag $attributes): ComponentAttributeBag
-    {
+    public function attributesPreprocess(
+        ComponentAttributeBag $attributes,
+        bool $disableRipple
+    ): ComponentAttributeBag {
+        if (!$disableRipple) {
+            $attributes->setAttributes([
+                'data-mdc-auto-init' => 'MDCRipple'
+            ]);
+        }
+
         return $attributes->class([
             'mdc-deprecated-list-item',
             'mdc-deprecated-list-item--activated' => $this->isActivated,
