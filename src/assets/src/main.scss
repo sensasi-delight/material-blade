@@ -11,6 +11,9 @@
 @use 'components/tab.css';
 @use 'components/tooltip.css';
 
+@use 'systems/padding.scss';
+@use 'systems/margin.scss';
+
 // https://mui.com/material-ui/customization/palette/ light mode
 :root {
     --mdc-theme-primary: #1976d2;
