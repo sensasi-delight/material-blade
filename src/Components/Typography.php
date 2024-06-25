@@ -19,9 +19,9 @@ class Typography extends Component
      */
     public function __construct(
         private bool $disableGutter = false,
+        string $variant = 'body1',
         ?string $element = null,
         ?string $slot = null,
-        ?string $variant = null
     ) {
         [$elementTemp, $variant] = $this->variantPreprocess($variant);
 
@@ -60,11 +60,10 @@ class Typography extends Component
 
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
-        return $attributes->style([
-            'margin: 0',
-            'margin-bottom: 0.35em' => !$this->disableGutter
-        ])->class([
-            'mdc-typography' . ($this->variant ? '--' . $this->variant : null)
+        return $attributes->class([
+            'mdc-typography',
+            'mdc-typography--' . $this->variant,
+            'mbc-m-0' => $this->disableGutter,
         ]);
     }
 }
