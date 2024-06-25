@@ -43,7 +43,7 @@ class Drawer extends Component
     public function attributesPreprocess(ComponentAttributeBag $attributes): ComponentAttributeBag
     {
         if ($this->variant !== Variant::PERMANENT) {
-            $attributes->setAttributes([
+            $attributes = $attributes->merge([
                 'data-mdc-auto-init' => 'MDCDrawer',
             ]);
         }

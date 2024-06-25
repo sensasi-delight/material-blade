@@ -65,7 +65,7 @@ class ListItem extends Component
         bool $disableRipple
     ): ComponentAttributeBag {
         if (!$disableRipple) {
-            $attributes->setAttributes([
+            $attributes = $attributes->merge([
                 'data-mdc-auto-init' => 'MDCRipple'
             ]);
         }
