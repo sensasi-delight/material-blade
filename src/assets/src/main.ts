@@ -1,4 +1,4 @@
-import './index.scss'
+import './main.scss'
 
 document.addEventListener('DOMContentLoaded', () =>
     import('material-components-web').then(({ autoInit }) => autoInit()),

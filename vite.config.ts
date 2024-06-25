@@ -4,7 +4,7 @@ export default defineConfig({
     build: {
         rollupOptions: {
             input: {
-                main: 'src/assets/src/index.ts',
+                main: 'src/assets/src/main.ts',
             },
             output: {
                 dir: 'src/assets/dist',
