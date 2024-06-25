@@ -31,12 +31,16 @@ class Helper
         return [$icon, $variant];
     }
 
-    static function generateAssetResponse(string $assetPath, string $contentType)
+    static function generateAssetResponse(string $fileName, string $extName)
     {
         $response = Response::make(
-            file_get_contents(__DIR__ . '/assets/dist/' . $assetPath),
+            file_get_contents(__DIR__ . '/assets/dist/' . $fileName . '.' . $extName),
             200,
-            ['Content-Type' => $contentType]
+            ['Content-Type' => match ($extName) {
+                'css' => 'text/css',
+                'js' => 'application/javascript',
+                default => 'text/plain',
+            }]
         );
 
         $response->setSharedMaxAge(31536000);
