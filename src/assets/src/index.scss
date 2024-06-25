@@ -1,13 +1,15 @@
-@import 'material-components-web';
+// base style
+@use 'material-components-web';
 
 // customized css
-@import 'components/button.css';
-@import 'components/card.css';
-@import 'components/chip.css';
-@import 'components/list.css';
-@import 'components/switch.css';
-@import 'components/tab.css';
-@import 'components/tooltip.css';
+@use 'components/button.css';
+@use 'components/card.css';
+@use 'components/chip.css';
+@use 'components/data-table.css';
+@use 'components/list.css';
+@use 'components/switch.css';
+@use 'components/tab.css';
+@use 'components/tooltip.css';
 
 // https://mui.com/material-ui/customization/palette/ light mode
 :root {
