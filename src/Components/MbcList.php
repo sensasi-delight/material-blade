@@ -60,6 +60,10 @@ class MbcList extends Component
      */
     public function attributesPreprocess(ComponentAttributeBag $attributes): ComponentAttributeBag
     {
+        $attributes->setAttributes([
+            'data-mdc-auto-init' => 'MDCList'
+        ]);
+
         return $attributes->class([
             'mdc-deprecated-list',
             'mdc-deprecated-list--two-line' => $this->variant === Variant::TWO_LINE,

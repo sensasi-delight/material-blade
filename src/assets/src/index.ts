@@ -1,8 +1,8 @@
 import './index.scss'
 
-document.addEventListener('DOMContentLoaded', () => {
-    import('./components/list')
-})
+document.addEventListener('DOMContentLoaded', () =>
+    import('material-components-web').then(({ autoInit }) => autoInit()),
+)
 
 // function initAppBars() {
 //     document
