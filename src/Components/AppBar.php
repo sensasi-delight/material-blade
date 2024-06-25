@@ -45,11 +45,13 @@ class AppBar extends Component
     {
         if ($this->color) {
             $attributes = $attributes->merge([
-                'style' => $attributes->prepends('--mdc-theme-primary: ' . Helper::getColor($this->color))
+                'style' => $attributes->prepends('--mdc-theme-primary: ' . Helper::getColor($this->color)),
             ]);
         }
 
-        return $attributes->class([
+        return $attributes->merge([
+            'data-mdc-auto-init' => 'MDCTopAppBar'
+        ])->class([
             'mdc-top-app-bar',
             'mdc-top-app-bar--' . ($this->variant === 'short-collapsed' ? 'short mdc-top-app-bar--short-collapsed' : $this->variant) => $this->variant,
             'mdc-top-app-bar--fixed' => $this->isFixed

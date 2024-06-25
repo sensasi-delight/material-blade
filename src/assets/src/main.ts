@@ -4,12 +4,6 @@ document.addEventListener('DOMContentLoaded', () =>
     import('material-components-web').then(({ autoInit }) => autoInit()),
 )
 
-// function initAppBars() {
-//     document
-//         .querySelectorAll('.mdc-top-app-bar')
-//         .forEach(mdc.topAppBar.MDCTopAppBar.attachTo)
-// }
-
 // function initBanners() {
 //     document.querySelectorAll('.mdc-banner').forEach(bannerEl => {
 //         const buttons = bannerEl
@@ -169,7 +163,6 @@ document.addEventListener('DOMContentLoaded', () =>
 
 // document.addEventListener('DOMContentLoaded', () => {
 //     initBanners()
-//     initAppBars()
 //     initButtons()
 //     initCards()
 //     initCheckBoxes()
