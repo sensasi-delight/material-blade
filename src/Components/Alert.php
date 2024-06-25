@@ -28,6 +28,7 @@ class Alert extends Component
         string $variant = null,
 
         public ?string $icon = null,
+        public ?string $title = null,
     ) {
         if ($variant) {
             $this->variant = Variant::fromString($variant);
