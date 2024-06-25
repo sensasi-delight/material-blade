@@ -1,0 +1,34 @@
+.mdc-switch__icon.material-icons {
+    font-size: calc(var(--mbc-theme-scaling-factor) * 1.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mdc-switch {
+    --mdc-switch-selected-focus-track-color: var(--mdc-theme-primary);
+    --mdc-switch-selected-track-color: var(--mdc-theme-primary);
+    --mdc-switch-selected-hover-track-color: var(--mdc-theme-primary);
+    --mdc-switch-selected-pressed-track-color: var(--mdc-theme-primary);
+
+    --mdc-switch-selected-focus-handle-color: var(--mdc-theme-primary);
+    --mdc-switch-selected-hover-handle-color: var(--mdc-theme-primary);
+    --mdc-switch-selected-pressed-handle-color: var(--mdc-theme-primary);
+}
+
+.mdc-switch:enabled .mdc-switch__track::after,
+.mdc-switch:enabled:active .mdc-switch__track::after,
+.mdc-switch:enabled:focus:not(:active) .mdc-switch__track::after,
+.mdc-switch:enabled:hover:not(:focus):not(:active) .mdc-switch__track::after {
+    background-image: linear-gradient(0deg,
+            rgba(255, 255, 255, 0.4) 0%,
+            rgba(255, 255, 255, 0.4) 100%);
+}
+
+.mdc-switch.mdc-switch--selected:enabled:active .mdc-switch__handle::after,
+.mdc-switch.mdc-switch--selected:enabled:focus:not(:active) .mdc-switch__handle::after,
+.mdc-switch.mdc-switch--selected:enabled:hover:not(:focus):not(:active) .mdc-switch__handle::after {
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, 0.24) 0%,
+            rgba(0, 0, 0, 0.24) 100%);
+}
