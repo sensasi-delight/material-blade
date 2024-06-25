@@ -1,0 +1,27 @@
+// base style
+@use 'material-components-web';
+
+// customized css
+@use 'components/button.css';
+@use 'components/card.css';
+@use 'components/chip.css';
+@use 'components/data-table.css';
+@use 'components/list.css';
+@use 'components/switch.css';
+@use 'components/tab.css';
+@use 'components/tooltip.css';
+
+// https://mui.com/material-ui/customization/palette/ light mode
+:root {
+    --mdc-theme-primary: #1976d2;
+    --mdc-theme-secondary: #9c27b0;
+    --mdc-theme-error: #d32f2f;
+    --mdc-theme-warning: #ed6c02;
+    --mdc-theme-info: #0288d1;
+    --mdc-theme-success: #2e7d32;
+    --mbc-theme-scaling-factor: 8px;
+}
+
+.fullwidth {
+    width: 100%;
+}

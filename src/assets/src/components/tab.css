@@ -1,0 +1,13 @@
+.mdc-tab:not(.mdc-tab--active) .mdc-tab__text-label,
+.mdc-tab:not(.mdc-tab--active) .mdc-tab__icon {
+    color: var(--mdc-theme-text-secondary-on-light);
+}
+
+.mdc-tab.light-text:not(.mdc-tab--active) .mdc-tab__text-label,
+.mdc-tab.light-text:not(.mdc-tab--active) .mdc-tab__icon {
+    color: var(--mdc-theme-text-secondary-on-dark);
+}
+
+.mdc-tab--active.light-text {
+    --mdc-theme-primary: #fff;
+}

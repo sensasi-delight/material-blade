@@ -42,6 +42,12 @@ class Drawer extends Component
 
     public function attributesPreprocess(ComponentAttributeBag $attributes): ComponentAttributeBag
     {
+        if ($this->variant !== Variant::PERMANENT) {
+            $attributes->setAttributes([
+                'data-mdc-auto-init' => 'MDCDrawer',
+            ]);
+        }
+
         return $attributes->style([
             'height: auto',
             'border-left-width: 1px',
@@ -49,6 +55,7 @@ class Drawer extends Component
         ])->class([
             'mdc-drawer',
             'mdc-drawer--modal' => $this->variant === Variant::MODAL,
+            'mdc-drawer--dismissible' => $this->variant === Variant::DISMISSIBLE,
         ]);
     }
 }

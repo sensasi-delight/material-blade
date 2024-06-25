@@ -1,0 +1,4 @@
+.mdc-tooltip__surface a {
+    text-decoration: none;
+    color: var(--mdc-theme-primary);
+}

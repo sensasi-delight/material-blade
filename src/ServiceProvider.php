@@ -26,6 +26,7 @@ class ServiceProvider extends BaseServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__ . '/views/components', 'mbv');
+        $this->loadRoutesFrom(__DIR__ . '/routes.php');
 
         Blade::componentNamespace('MaterialBlade\\Components', 'MaterialBlade');
         Blade::componentNamespace('MaterialBlade\\Components', 'mbc');

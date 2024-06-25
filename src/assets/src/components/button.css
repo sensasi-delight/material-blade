@@ -1,0 +1,20 @@
+.mdc-button {
+    --mdc-outlined-button-outline-color: var(--mdc-theme-primary);
+}
+
+.mdc-icon-button {
+    display: inline-flex;
+    width: unset;
+    height: unset;
+}
+
+.mdc-banner .mdc-button:not(:disabled) {
+    --mdc-text-button-label-text-color: var(--mdc-theme-primary);
+    --mdc-text-button-hover-state-layer-color: var(--mdc-theme-primary);
+}
+
+.mdc-banner .mdc-button--raised:not(:disabled),
+.mdc-banner .mdc-button--unelevated:not(:disabled) {
+    --mdc-text-button-label-text-color: var(--mdc-theme-on-primary);
+    --mdc-text-button-hover-state-layer-color: var(--mdc-theme-on-primary);
+}
