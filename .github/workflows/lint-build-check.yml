@@ -3,7 +3,7 @@ name: Lint and build check
 on: [push]
 
 jobs:
-    main:
+    npm-lint:
         runs-on: ubuntu-latest
 
         steps:
@@ -16,11 +16,39 @@ jobs:
             - name: Lint check
               run: npm run lint
 
-            - name: build check
-              run: npm run build
+    pint-lint:
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: true
+            matrix:
+                php: [8.3]
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php }}
+                  extensions: json, dom, curl, libxml, mbstring
+                  coverage: none
 
             - name: Install Pint
               run: composer global require laravel/pint
 
-            - name: Run Pint check
-              run: /home/runner/.composer/bin/pint --test
+            - name: Run Pint
+              run: pint --test
+
+    npm-build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Install NPM dependencies
+              run: npm ci
+
+            - name: Build check
+              run: npm run build
