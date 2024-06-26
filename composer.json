@@ -28,11 +28,18 @@
         "illuminate/view": "^8|^9|^10|^11",
         "php": "^8.1"
     },
+    "scripts": {
+        "lint": "pint --test",
+        "lint:fix": "pint"
+    },
     "extra": {
         "laravel": {
             "providers": [
                 "MaterialBlade\\ServiceProvider"
             ]
         }
+    },
+    "require-dev": {
+        "laravel/pint": "^1.16"
     }
 }
