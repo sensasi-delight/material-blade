@@ -1,0 +1,20 @@
+name: Blade Formatter Lint
+
+on: [push, pull_request]
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Install NPM dependencies
+              run: npm ci
+
+            - name: Install blade-formatter
+              run: npm install -g blade-formatter
+
+            - name: Run blade-formatter in check mode
+              run: blade-formatter -c "**/*.blade.php"
