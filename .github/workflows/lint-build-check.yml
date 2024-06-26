@@ -20,7 +20,7 @@ jobs:
               run: npm run build
 
             - name: Install Pint
-              run: composer global require laravel/pint
+              run: composer require laravel/pint
 
             - name: Run Pint check
-              run: /usr/local/bin/pint --test
+              run: ./vendor/bin/pint --test
