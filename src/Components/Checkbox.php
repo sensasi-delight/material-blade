@@ -2,14 +2,15 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
 class Checkbox extends Component
 {
     public ?string $color;
+
     public ?string $label;
+
     public bool $isIndeterminate;
     // public bool $isDisabled;
 
@@ -47,7 +48,7 @@ class Checkbox extends Component
         }
 
         return $attributes->class([
-            'mdc-checkbox__native-control'
+            'mdc-checkbox__native-control',
         ]);
     }
 }

@@ -6,18 +6,19 @@ use Illuminate\Support\Facades\Response;
 
 class Helper
 {
-    static function isThemeColor(string $colorText)
+    public static function isThemeColor(string $colorText)
     {
         return in_array($colorText, ['primary', 'secondary', 'warning', 'error', 'success', 'info']);
     }
 
-    static function getColor(string $colorText)
+    public static function getColor(string $colorText)
     {
-        $isThemeColor = Self::isThemeColor($colorText);
-        return $isThemeColor ? 'var(--mdc-theme-' . $colorText . ')' : $colorText;
+        $isThemeColor = self::isThemeColor($colorText);
+
+        return $isThemeColor ? 'var(--mdc-theme-'.$colorText.')' : $colorText;
     }
 
-    static function parseIconString(?string $iconText)
+    public static function parseIconString(?string $iconText)
     {
         $icon = $iconText;
         $variant = null;
@@ -31,10 +32,10 @@ class Helper
         return [$icon, $variant];
     }
 
-    static function generateAssetResponse(string $fileName, string $extName)
+    public static function generateAssetResponse(string $fileName, string $extName)
     {
         $response = Response::make(
-            file_get_contents(__DIR__ . '/assets/dist/' . $fileName . '.' . $extName),
+            file_get_contents(__DIR__.'/assets/dist/'.$fileName.'.'.$extName),
             200,
             ['Content-Type' => match ($extName) {
                 'css' => 'text/css',

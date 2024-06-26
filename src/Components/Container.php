@@ -2,7 +2,6 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
@@ -37,7 +36,7 @@ class Container extends Component
     {
         return $attributes->class([
             'mbc-container',
-            'mbc-container--' . $this->maxWidth
+            'mbc-container--'.$this->maxWidth,
         ]);
     }
 
@@ -49,8 +48,8 @@ class Container extends Component
     private function validateMaxWidth(string $maxWidth)
     {
         $allowedMaxWidths = ['xs', 'sm', 'md', 'lg', 'xl'];
-        if (!in_array($maxWidth, $allowedMaxWidths)) {
-            throw new \Exception('Invalid max width value. Allowed values are: ' . implode(', ', $allowedMaxWidths));
+        if (! in_array($maxWidth, $allowedMaxWidths)) {
+            throw new \Exception('Invalid max width value. Allowed values are: '.implode(', ', $allowedMaxWidths));
         }
     }
 }

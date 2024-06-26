@@ -5,11 +5,11 @@ namespace MaterialBlade\Components;
 use Illuminate\Support\HtmlString;
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
-use MaterialBlade\Helper;
 
 class Snackbar extends Component
 {
     public string $variant;
+
     public ?string $message;
 
     /**
@@ -37,7 +37,7 @@ class Snackbar extends Component
 
     public function validateComponent(HtmlString $slot)
     {
-        if (!$this->message && $slot->isEmpty()) {
+        if (! $this->message && $slot->isEmpty()) {
             throw new \Exception('Please fill the "message" attribute or the component slot', 1);
         }
     }

@@ -2,14 +2,15 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
 class Tooltip extends Component
 {
     public ?string $title;
+
     public string $id;
+
     public string $isPersistent;
     // public $size;
 
@@ -37,13 +38,14 @@ class Tooltip extends Component
     {
         return function (array $data) {
             $this->componentValidation($data);
+
             return 'mbv::tooltip';
         };
     }
 
     public function componentValidation(array $data)
     {
-        if ($this->isPersistent && !isset($data['body'])) {
+        if ($this->isPersistent && ! isset($data['body'])) {
             throw new \Exception('"Persistent" only work on Rich Tooltip', 1);
         }
 
@@ -55,24 +57,21 @@ class Tooltip extends Component
     public function childPreprocess(string $slotString)
     {
 
-        $isAriaLabelEqualTitle = stripos($slotString, 'aria-label="' . $this->title . '"');
+        $isAriaLabelEqualTitle = stripos($slotString, 'aria-label="'.$this->title.'"');
 
         $slotStrings = explode("\r\n", $slotString);
 
-        $prependAttr = ' aria-describedby="' . $this->id . '"';
+        $prependAttr = ' aria-describedby="'.$this->id.'"';
         if ($isAriaLabelEqualTitle) {
-            $prependAttr = ' data-tooltip-id="' . $this->id . '" data-hide-tooltip-from-screenreader="true"';
+            $prependAttr = ' data-tooltip-id="'.$this->id.'" data-hide-tooltip-from-screenreader="true"';
         }
 
-        $slotStrings[0] = str_replace('>', $prependAttr . '>', $slotStrings[0]);
+        $slotStrings[0] = str_replace('>', $prependAttr.'>', $slotStrings[0]);
 
         return implode("\r\n", $slotStrings);
     }
 
-
     /**
-     * 
-     *
      * @return ComponentAttributeBag
      */
     public function attributesPreprocess(ComponentAttributeBag $attributes)
@@ -80,16 +79,16 @@ class Tooltip extends Component
         if ($this->isPersistent) {
             $attributes = $attributes->merge([
                 'tabindex' => -1,
-                'data-mdc-tooltip-persistent' => "true"
+                'data-mdc-tooltip-persistent' => 'true',
             ]);
         }
 
         return $attributes->class([
-            'mdc-tooltip'
+            'mdc-tooltip',
         ])->merge([
             'id' => $this->id,
             'role' => $attributes->prepends($this->isPersistent ? 'dialog' : 'tooltip'),
-            'aria-hidden' => $attributes->prepends('true')
+            'aria-hidden' => $attributes->prepends('true'),
         ]);
     }
 }

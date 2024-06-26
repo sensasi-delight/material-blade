@@ -2,7 +2,6 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 use MaterialBlade\Helper;
@@ -10,7 +9,9 @@ use MaterialBlade\Helper;
 class CircularProgress extends Component
 {
     public string $color;
+
     public string $size;
+
     public ?float $value;
 
     /**
@@ -40,7 +41,7 @@ class CircularProgress extends Component
 
     private function validateComponent(ComponentAttributeBag $attributes)
     {
-        if (!$attributes->has('aria-label')) {
+        if (! $attributes->has('aria-label')) {
             throw new \Exception('Progress bars is conform to the WAI-ARIA Progressbar Specification, the \'aria-label\' attribute is required');
         }
     }
@@ -53,11 +54,11 @@ class CircularProgress extends Component
             'role' => 'progressbar',
             'aria-valuemin' => 0,
             'aria-valuemax' => 1,
-            'aria-valuenow' => $this->value ?: 0
+            'aria-valuenow' => $this->value ?: 0,
         ]);
 
         if ($this->color !== 'primary') {
-            $attributes = $attributes->merge(['style' => $attributes->prepends('--mdc-theme-primary: ' . Helper::getColor($this->color))]);
+            $attributes = $attributes->merge(['style' => $attributes->prepends('--mdc-theme-primary: '.Helper::getColor($this->color))]);
         }
 
         return $attributes->class([

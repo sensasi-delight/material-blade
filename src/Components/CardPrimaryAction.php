@@ -2,7 +2,6 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
@@ -13,9 +12,7 @@ class CardPrimaryAction extends Component
      *
      * @return void
      */
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * Get the view / contents that represent the component.
@@ -32,7 +29,7 @@ class CardPrimaryAction extends Component
         $attributes = $attributes->merge(['tabindex' => 0]);
 
         return $attributes->class([
-            'mdc-card__primary-action'
+            'mdc-card__primary-action',
         ]);
     }
 }

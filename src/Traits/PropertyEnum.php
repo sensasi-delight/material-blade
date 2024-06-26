@@ -6,8 +6,9 @@ use BackedEnum;
 
 /**
  * Trait PropertyEnum
- * 
+ *
  * @template T of BackedEnum
+ *
  * @implements BackedEnum<T>
  */
 trait PropertyEnum
@@ -20,7 +21,7 @@ trait PropertyEnum
             return static::from($value);
         }
 
-        throw new \InvalidArgumentException('Invalid value \'' . $value  . '\' for ' . static::class . ' Expected one of: ' . implode(', ', $availableValues));
+        throw new \InvalidArgumentException('Invalid value \''.$value.'\' for '.static::class.' Expected one of: '.implode(', ', $availableValues));
     }
 
     public static function getValues(): array

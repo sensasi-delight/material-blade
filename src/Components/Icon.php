@@ -2,7 +2,6 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 use MaterialBlade\Helper;
@@ -10,7 +9,9 @@ use MaterialBlade\Helper;
 class Icon extends Component
 {
     public ?string $color;
+
     public string $icon;
+
     public string $variant;
     // public $size;
 
@@ -47,11 +48,11 @@ class Icon extends Component
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
         if ($this->color) {
-            $attributes = $attributes->merge(['style' => $attributes->prepends('color: ' . Helper::getColor($this->color) . ';')]);
+            $attributes = $attributes->merge(['style' => $attributes->prepends('color: '.Helper::getColor($this->color).';')]);
         }
 
         return $attributes->class([
-            'material-icons' . ($this->variant != 'filled' ? '-' . $this->variant : '')
+            'material-icons'.($this->variant != 'filled' ? '-'.$this->variant : ''),
         ]);
     }
 }

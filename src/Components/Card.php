@@ -2,14 +2,13 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 use MaterialBlade\Components\Card\Enums\Variant;
 
 /**
  * @property Variant $variant
- * 
+ *
  * @see https://mui.com/material-ui/react-card/
  * @see https://m2.material.io/components/cards
  * @see https://material-components.github.io/material-components-web-catalog/#/component/elevation
@@ -27,7 +26,7 @@ class Card extends Component
      * @return void
      */
     public function __construct(
-        string $variant = null
+        ?string $variant = null
     ) {
         if ($variant) {
             $this->variant = Variant::from($variant);
@@ -48,7 +47,7 @@ class Card extends Component
     {
         return $attributes->class([
             'mdc-card',
-            'mdc-card--outlined' => $this->variant === Variant::OUTLINED
+            'mdc-card--outlined' => $this->variant === Variant::OUTLINED,
         ]);
     }
 }

@@ -2,15 +2,17 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
 class CardHeader extends Component
 {
     public string $title;
+
     public string $titleElement;
+
     public string $subtitle;
+
     public string $subtitleElement;
 
     /**
@@ -43,7 +45,7 @@ class CardHeader extends Component
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
         return $attributes->class([
-            'mdc-card__header'
+            'mdc-card__header',
         ]);
     }
 }

@@ -1,8 +1,18 @@
 {
     "arrowParens": "avoid",
-    "jsxBracketSameLine": true,
+    "bracketSameLine": true,
     "semi": false,
     "singleQuote": true,
     "tabWidth": 4,
-    "trailingComma": "all"
+    "trailingComma": "all",
+    "plugins": ["@shufo/prettier-plugin-blade"],
+    "overrides": [
+        {
+            "files": ["*.blade.php"],
+            "options": {
+                "parser": "blade",
+                "tabWidth": 4
+            }
+        }
+    ]
 }

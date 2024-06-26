@@ -10,13 +10,20 @@ use MaterialBlade\Helper;
 class Button extends Component
 {
     public string $color;
+
     public bool $isFullwidth;
+
     public bool $isRipple;
+
     public bool $withWrapper;
+
     public ?string $endIcon;
+
     public ?string $label;
+
     // public string $size;
     public ?string $startIcon;
+
     public ?string $variant;
 
     /**
@@ -39,7 +46,7 @@ class Button extends Component
         $this->endIcon = $endIcon;
         $this->isFullwidth = $fullwidth;
         $this->label = $label;
-        $this->isRipple = !$disableRipple;
+        $this->isRipple = ! $disableRipple;
         $this->startIcon = $startIcon;
         $this->variant = $variant;
         $this->withWrapper = $withWrapper;
@@ -58,7 +65,7 @@ class Button extends Component
 
     public function validateComponent(ComponentSlot $slot)
     {
-        if (!$this->label && $slot->isEmpty()) {
+        if (! $this->label && $slot->isEmpty()) {
             throw new \Exception('Please fill the "label" attribute or the component slot', 1);
         }
     }
@@ -67,14 +74,14 @@ class Button extends Component
     {
         if ($this->color !== 'primary') {
             $attributes = $attributes->merge([
-                'style' => $attributes->prepends('--mdc-theme-primary: ' . Helper::getColor($this->color))
+                'style' => $attributes->prepends('--mdc-theme-primary: '.Helper::getColor($this->color)),
             ]);
         }
 
         return $attributes->class([
             'mdc-button',
             'mdc-button--touch' => $this->withWrapper,
-            'mdc-button--' . ($this->variant) => $this->variant !== 'text' && in_array($this->variant, ['raised', 'unelevated', 'outlined']),
+            'mdc-button--'.($this->variant) => $this->variant !== 'text' && in_array($this->variant, ['raised', 'unelevated', 'outlined']),
             'mdc-button--icon-leading' => $this->startIcon ? true : false,
             'mdc-button--icon-trailing' => $this->endIcon ? true : false,
             'fullwidth' => $this->isFullwidth,

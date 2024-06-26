@@ -2,7 +2,6 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
@@ -13,9 +12,7 @@ class CardContent extends Component
      *
      * @return void
      */
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * Get the view / contents that represent the component.
@@ -30,7 +27,7 @@ class CardContent extends Component
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
         return $attributes->class([
-            'mdc-card__content'
+            'mdc-card__content',
         ]);
     }
 }

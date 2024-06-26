@@ -2,16 +2,19 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
 class Chip extends Component
 {
     public string $label;
+
     public ?string $icon;
+
     public bool $isSelected;
+
     public bool $isWithWrapper;
+
     public bool $isDisabled;
 
     /**
@@ -50,7 +53,7 @@ class Chip extends Component
         return $attributes->class([
             'mdc-chip',
             'mdc-chip--selected' => $this->isSelected,
-            'mdc-chip--touch' => $this->isWithWrapper
+            'mdc-chip--touch' => $this->isWithWrapper,
         ]);
     }
 }

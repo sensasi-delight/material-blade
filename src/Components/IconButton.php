@@ -2,18 +2,23 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
 class IconButton extends Component
 {
     public string $icon;
+
     public bool $isRipple;
+
     public bool $isWithWrapper;
+
     public ?string $color;
+
     public ?bool $isToggle;
+
     public ?string $offIcon;
+
     public ?string $offColor;
 
     // public $size;
@@ -38,7 +43,7 @@ class IconButton extends Component
         $this->icon = $icon;
         $this->offIcon = $offIcon;
         $this->offColor = $offColor;
-        $this->isRipple = !$disableRipple;
+        $this->isRipple = ! $disableRipple;
         $this->isWithWrapper = $withWrapper;
         // $this->size = $size;
     }
@@ -58,12 +63,12 @@ class IconButton extends Component
         $attributes = $attributes->class([
             'mdc-icon-button',
             'mdc-icon-button--touch' => $this->isWithWrapper,
-            'mdc-icon-button--on' => $this->isToggle
+            'mdc-icon-button--on' => $this->isToggle,
         ]);
 
         $attributes = $attributes->merge(['aria-label' => $this->icon]);
 
-        if (!is_null($this->isToggle)) {
+        if (! is_null($this->isToggle)) {
             $attributes = $attributes->merge(['aria-pressed' => $this->isToggle]);
         }
 

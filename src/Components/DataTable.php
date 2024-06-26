@@ -2,15 +2,16 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
-use Illuminate\View\ComponentAttributeBag;
 
 class DataTable extends Component
 {
     public bool $isWithCheckbox;
+
     public array $header;
+
     public array $tableData;
+
     /**
      * Create a new component instance.
      *
