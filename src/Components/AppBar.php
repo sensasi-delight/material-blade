@@ -2,7 +2,6 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 use MaterialBlade\Helper;
@@ -10,8 +9,11 @@ use MaterialBlade\Helper;
 class AppBar extends Component
 {
     public ?string $title;
+
     public ?string $variant;
+
     public bool $isFixed;
+
     public ?string $color;
 
     /**
@@ -45,25 +47,24 @@ class AppBar extends Component
     {
         if ($this->color) {
             $attributes = $attributes->merge([
-                'style' => $attributes->prepends('--mdc-theme-primary: ' . Helper::getColor($this->color)),
+                'style' => $attributes->prepends('--mdc-theme-primary: '.Helper::getColor($this->color)),
             ]);
         }
 
         return $attributes->merge([
-            'data-mdc-auto-init' => 'MDCTopAppBar'
+            'data-mdc-auto-init' => 'MDCTopAppBar',
         ])->class([
             'mdc-top-app-bar',
-            'mdc-top-app-bar--' . ($this->variant === 'short-collapsed' ? 'short mdc-top-app-bar--short-collapsed' : $this->variant) => $this->variant,
-            'mdc-top-app-bar--fixed' => $this->isFixed
+            'mdc-top-app-bar--'.($this->variant === 'short-collapsed' ? 'short mdc-top-app-bar--short-collapsed' : $this->variant) => $this->variant,
+            'mdc-top-app-bar--fixed' => $this->isFixed,
         ]);
     }
-
 
     public function startAttributesPreprocess(ComponentAttributeBag $attributes)
     {
         return $attributes->class([
             'mdc-top-app-bar__section',
-            'mdc-top-app-bar__section--align-start'
+            'mdc-top-app-bar__section--align-start',
         ]);
     }
 
@@ -73,7 +74,7 @@ class AppBar extends Component
 
         return $attributes->class([
             'mdc-top-app-bar__section',
-            'mdc-top-app-bar__section--align-end'
+            'mdc-top-app-bar__section--align-end',
         ]);
     }
 }

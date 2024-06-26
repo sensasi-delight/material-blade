@@ -15,6 +15,7 @@ use MaterialBlade\Components\ListDivider\Properties\Variant;
 class ListDivider extends Component
 {
     public string $htmlElement;
+
     private Variant $variant;
 
     /**
@@ -23,8 +24,8 @@ class ListDivider extends Component
      * @return void
      */
     public function __construct(
-        string $element = null,
-        string $variant = null
+        ?string $element = null,
+        ?string $variant = null
     ) {
         $this->htmlElement = $element ?? 'li';
 
@@ -45,7 +46,7 @@ class ListDivider extends Component
 
     /**
      * All available classes are not yet implemented
-     * 
+     *
      * @see https://github.com/material-components/material-components-web/tree/v14.0.0/packages/mdc-list#style-customization
      */
     public function attributesPreprocess(ComponentAttributeBag $attributes): ComponentAttributeBag

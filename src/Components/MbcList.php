@@ -28,8 +28,8 @@ class MbcList extends Component
     public function __construct(
         bool $dense = false,
 
-        string $variant = null,
-        string $element = null,
+        ?string $variant = null,
+        ?string $element = null,
 
         public bool $disableRipple = false,
         public ?string $icon = null
@@ -55,13 +55,13 @@ class MbcList extends Component
 
     /**
      * All available classes are not yet implemented
-     * 
+     *
      * @see https://github.com/material-components/material-components-web/tree/v14.0.0/packages/mdc-list#style-customization
      */
     public function attributesPreprocess(ComponentAttributeBag $attributes): ComponentAttributeBag
     {
         return $attributes->merge([
-            'data-mdc-auto-init' => 'MDCList'
+            'data-mdc-auto-init' => 'MDCList',
         ])->class([
             'mdc-deprecated-list',
             'mdc-deprecated-list--two-line' => $this->variant === Variant::TWO_LINE,

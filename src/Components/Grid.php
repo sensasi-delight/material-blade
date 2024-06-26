@@ -13,8 +13,11 @@ use Illuminate\View\ComponentAttributeBag;
 class Grid extends Component
 {
     private bool $isContainer;
+
     private int $colSize;
+
     private string $align;
+
     private float $padding;
 
     /**
@@ -26,7 +29,7 @@ class Grid extends Component
         bool $container = false,
         float $padding = 0,
         int $colSize = 4,
-        string $align = null
+        ?string $align = null
     ) {
         $this->isContainer = $container;
         $this->colSize = $colSize;
@@ -55,8 +58,8 @@ class Grid extends Component
         $itemValidAlign = ['top', 'middle', 'bottom'];
         $containerValidAlign = ['left', 'right', 'center'];
 
-        if (!in_array($this->align, $this->isContainer ? $containerValidAlign : $itemValidAlign)) {
-            throw new \Exception('Invalid align property, must be one of: ' . implode(', ', $this->isContainer ? $containerValidAlign : $itemValidAlign));
+        if (! in_array($this->align, $this->isContainer ? $containerValidAlign : $itemValidAlign)) {
+            throw new \Exception('Invalid align property, must be one of: '.implode(', ', $this->isContainer ? $containerValidAlign : $itemValidAlign));
         }
     }
 
@@ -84,15 +87,15 @@ class Grid extends Component
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
         return $attributes->style([
-            'padding: ' . ($this->padding * 16) . 'px',
+            'padding: '.($this->padding * 16).'px',
         ])->class(
             $this->isContainer ? [
                 'mdc-layout-grid',
-                'mdc-layout-grid--align-' . $this->align,
+                'mdc-layout-grid--align-'.$this->align,
             ] : [
                 'mdc-layout-grid__cell',
-                'mdc-layout-grid__cell--span-' . $this->colSize,
-                'mdc-layout-grid__cell--align-' . $this->align,
+                'mdc-layout-grid__cell--span-'.$this->colSize,
+                'mdc-layout-grid__cell--align-'.$this->align,
             ]
         );
     }

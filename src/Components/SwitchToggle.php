@@ -2,7 +2,6 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 use MaterialBlade\Helper;
@@ -10,8 +9,11 @@ use MaterialBlade\Helper;
 class SwitchToggle extends Component
 {
     public string $color;
+
     public bool $isOn;
+
     public ?string $icon;
+
     public ?string $offIcon;
 
     /**
@@ -46,16 +48,16 @@ class SwitchToggle extends Component
         $attributes = $attributes->merge([
             'type' => 'button',
             'role' => 'switch',
-            'aria-checked' => $this->isOn
+            'aria-checked' => $this->isOn,
         ]);
 
         if ($this->color !== 'primary') {
-            $attributes = $attributes->merge(['style' => $attributes->prepends('--mdc-theme-primary: ' . Helper::getColor($this->color))]);
+            $attributes = $attributes->merge(['style' => $attributes->prepends('--mdc-theme-primary: '.Helper::getColor($this->color))]);
         }
 
         return $attributes->class([
             'mdc-switch',
-            'mdc-switch--' . ($this->isOn ? 'selected' : 'unselected'),
+            'mdc-switch--'.($this->isOn ? 'selected' : 'unselected'),
         ]);
     }
 }

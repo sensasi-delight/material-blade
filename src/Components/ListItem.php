@@ -14,10 +14,13 @@ use Illuminate\View\ComponentAttributeBag;
 class ListItem extends Component
 {
     private bool $isActivated;
+
     private bool $isDisabled;
 
     public string $htmlElement;
+
     public ?string $primaryText;
+
     public ?string $secondaryText;
 
     /**
@@ -29,10 +32,10 @@ class ListItem extends Component
         bool $activated = false,
         bool $disabled = false,
 
-        string $primary = null,
-        string $secondary = null,
+        ?string $primary = null,
+        ?string $secondary = null,
 
-        string $element = null,
+        ?string $element = null,
 
         public ?string $icon = null
     ) {
@@ -57,16 +60,16 @@ class ListItem extends Component
 
     /**
      * All available classes are not yet implemented
-     * 
+     *
      * @see https://github.com/material-components/material-components-web/tree/v14.0.0/packages/mdc-list#style-customization
      */
     public function attributesPreprocess(
         ComponentAttributeBag $attributes,
         bool $disableRipple
     ): ComponentAttributeBag {
-        if (!$disableRipple) {
+        if (! $disableRipple) {
             $attributes = $attributes->merge([
-                'data-mdc-auto-init' => 'MDCRipple'
+                'data-mdc-auto-init' => 'MDCRipple',
             ]);
         }
 

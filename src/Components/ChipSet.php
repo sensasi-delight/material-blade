@@ -2,7 +2,6 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
@@ -35,10 +34,9 @@ class ChipSet extends Component
     {
         $attributes = $attributes->merge(['role' => 'grid']);
 
-
         return $attributes->class([
             'mdc-chip-set',
-            'mdc-chip-set--' . $this->variant =>  $this->variant !== 'basic',
+            'mdc-chip-set--'.$this->variant => $this->variant !== 'basic',
         ]);
     }
 }

@@ -2,21 +2,17 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
 class CardActions extends Component
 {
-
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * Get the view / contents that represent the component.
@@ -31,7 +27,7 @@ class CardActions extends Component
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
         return $attributes->class([
-            'mdc-card__actions'
+            'mdc-card__actions',
         ]);
     }
 }

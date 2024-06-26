@@ -2,7 +2,6 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 use MaterialBlade\Helper;
@@ -10,9 +9,13 @@ use MaterialBlade\Helper;
 class FAB extends Component
 {
     public string $variant;
+
     public bool $isWithWrapper;
+
     public ?string $iconString;
+
     public ?string $color;
+
     public ?string $label;
 
     /**
@@ -50,7 +53,7 @@ class FAB extends Component
             throw new \Exception('"mini" variant can\'t have a label', 1);
         }
 
-        if (!$this->iconString && !$this->label) {
+        if (! $this->iconString && ! $this->label) {
             throw new \Exception('please add the \'icon\' or \'label\' props', 1);
         }
     }
@@ -60,18 +63,18 @@ class FAB extends Component
         $this->validateComponent();
 
         $attributes = $attributes->merge([
-            'aria-label' => ucfirst(Helper::parseIconString($this->iconString)[0])
+            'aria-label' => ucfirst(Helper::parseIconString($this->iconString)[0]),
         ]);
 
         if ($this->color !== 'secondary') {
-            $attributes = $attributes->merge(['style' => $attributes->prepends('--mdc-theme-secondary: ' . Helper::getColor($this->color))]);
+            $attributes = $attributes->merge(['style' => $attributes->prepends('--mdc-theme-secondary: '.Helper::getColor($this->color))]);
         }
 
         return $attributes->class([
             'mdc-fab',
             'mdc-fab--mini' => $this->variant === 'mini',
             'mdc-fab--extended' => $this->label,
-            'mdc-fab--touch' => $this->isWithWrapper
+            'mdc-fab--touch' => $this->isWithWrapper,
         ]);
     }
 }

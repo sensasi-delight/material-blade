@@ -2,14 +2,13 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
 class CardMedia extends Component
 {
-
     public string $src;
+
     public string $variant;
 
     /**
@@ -35,11 +34,11 @@ class CardMedia extends Component
 
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
-        $attributes = $attributes->merge(['style' => $attributes->prepends('background-image: url(\'' .  $this->src . '\');')]);
+        $attributes = $attributes->merge(['style' => $attributes->prepends('background-image: url(\''.$this->src.'\');')]);
 
         return $attributes->class([
             'mdc-card__media',
-            'mdc-card__media--' . $this->variant
+            'mdc-card__media--'.$this->variant,
         ]);
     }
 }

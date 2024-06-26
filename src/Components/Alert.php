@@ -14,7 +14,9 @@ use MaterialBlade\Helper;
 class Alert extends Component
 {
     private string $cssColor;
+
     private Severity $severity = Severity::SUCCESS;
+
     private Variant $variant = Variant::STANDARD;
 
     /**
@@ -23,9 +25,9 @@ class Alert extends Component
      * @return void
      */
     public function __construct(
-        string $severity = null,
-        string $color = null,
-        string $variant = null,
+        ?string $severity = null,
+        ?string $color = null,
+        ?string $variant = null,
 
         public ?string $icon = null,
         public ?string $title = null,
@@ -63,7 +65,7 @@ class Alert extends Component
 
         if ($this->variant === Variant::OUTLINED) {
             return $attributes->style([
-                "background-color: transparent",
+                'background-color: transparent',
                 "color: {$this->cssColor}",
                 "border: 1px solid color-mix(in srgb, {$this->cssColor} 70%, var(--mdc-theme-surface))",
             ])->class('mdc-typography--body1');

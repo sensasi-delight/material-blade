@@ -2,16 +2,17 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
-use MaterialBlade\Helper;
 
 class Banner extends Component
 {
     public string $text;
+
     public ?string $icon;
+
     public ?string $actions;
+
     public bool $isFixed;
 
     /**
@@ -44,11 +45,11 @@ class Banner extends Component
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
         $attributes = $attributes->merge([
-            'role' => 'banner'
+            'role' => 'banner',
         ]);
 
         return $attributes->class([
-            'mdc-banner mdc-banner--mobile-stacked mdc-banner--centered'
+            'mdc-banner mdc-banner--mobile-stacked mdc-banner--centered',
         ]);
     }
 }

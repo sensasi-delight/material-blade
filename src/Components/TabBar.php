@@ -2,7 +2,6 @@
 
 namespace MaterialBlade\Components;
 
-
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 use MaterialBlade\Helper;
@@ -10,13 +9,21 @@ use MaterialBlade\Helper;
 class TabBar extends Component
 {
     public array $tabs;
+
     public string $color;
+
     public bool $isFadeIndicator;
+
     public bool $isIconOnly;
+
     public bool $isStacked;
+
     public bool $isLightText;
+
     public ?int $activeTabNo;
+
     public ?int $elevation;
+
     public ?string $indicatorIcon;
 
     /**
@@ -59,13 +66,14 @@ class TabBar extends Component
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
         if ($this->color !== 'initial') {
-            $attributes = $attributes->merge(['style' => $attributes->prepends('background-color: ' . Helper::getColor($this->color))]);
+            $attributes = $attributes->merge(['style' => $attributes->prepends('background-color: '.Helper::getColor($this->color))]);
         }
 
         $attributes = $attributes->merge(['role' => 'tablist']);
+
         return $attributes->class([
             'mdc-tab-bar',
-            'mdc-elevation--z' . $this->elevation => $this->elevation
+            'mdc-elevation--z'.$this->elevation => $this->elevation,
         ]);
     }
 }
