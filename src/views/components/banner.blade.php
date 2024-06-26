@@ -1,31 +1,36 @@
 <div {{ $attributesPreprocess($attributes) }}>
 
     @if ($isFixed)
-    <div class="mdc-banner__fixed">
-        @endif
-        <div class="mdc-banner__content" role="alertdialog" aria-live="assertive">
-            <div class="mdc-banner__graphic-text-wrapper">
+        <div class="mdc-banner__fixed">
+    @endif
+    <div class="mdc-banner__content"
+         role="alertdialog"
+         aria-live="assertive">
+        <div class="mdc-banner__graphic-text-wrapper">
 
-                @if ($icon)
-                <div class="mdc-banner__graphic" role="img" alt="">
-                    <x-mbc::Icon class="mdc-banner__icon" :icon="$icon" />
+            @if ($icon)
+                <div class="mdc-banner__graphic"
+                     role="img"
+                     alt="">
+                    <x-mbc::Icon class="mdc-banner__icon"
+                                 :icon="$icon" />
                 </div>
-                @endif
+            @endif
 
-                <div class="mdc-banner__text">
-                    {{ $text }}
-                </div>
+            <div class="mdc-banner__text">
+                {{ $text }}
             </div>
+        </div>
 
-            @if ($slot)
+        @if ($slot)
             <div class="mdc-banner__actions">
 
                 {{ $slot }}
             </div>
-            @endif
-        </div>
-
-        @if ($isFixed)
+        @endif
     </div>
-    @endif
+
+    @if ($isFixed)
+</div>
+@endif
 </div>

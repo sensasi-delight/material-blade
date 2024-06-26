@@ -8,15 +8,19 @@
             <div class="mdc-switch__ripple"></div>
 
             @if ($icon || $offIcon)
-            <div class="mdc-switch__icons">
-                @if ($icon)
-                <x-mbc::Icon class="mdc-switch__icon mdc-switch__icon--on" color="#fff" :icon="$icon" />
-                @endif
+                <div class="mdc-switch__icons">
+                    @if ($icon)
+                        <x-mbc::Icon class="mdc-switch__icon mdc-switch__icon--on"
+                                     color="#fff"
+                                     :icon="$icon" />
+                    @endif
 
-                @if ($offIcon)
-                <x-mbc::Icon class="mdc-switch__icon mdc-switch__icon--off" color="#fff" :icon="$offIcon" />
-                @endif
-            </div>
+                    @if ($offIcon)
+                        <x-mbc::Icon class="mdc-switch__icon mdc-switch__icon--off"
+                                     color="#fff"
+                                     :icon="$offIcon" />
+                    @endif
+                </div>
             @endif
         </div>
     </div>

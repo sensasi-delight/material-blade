@@ -4,7 +4,9 @@
     <span class="mdc-deprecated-list-item__ripple"></span>
 
     @if ($icon)
-        <x-mbc::icon aria-hidden="true" :icon="$icon" class="mdc-deprecated-list-item__graphic" />
+        <x-mbc::icon aria-hidden="true"
+                     :icon="$icon"
+                     class="mdc-deprecated-list-item__graphic" />
     @endif
 
     <span class="mdc-deprecated-list-item__text">

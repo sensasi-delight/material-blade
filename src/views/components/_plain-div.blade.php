@@ -1,1 +1,1 @@
-<{{ $htmlElement ?? 'div'}} {{ $attributesPreprocess($attributes) }}>{{ $slot }}</{{ $htmlElement ?? 'div'}}>
+<{{ $htmlElement ?? 'div' }} {{ $attributesPreprocess($attributes) }}>{{ $slot }}</{{ $htmlElement ?? 'div' }}>
