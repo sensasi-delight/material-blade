@@ -18,3 +18,9 @@ jobs:
 
             - name: build check
               run: npm run build
+
+            - name: Install Pint
+              run: composer global require laravel/pint
+
+            - name: Run Pint check
+              run: pint
