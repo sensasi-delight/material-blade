@@ -1,6 +1,6 @@
 {
     "arrowParens": "avoid",
-    "bracketSameLine": true,
+    "singleAttributePerLine": true,
     "semi": false,
     "singleQuote": true,
     "tabWidth": 4,
