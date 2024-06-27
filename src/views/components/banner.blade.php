@@ -3,17 +3,23 @@
     @if ($isFixed)
         <div class="mdc-banner__fixed">
     @endif
-    <div class="mdc-banner__content"
-         role="alertdialog"
-         aria-live="assertive">
+    <div
+        class="mdc-banner__content"
+        role="alertdialog"
+        aria-live="assertive"
+    >
         <div class="mdc-banner__graphic-text-wrapper">
 
             @if ($icon)
-                <div class="mdc-banner__graphic"
-                     role="img"
-                     alt="">
-                    <x-mbc::Icon class="mdc-banner__icon"
-                                 :icon="$icon" />
+                <div
+                    class="mdc-banner__graphic"
+                    role="img"
+                    alt=""
+                >
+                    <x-mbc::Icon
+                        class="mdc-banner__icon"
+                        :icon="$icon"
+                    />
                 </div>
             @endif
 

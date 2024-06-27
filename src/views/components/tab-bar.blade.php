@@ -23,16 +23,20 @@
                         }
                     @endphp
 
-                    <button class="mdc-tab{{ $isStacked ? ' mdc-tab--stacked' : '' }}{{ $isTabActive ? ' mdc-tab--active' : '' }}{{ $isLightText ? ' light-text' : '' }}"
-                            {{ $isTabActive ? ' aria-selected="true"' : '' }}
-                            role="tab"
-                            tabindex="0">
+                    <button
+                        class="mdc-tab{{ $isStacked ? ' mdc-tab--stacked' : '' }}{{ $isTabActive ? ' mdc-tab--active' : '' }}{{ $isLightText ? ' light-text' : '' }}"
+                        {{ $isTabActive ? ' aria-selected="true"' : '' }}
+                        role="tab"
+                        tabindex="0"
+                    >
                         <span class="mdc-tab__content">
                             @if (!is_int($key) || $isIconOnly)
-                                <x-mbc::Icon aria-hidden="true"
-                                             class="mdc-tab__icon"
-                                             :icon="is_int($key) ? $tab : $key"
-                                             style="font-size: 24px" />
+                                <x-mbc::Icon
+                                    aria-hidden="true"
+                                    class="mdc-tab__icon"
+                                    :icon="is_int($key) ? $tab : $key"
+                                    style="font-size: 24px"
+                                />
                             @endif
                             @if (!$isIconOnly)
                                 <span class="mdc-tab__text-label">{{ $tab }}</span>
@@ -41,10 +45,12 @@
 
                         <span class="mdc-tab-indicator{{ $classAdd }}">
                             @if (isset($indicatorIcon))
-                                <x-mbc::Icon aria-hidden="true"
-                                             class="mdc-tab-indicator__content mdc-tab-indicator__content--icon"
-                                             :icon="$indicatorIcon"
-                                             style="font-size: 24px" />
+                                <x-mbc::Icon
+                                    aria-hidden="true"
+                                    class="mdc-tab-indicator__content mdc-tab-indicator__content--icon"
+                                    :icon="$indicatorIcon"
+                                    style="font-size: 24px"
+                                />
                             @else
                                 <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
                             @endif
