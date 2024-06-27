@@ -1,4 +1,7 @@
-<div {{ $attributes->class(['mdc-data-table']) }}>
+<div
+    {{ $attributes->class(['mdc-data-table']) }}
+    data-mdc-auto-init="MDCDataTable"
+>
     <div class="mdc-data-table__table-container">
         <table
             class="mdc-data-table__table"
@@ -36,6 +39,7 @@
                                 </div>
                             </th>
                         @endif
+
                         @foreach ($header as $key => $col)
                             <th
                                 class="mdc-data-table__header-cell{{ $col === 'numeric' ? ' mdc-data-table__header-cell--numeric' : null }}"
