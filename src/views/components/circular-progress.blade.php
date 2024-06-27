@@ -29,51 +29,69 @@
 @endphp
 
 <div
-     {{ $attributesPreprocess($attributes->merge(['style' => $attributes->prepends('width: ' . $wh . '; height: ' . $wh . ';')])) }}>
+    {{ $attributesPreprocess($attributes->merge(['style' => $attributes->prepends('width: ' . $wh . '; height: ' . $wh . ';')])) }}>
     <div class="mdc-circular-progress__determinate-container">
-        <svg class="mdc-circular-progress__determinate-circle-graphic"
-             viewBox="{{ $viewBox }}"
-             xmlns="http://www.w3.org/2000/svg">
-            <circle class="mdc-circular-progress__determinate-track"
-                    {!! $cx !!}
-                    stroke-width="{{ $strokeWidth }}" />
-            <circle class="mdc-circular-progress__determinate-circle"
-                    {!! $cx !!}
-                    stroke-dasharray="{{ $strokeDasharray }}"
-                    stroke-dashoffset="{{ $strokeDasharray }}"
-                    stroke-width="{{ $strokeWidth }}" />
+        <svg
+            class="mdc-circular-progress__determinate-circle-graphic"
+            viewBox="{{ $viewBox }}"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <circle
+                class="mdc-circular-progress__determinate-track"
+                {!! $cx !!}
+                stroke-width="{{ $strokeWidth }}"
+            />
+            <circle
+                class="mdc-circular-progress__determinate-circle"
+                {!! $cx !!}
+                stroke-dasharray="{{ $strokeDasharray }}"
+                stroke-dashoffset="{{ $strokeDasharray }}"
+                stroke-width="{{ $strokeWidth }}"
+            />
         </svg>
     </div>
     <div class="mdc-circular-progress__indeterminate-container">
         <div class="mdc-circular-progress__spinner-layer">
             <div class="mdc-circular-progress__circle-clipper mdc-circular-progress__circle-left">
-                <svg class="mdc-circular-progress__indeterminate-circle-graphic"
-                     viewBox="{{ $viewBox }}"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <circle {!! $cx !!}
-                            stroke-dasharray="{{ $strokeDasharray }}"
-                            stroke-dashoffset="{{ $strokeDashoffset }}"
-                            stroke-width="{{ $strokeWidth }}" />
+                <svg
+                    class="mdc-circular-progress__indeterminate-circle-graphic"
+                    viewBox="{{ $viewBox }}"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        {!! $cx !!}
+                        stroke-dasharray="{{ $strokeDasharray }}"
+                        stroke-dashoffset="{{ $strokeDashoffset }}"
+                        stroke-width="{{ $strokeWidth }}"
+                    />
                 </svg>
             </div>
             <div class="mdc-circular-progress__gap-patch">
-                <svg class="mdc-circular-progress__indeterminate-circle-graphic"
-                     viewBox="{{ $viewBox }}"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <circle {!! $cx !!}
-                            stroke-dasharray="{{ $strokeDasharray }}"
-                            stroke-dashoffset="{{ $strokeDashoffset }}"
-                            stroke-width="{{ $strokeWidth2 }}" />
+                <svg
+                    class="mdc-circular-progress__indeterminate-circle-graphic"
+                    viewBox="{{ $viewBox }}"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        {!! $cx !!}
+                        stroke-dasharray="{{ $strokeDasharray }}"
+                        stroke-dashoffset="{{ $strokeDashoffset }}"
+                        stroke-width="{{ $strokeWidth2 }}"
+                    />
                 </svg>
             </div>
             <div class="mdc-circular-progress__circle-clipper mdc-circular-progress__circle-right">
-                <svg class="mdc-circular-progress__indeterminate-circle-graphic"
-                     viewBox="{{ $viewBox }}"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <circle {!! $cx !!}
-                            stroke-dasharray="{{ $strokeDasharray }}"
-                            stroke-dashoffset="{{ $strokeDashoffset }}"
-                            stroke-width="{{ $strokeWidth }}" />
+                <svg
+                    class="mdc-circular-progress__indeterminate-circle-graphic"
+                    viewBox="{{ $viewBox }}"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <circle
+                        {!! $cx !!}
+                        stroke-dasharray="{{ $strokeDasharray }}"
+                        stroke-dashoffset="{{ $strokeDashoffset }}"
+                        stroke-width="{{ $strokeWidth }}"
+                    />
                 </svg>
             </div>
         </div>

@@ -18,17 +18,21 @@ $attributes = $attributesPreprocess($attributes)->merge(['aria-label' => $label 
 @endif
 
 @if ($startIcon)
-    <x-mbc::Icon :icon="$startIcon"
-                 class="mdc-button__icon"
-                 aria-hidden="true" />
+    <x-mbc::Icon
+        :icon="$startIcon"
+        class="mdc-button__icon"
+        aria-hidden="true"
+    />
 @endif
 
 <span class="mdc-button__label">{{ $label ?: $slot }}</span>
 
 @if ($endIcon)
-    <x-mbc::Icon :icon="$endIcon"
-                 class="mdc-button__icon"
-                 aria-hidden="true" />
+    <x-mbc::Icon
+        :icon="$endIcon"
+        class="mdc-button__icon"
+        aria-hidden="true"
+    />
 @endif
 
 @if ($attributes->has('href'))
