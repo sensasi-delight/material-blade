@@ -40,6 +40,8 @@ class Helper
             ['Content-Type' => match ($extName) {
                 'css' => 'text/css',
                 'js' => 'application/javascript',
+                'woff2' => 'font/woff2',
+                'woff' => 'font/woff',
                 default => 'text/plain',
             }]
         );

@@ -11,6 +11,12 @@
         "lint:fix": "prettier --write ."
     },
     "devDependencies": {
+        "@fontsource/material-icons": "^5.0.18",
+        "@fontsource/material-icons-outlined": "^5.0.12",
+        "@fontsource/material-icons-round": "^5.0.12",
+        "@fontsource/material-icons-sharp": "^5.0.12",
+        "@fontsource/material-icons-two-tone": "^5.0.12",
+        "@fontsource/roboto": "^5.0.13",
         "@shufo/prettier-plugin-blade": "^1.14.1",
         "material-components-web": "^14.0.0",
         "prettier": "^3.3.2",
