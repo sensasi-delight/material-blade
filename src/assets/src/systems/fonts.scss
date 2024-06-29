@@ -8,30 +8,50 @@
 @use '@fontsource/material-icons-round';
 @use '@fontsource/material-icons-sharp';
 
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px; /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
 
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace +
+            str-replace(
+                str-slice($string, $index + str-length($search)),
+                $search,
+                $replace
+            );
+    }
 
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
+    @return $string;
+}
 
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
+$material-icon-families: 'Material Icons', 'Material Icons Outlined',
+    'Material Icons Two Tone', 'Material Icons Round', 'Material Icons Sharp';
 
-    /* Support for IE. */
-    font-feature-settings: 'liga';
+@each $family in $material-icon-families {
+    .#{str-replace(to-lower-case($family), ' ', '-')} {
+        font-family: #{$family};
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px; /* Preferred icon size */
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+
+        /* Support for all WebKit browsers. */
+        -webkit-font-smoothing: antialiased;
+
+        /* Support for Safari and Chrome. */
+        text-rendering: optimizeLegibility;
+
+        /* Support for Firefox. */
+        -moz-osx-font-smoothing: grayscale;
+
+        /* Support for IE. */
+        font-feature-settings: 'liga';
+    }
 }
 
 /* Rules for sizing the icon. */
