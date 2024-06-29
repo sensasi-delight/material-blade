@@ -3,12 +3,21 @@
 <{{ $htmlElement }} {{ $attributesPreprocess($attributes, $disableRipple) }}>
     <span class="mdc-deprecated-list-item__ripple"></span>
 
-    @if ($icon)
-        <x-mbc::icon
-            aria-hidden="true"
-            :icon="$icon"
-            class="mdc-deprecated-list-item__graphic"
-        />
+    @if ($startIcon)
+        @if (filter_var($startIcon, FILTER_VALIDATE_URL))
+            <img
+                src="{{ $startIcon }}"
+                class="mdc-deprecated-list-item__graphic"
+                alt="icon"
+            >
+        @else
+            <x-mbc::icon
+                aria-hidden="true"
+                :icon="$startIcon"
+                class="mdc-deprecated-list-item__graphic"
+                element="span"
+            />
+        @endif
     @endif
 
     <span class="mdc-deprecated-list-item__text">
@@ -24,4 +33,23 @@
             {{ $slot }}
         @endisset
     </span>
+
+    @if ($endIcon)
+
+        @if (filter_var($endIcon, FILTER_VALIDATE_URL))
+            <img
+                src="{{ $endIcon }}"
+                class="mdc-deprecated-list-item__meta"
+                alt="icon"
+            >
+        @else
+            <x-mbc::icon
+                aria-hidden="true"
+                :icon="$startIcon"
+                class="mdc-deprecated-list-item__meta"
+                element="span"
+            />
+        @endif
+    @endif
+
     </{{ $htmlElement }}>

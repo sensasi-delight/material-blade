@@ -32,7 +32,7 @@ class MbcList extends Component
         ?string $element = null,
 
         public bool $disableRipple = false,
-        public ?string $icon = null
+        public bool $avatar = false,
     ) {
         $this->isDense = $dense;
 
@@ -66,6 +66,7 @@ class MbcList extends Component
             'mdc-deprecated-list',
             'mdc-deprecated-list--two-line' => $this->variant === Variant::TWO_LINE,
             'mdc-deprecated-list--dense' => $this->isDense,
+            'mdc-deprecated-list--avatar-list' => $this->avatar,
         ]);
     }
 }

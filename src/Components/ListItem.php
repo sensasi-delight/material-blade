@@ -37,7 +37,8 @@ class ListItem extends Component
 
         ?string $element = null,
 
-        public ?string $icon = null
+        public ?string $startIcon = null,
+        public ?string $endIcon = null,
     ) {
         $this->isActivated = $activated;
         $this->isDisabled = $disabled;
