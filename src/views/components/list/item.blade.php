@@ -45,7 +45,7 @@
         @else
             <x-mbc::icon
                 aria-hidden="true"
-                :icon="$startIcon"
+                :icon="$endIcon"
                 class="mdc-deprecated-list-item__meta"
                 element="span"
             />
