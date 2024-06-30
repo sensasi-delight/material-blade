@@ -2,6 +2,7 @@
 
 namespace MaterialBlade\Components;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
@@ -78,10 +79,10 @@ class Grid extends Component
     public function render()
     {
         if ($this->isContainer) {
-            return 'mbv::grid.container';
+            return View::make('mbv::grid.container');
         }
 
-        return 'mbv::grid.item';
+        return View::make('mbv::grid.item');
     }
 
     public function attributesPreprocess(ComponentAttributeBag $attributes)
