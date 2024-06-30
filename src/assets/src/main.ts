@@ -1,8 +1,11 @@
 import './main.scss'
+import { MDCIconButtonToggle } from '@material/icon-button'
+import { MDCRipple } from '@material/ripple'
 
-document.addEventListener('DOMContentLoaded', () =>
-    import('material-components-web').then(({ autoInit }) => autoInit()),
-)
+document.addEventListener('DOMContentLoaded', () => {
+    import('material-components-web').then(({ autoInit }) => autoInit())
+    initIconButtons()
+})
 
 // function initBanners() {
 //     document.querySelectorAll('.mdc-banner').forEach(bannerEl => {
@@ -21,12 +24,6 @@ document.addEventListener('DOMContentLoaded', () =>
 //             bannerEl.mdc.layout()
 //         })
 //     })
-// }
-
-// function initButtons() {
-//     const { MDCRipple } = mdc.ripple
-
-//     document.querySelectorAll('.mdc-button').forEach(el => new MDCRipple(el))
 // }
 
 // function initCards() {
@@ -95,25 +92,19 @@ document.addEventListener('DOMContentLoaded', () =>
 //     })
 // }
 
-// function initFabs() {
-//     document.querySelectorAll('.mdc-fab').forEach(mdc.ripple.MDCRipple.attachTo)
-// }
+function initIconButtons() {
+    document.querySelectorAll('.mdc-icon-button').forEach(button => {
+        if (button.querySelector('.mdc-icon-button__icon--on')) {
+            new MDCIconButtonToggle(button)
+            return
+        }
 
-// function initIconButtons() {
-//     document.querySelectorAll('.mdc-icon-button').forEach(button => {
-//         if (button.querySelector('.mdc-icon-button__icon--on')) {
-//             button.MDCIconButtonToggle = new mdc.iconButton.MDCIconButtonToggle(
-//                 button,
-//             )
-//             return
-//         }
-
-//         if (button.querySelector('.mdc-icon-button__ripple')) {
-//             button.MDCRipple = new mdc.ripple.MDCRipple(button)
-//             button.MDCRipple.unbounded = true
-//         }
-//     })
-// }
+        if (button.querySelector('.mdc-icon-button__ripple')) {
+            const temp = new MDCRipple(button)
+            temp.unbounded = true
+        }
+    })
+}
 
 // function initLinearProgresses() {
 //     document.querySelectorAll('.mdc-linear-progress').forEach(el => {

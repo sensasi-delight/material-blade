@@ -5,23 +5,13 @@ namespace MaterialBlade\Components;
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 use Illuminate\View\ComponentSlot;
+use InvalidArgumentException;
+use MaterialBlade\Components\Button\Properties\Variant;
 use MaterialBlade\Helper;
 
 class Button extends Component
 {
-    public string $color;
-
-    public bool $isFullwidth;
-
-    public bool $isRipple;
-
-    public bool $withWrapper;
-
-    public ?string $label;
-
-    // public string $size;
-
-    public ?string $variant;
+    private Variant $variant;
 
     /**
      * Create a new component instance.
@@ -29,24 +19,23 @@ class Button extends Component
      * @return void
      */
     public function __construct(
-        bool $fullwidth = false,
-        // string $size = null,
-        string $variant = 'text',
-        bool $withWrapper = false,
-        string $color = 'primary',
-        bool $disableRipple = false,
-        ?string $label = null,
-
+        string $variant = 'unelevated',
+        public bool $withWrapper = false,
         public string|array|null $startIcon = null,
-        public string|array|null $endIcon = null
+        public string|array|null $endIcon = null,
+
+        private string $color = 'primary',
+        private bool $fullwidth = false,
+
+        // on view only
+        public bool $disableRipple = false,
+        public ?string $label = null,
+        private ?string $htmlTag = null,
+
+        // private string $size = null,
     ) {
-        $this->color = $color;
-        $this->isFullwidth = $fullwidth;
         $this->label = $label;
-        $this->isRipple = ! $disableRipple;
-        $this->variant = $variant;
-        $this->withWrapper = $withWrapper;
-        // $this->size = $size;
+        $this->variant = Variant::fromString($variant);
     }
 
     /**
@@ -59,28 +48,48 @@ class Button extends Component
         return 'mbv::button';
     }
 
-    public function validateComponent(ComponentSlot $slot)
+    public function attributesPreprocess(ComponentAttributeBag $attributes, ComponentSlot $slot)
     {
-        if (! $this->label && $slot->isEmpty()) {
-            throw new \Exception('Please fill the "label" attribute or the component slot', 1);
-        }
-    }
+        $this->validateSlot($slot);
 
-    public function attributesPreprocess(ComponentAttributeBag $attributes)
-    {
         if ($this->color !== 'primary') {
             $attributes = $attributes->merge([
                 'style' => $attributes->prepends('--mdc-theme-primary: '.Helper::getColor($this->color)),
             ]);
         }
 
-        return $attributes->class([
+        return $attributes->merge([
+            'data-mdc-auto-init' => 'MDCRipple',
+            'aria-label' => $this->label ?? $slot->__toString(),
+        ])->class([
             'mdc-button',
             'mdc-button--touch' => $this->withWrapper,
-            'mdc-button--'.($this->variant) => $this->variant !== 'text' && in_array($this->variant, ['raised', 'unelevated', 'outlined']),
+            'mdc-button--'.($this->variant->value) => $this->variant !== Variant::TEXT,
             'mdc-button--icon-leading' => (bool) $this->startIcon,
             'mdc-button--icon-trailing' => (bool) $this->endIcon,
-            'fullwidth' => $this->isFullwidth,
+            'fullwidth' => $this->fullwidth,
         ]);
+    }
+
+    public function getHtmlTag(ComponentAttributeBag $attributes)
+    {
+        if ($this->htmlTag) {
+            return $this->htmlTag;
+        }
+
+        return $attributes->has('href') ? 'a' : 'button';
+    }
+
+    private function validateSlot(ComponentSlot $slot)
+    {
+        throw_if(
+            ! $this->label && $slot->isEmpty(),
+            new InvalidArgumentException('Please fill the "label" attribute or the component slot')
+        );
+
+        throw_if(
+            $this->label && $slot->hasActualContent(),
+            new InvalidArgumentException('You cannot use both "label" attribute and the component slot')
+        );
     }
 }
