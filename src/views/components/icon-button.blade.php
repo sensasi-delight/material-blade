@@ -2,11 +2,9 @@
     $attributes = $attributesPreprocess($attributes);
 
     $isDisabled = $attributes->has('disabled');
-    $isDefaultColor = $color === 'var(--mdc-theme-text-secondary-on-light)';
-
 @endphp
 
-@if ($isWithWrapper)
+@if ($withWrapper)
     <div class="mdc-touch-target-wrapper">
 @endif
 
@@ -16,13 +14,13 @@
         <button {{ $attributes }}>
 @endif
 
-@if ($isRipple)
+@if (!$disableRipple)
     <div class="mdc-icon-button__ripple"></div>
 @endif
 
-@if (!is_null($isToggle))
+@if ($toggle !== null)
     @php
-        $onColor = $isDefaultColor ? 'primary' : $color;
+        $onColor = $color === 'var(--mdc-theme-text-secondary-on-background)' ? 'primary' : $color;
 
         if ($isDisabled) {
             $onColor = null;
@@ -46,7 +44,7 @@
     />
 @endif
 
-@if ($isWithWrapper)
+@if ($withWrapper)
     <div class="mdc-icon-button__touch"></div>
 @endif
 
@@ -56,6 +54,6 @@
     </button>
 @endif
 
-@if ($isWithWrapper)
+@if ($withWrapper)
     </div>
 @endif
