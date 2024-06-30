@@ -34,7 +34,7 @@
                                 <x-mbc::Icon
                                     aria-hidden="true"
                                     class="mdc-tab__icon"
-                                    :icon="is_int($key) ? $tab : $key"
+                                    :name="is_int($key) ? $tab : $key"
                                     style="font-size: 24px"
                                 />
                             @endif
@@ -48,7 +48,7 @@
                                 <x-mbc::Icon
                                     aria-hidden="true"
                                     class="mdc-tab-indicator__content mdc-tab-indicator__content--icon"
-                                    :icon="$indicatorIcon"
+                                    :name="$indicatorIcon"
                                     style="font-size: 24px"
                                 />
                             @else

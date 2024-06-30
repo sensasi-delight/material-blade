@@ -9,7 +9,7 @@
 
     @if ($icon)
         <x-mbc::Icon
-            :icon="$icon"
+            :name="$icon"
             class="mdc-chip__icon mdc-chip__icon--leading{{ $isSelected ? ' mdc-chip__icon--leading-hidden' : null }}"
         />
     @endif

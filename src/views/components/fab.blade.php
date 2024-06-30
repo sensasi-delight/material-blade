@@ -5,9 +5,9 @@
 <button {{ $attributesPreprocess($attributes) }}>
     <div class="mdc-fab__ripple"></div>
 
-    @if ($iconString)
+    @if ($icon)
         <x-mbc::Icon
-            :icon="$iconString"
+            :name="$icon"
             class="mdc-fab__icon"
         />
     @endif

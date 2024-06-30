@@ -4,6 +4,7 @@ namespace MaterialBlade\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
+use InvalidArgumentException;
 use MaterialBlade\Helper;
 
 class FAB extends Component
@@ -11,8 +12,6 @@ class FAB extends Component
     public string $variant;
 
     public bool $isWithWrapper;
-
-    public ?string $iconString;
 
     public ?string $color;
 
@@ -27,10 +26,10 @@ class FAB extends Component
         string $variant = 'regular',
         string $color = 'secondary',
         bool $withWrapper = false,
-        ?string $icon = null,
-        ?string $label = null
+        ?string $label = null,
+
+        public string|array|null $icon = null,
     ) {
-        $this->iconString = $icon;
         $this->variant = $variant;
         $this->color = $color;
         $this->isWithWrapper = $withWrapper;
@@ -47,24 +46,9 @@ class FAB extends Component
         return 'mbv::fab';
     }
 
-    public function validateComponent()
-    {
-        if ($this->variant === 'mini' && $this->label) {
-            throw new \Exception('"mini" variant can\'t have a label', 1);
-        }
-
-        if (! $this->iconString && ! $this->label) {
-            throw new \Exception('please add the \'icon\' or \'label\' props', 1);
-        }
-    }
-
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
         $this->validateComponent();
-
-        $attributes = $attributes->merge([
-            'aria-label' => ucfirst(Helper::parseIconString($this->iconString)[0]),
-        ]);
 
         if ($this->color !== 'secondary') {
             $attributes = $attributes->merge(['style' => $attributes->prepends('--mdc-theme-secondary: '.Helper::getColor($this->color))]);
@@ -76,5 +60,18 @@ class FAB extends Component
             'mdc-fab--extended' => $this->label,
             'mdc-fab--touch' => $this->isWithWrapper,
         ]);
+    }
+
+    private function validateComponent()
+    {
+        throw_if(
+            $this->variant === 'mini' && $this->label,
+            new InvalidArgumentException('"mini" variant can\'t have a label')
+        );
+
+        throw_if(
+            ! $this->icon && ! $this->label,
+            new InvalidArgumentException('Please add the \'icon\' or \'label\' props')
+        );
     }
 }

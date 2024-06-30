@@ -17,8 +17,6 @@ class ListItem extends Component
 
     private bool $isDisabled;
 
-    public string $htmlElement;
-
     public ?string $primaryText;
 
     public ?string $secondaryText;
@@ -35,18 +33,15 @@ class ListItem extends Component
         ?string $primary = null,
         ?string $secondary = null,
 
-        ?string $element = null,
-
-        public ?string $startIcon = null,
-        public ?string $endIcon = null,
+        public string|array|null $startIcon = null,
+        public string|array|null $endIcon = null,
+        public string $htmlTag = 'li',
     ) {
         $this->isActivated = $activated;
         $this->isDisabled = $disabled;
 
         $this->primaryText = $primary;
         $this->secondaryText = $secondary;
-
-        $this->htmlElement = $element ?? 'li';
     }
 
     /**

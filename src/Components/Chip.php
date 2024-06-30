@@ -9,8 +9,6 @@ class Chip extends Component
 {
     public string $label;
 
-    public ?string $icon;
-
     public bool $isSelected;
 
     public bool $isWithWrapper;
@@ -24,13 +22,13 @@ class Chip extends Component
      */
     public function __construct(
         string $label,
-        ?string $icon = null,
         bool $selected = false,
         bool $withWrapper = false,
-        bool $disabled = false
+        bool $disabled = false,
+
+        public string|array|null $icon = null
     ) {
         $this->label = $label;
-        $this->icon = $icon;
         $this->isSelected = $selected;
         $this->isWithWrapper = $withWrapper;
         $this->isDisabled = $disabled;

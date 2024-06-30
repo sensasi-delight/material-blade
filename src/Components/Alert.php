@@ -29,7 +29,7 @@ class Alert extends Component
         ?string $color = null,
         ?string $variant = null,
 
-        public ?string $icon = null,
+        private string|array|null $icon = null,
         public ?string $title = null,
     ) {
         if ($variant) {
@@ -78,13 +78,13 @@ class Alert extends Component
         ])->class('mdc-typography--body1');
     }
 
-    public function getIcon(): string
+    public function getIcon(): string|array
     {
         return $this->icon ?? match ($this->severity) {
-            Severity::ERROR => 'error:outlined',
-            Severity::INFO => 'info:outlined',
-            Severity::SUCCESS => 'check_circle:outlined',
-            Severity::WARNING => 'warning:outlined',
+            Severity::ERROR => ['error', 'outlined'],
+            Severity::INFO => ['info', 'outlined'],
+            Severity::SUCCESS => ['check_circle', 'outlined'],
+            Severity::WARNING => ['warning', 'outlined'],
         };
     }
 }

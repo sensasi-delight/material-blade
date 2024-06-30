@@ -17,12 +17,9 @@ class Button extends Component
 
     public bool $withWrapper;
 
-    public ?string $endIcon;
-
     public ?string $label;
 
     // public string $size;
-    public ?string $startIcon;
 
     public ?string $variant;
 
@@ -38,16 +35,15 @@ class Button extends Component
         bool $withWrapper = false,
         string $color = 'primary',
         bool $disableRipple = false,
-        ?string $endIcon = null,
         ?string $label = null,
-        ?string $startIcon = null
+
+        public string|array|null $startIcon = null,
+        public string|array|null $endIcon = null
     ) {
         $this->color = $color;
-        $this->endIcon = $endIcon;
         $this->isFullwidth = $fullwidth;
         $this->label = $label;
         $this->isRipple = ! $disableRipple;
-        $this->startIcon = $startIcon;
         $this->variant = $variant;
         $this->withWrapper = $withWrapper;
         // $this->size = $size;
@@ -82,8 +78,8 @@ class Button extends Component
             'mdc-button',
             'mdc-button--touch' => $this->withWrapper,
             'mdc-button--'.($this->variant) => $this->variant !== 'text' && in_array($this->variant, ['raised', 'unelevated', 'outlined']),
-            'mdc-button--icon-leading' => $this->startIcon ? true : false,
-            'mdc-button--icon-trailing' => $this->endIcon ? true : false,
+            'mdc-button--icon-leading' => (bool) $this->startIcon,
+            'mdc-button--icon-trailing' => (bool) $this->endIcon,
             'fullwidth' => $this->isFullwidth,
         ]);
     }

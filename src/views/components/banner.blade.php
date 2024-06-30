@@ -18,7 +18,7 @@
                 >
                     <x-mbc::Icon
                         class="mdc-banner__icon"
-                        :icon="$icon"
+                        :name="$icon"
                     />
                 </div>
             @endif

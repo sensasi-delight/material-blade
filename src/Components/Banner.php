@@ -9,8 +9,6 @@ class Banner extends Component
 {
     public string $text;
 
-    public ?string $icon;
-
     public ?string $actions;
 
     public bool $isFixed;
@@ -22,12 +20,11 @@ class Banner extends Component
      */
     public function __construct(
         string $text,
-        bool $fixed = false,
-        ?string $icon = null,
-        ?string $actions = null
+        bool $fixed,
+        ?string $actions,
+        public string|array|null $icon
     ) {
         $this->text = $text;
-        $this->icon = $icon;
         $this->actions = $actions;
         $this->isFixed = $fixed;
     }

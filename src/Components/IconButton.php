@@ -7,8 +7,6 @@ use Illuminate\View\ComponentAttributeBag;
 
 class IconButton extends Component
 {
-    public string $icon;
-
     public bool $isRipple;
 
     public bool $isWithWrapper;
@@ -16,8 +14,6 @@ class IconButton extends Component
     public ?string $color;
 
     public ?bool $isToggle;
-
-    public ?string $offIcon;
 
     public ?string $offColor;
 
@@ -29,19 +25,18 @@ class IconButton extends Component
      * @return void
      */
     public function __construct(
-        string $icon,
-        string $color = 'var(--mdc-theme-text-secondary-on-light)',
-        string $offColor = 'var(--mdc-theme-text-secondary-on-light)',
-        bool $disableRipple = false,
-        bool $withWrapper = false,
-        ?string $toggle = null,
-        ?string $offIcon = null
+        string $color,
+        string $offColor,
+        bool $disableRipple,
+        bool $withWrapper,
+        ?string $toggle,
         // string $size = null
+
+        public string|array $icon,
+        public string|array|null $offIcon = null
     ) {
         $this->color = $color;
         $this->isToggle = is_null($toggle) ? null : ($toggle == 'on' ? true : false);
-        $this->icon = $icon;
-        $this->offIcon = $offIcon;
         $this->offColor = $offColor;
         $this->isRipple = ! $disableRipple;
         $this->isWithWrapper = $withWrapper;
@@ -65,8 +60,6 @@ class IconButton extends Component
             'mdc-icon-button--touch' => $this->isWithWrapper,
             'mdc-icon-button--on' => $this->isToggle,
         ]);
-
-        $attributes = $attributes->merge(['aria-label' => $this->icon]);
 
         if (! is_null($this->isToggle)) {
             $attributes = $attributes->merge(['aria-pressed' => $this->isToggle]);

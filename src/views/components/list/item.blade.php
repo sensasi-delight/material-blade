@@ -1,6 +1,6 @@
 @aware(['disableRipple' => false])
 
-<{{ $htmlElement }} {{ $attributesPreprocess($attributes, $disableRipple) }}>
+<{{ $htmlTag }} {{ $attributesPreprocess($attributes, $disableRipple) }}>
     <span class="mdc-deprecated-list-item__ripple"></span>
 
     @if ($startIcon)
@@ -13,7 +13,7 @@
         @else
             <x-mbc::icon
                 aria-hidden="true"
-                :icon="$startIcon"
+                :name="$startIcon"
                 class="mdc-deprecated-list-item__graphic"
                 element="span"
             />
@@ -45,11 +45,11 @@
         @else
             <x-mbc::icon
                 aria-hidden="true"
-                :icon="$endIcon"
+                :name="$endIcon"
                 class="mdc-deprecated-list-item__meta"
                 element="span"
             />
         @endif
     @endif
 
-    </{{ $htmlElement }}>
+    </{{ $htmlTag }}>

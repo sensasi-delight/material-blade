@@ -19,7 +19,7 @@ $attributes = $attributesPreprocess($attributes)->merge(['aria-label' => $label 
 
 @if ($startIcon)
     <x-mbc::Icon
-        :icon="$startIcon"
+        :name="$startIcon"
         class="mdc-button__icon"
         aria-hidden="true"
     />
@@ -29,7 +29,7 @@ $attributes = $attributesPreprocess($attributes)->merge(['aria-label' => $label 
 
 @if ($endIcon)
     <x-mbc::Icon
-        :icon="$endIcon"
+        :name="$endIcon"
         class="mdc-button__icon"
         aria-hidden="true"
     />

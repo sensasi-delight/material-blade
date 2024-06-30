@@ -13,7 +13,7 @@
                         <x-mbc::Icon
                             class="mdc-switch__icon mdc-switch__icon--on"
                             color="#fff"
-                            :icon="$icon"
+                            :name="$icon"
                         />
                     @endif
 
@@ -21,7 +21,7 @@
                         <x-mbc::Icon
                             class="mdc-switch__icon mdc-switch__icon--off"
                             color="#fff"
-                            :icon="$offIcon"
+                            :name="$offIcon"
                         />
                     @endif
                 </div>

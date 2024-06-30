@@ -12,8 +12,6 @@ class SwitchToggle extends Component
 
     public bool $isOn;
 
-    public ?string $icon;
-
     public ?string $offIcon;
 
     /**
@@ -24,12 +22,12 @@ class SwitchToggle extends Component
     public function __construct(
         string $color = 'primary',
         bool $on = false,
-        ?string $icon = null,
-        ?string $offIcon = null
+        ?string $offIcon = null,
+
+        public string|array|null $icon = null,
     ) {
         $this->color = $color;
         $this->isOn = $on;
-        $this->icon = $icon;
         $this->offIcon = $offIcon;
     }
 

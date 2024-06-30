@@ -30,18 +30,18 @@
     @endphp
     <x-mbc::Icon
         class="mdc-icon-button__icon mdc-icon-button__icon--on"
-        :icon="$icon"
+        :name="$icon"
         :color="$onColor"
     />
 
     <x-mbc::Icon
         class="mdc-icon-button__icon"
-        :icon="$offIcon ?: $icon"
+        :name="$offIcon ?: $icon"
         :color="$isDisabled ? null : ($offColor ?: $color)"
     />
 @else
     <x-mbc::Icon
-        :icon="$icon"
+        :name="$icon"
         :color="$isDisabled ? null : $color"
     />
 @endif

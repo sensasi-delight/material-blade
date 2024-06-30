@@ -8,8 +8,6 @@ use MaterialBlade\Helper;
 
 class TabBar extends Component
 {
-    public array $tabs;
-
     public string $color;
 
     public bool $isFadeIndicator;
@@ -24,32 +22,29 @@ class TabBar extends Component
 
     public ?int $elevation;
 
-    public ?string $indicatorIcon;
-
     /**
      * Create a new component instance.
      *
      * @return void
      */
     public function __construct(
-        array $tabs,
+        public array $tabs,
         string $color = 'initial',
         bool $fadeIndicator = false,
-        bool $iconOnly = false,
         bool $stacked = false,
         bool $lightText = false,
         ?int $activeTabNo = null,
         ?int $elevation = null,
-        ?string $indicatorIcon = null
+
+        bool $iconOnly = false,
+        public string|array|null $indicatorIcon = null
     ) {
-        $this->tabs = $tabs;
         $this->color = $color;
         $this->isLightText = $lightText;
         $this->isFadeIndicator = $fadeIndicator;
         $this->isIconOnly = $iconOnly;
         $this->isStacked = $stacked;
         $this->activeTabNo = $activeTabNo;
-        $this->indicatorIcon = $indicatorIcon;
         $this->elevation = $elevation;
     }
 
