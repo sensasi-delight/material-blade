@@ -5,6 +5,7 @@ namespace MaterialBlade;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use MaterialBlade\Components\MbcList;
+use MaterialBlade\Components\SwitchToggle;
 
 class ServiceProvider extends BaseServiceProvider
 {
@@ -32,5 +33,6 @@ class ServiceProvider extends BaseServiceProvider
         Blade::componentNamespace('MaterialBlade\\Components', 'mbc');
 
         Blade::component('mbc::list', MbcList::class);
+        Blade::component('mbc::switch', SwitchToggle::class);
     }
 }
