@@ -25,15 +25,14 @@ class IconButton extends Component
      * @return void
      */
     public function __construct(
-        string $color,
-        string $offColor,
-        bool $disableRipple,
-        bool $withWrapper,
-        ?string $toggle,
-        // string $size = null
-
         public string|array $icon,
+        string $color = 'var(--mdc-theme-text-secondary-on-light)',
+        string $offColor = 'var(--mdc-theme-text-secondary-on-light)',
+        bool $disableRipple = false,
+        bool $withWrapper = false,
+        ?string $toggle = null,
         public string|array|null $offIcon = null
+        // string $size = null
     ) {
         $this->color = $color;
         $this->isToggle = is_null($toggle) ? null : ($toggle == 'on' ? true : false);
@@ -61,10 +60,14 @@ class IconButton extends Component
             'mdc-icon-button--on' => $this->isToggle,
         ]);
 
+        $attributes = $attributes->merge(['aria-label' => $this->icon]);
+
         if (! is_null($this->isToggle)) {
             $attributes = $attributes->merge(['aria-pressed' => $this->isToggle]);
         }
 
-        return $attributes;
+        return $attributes->merge([
+            'data-mdc-auto-init' => 'MDCRipple',
+        ]);
     }
 }
