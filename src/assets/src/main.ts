@@ -1,30 +1,49 @@
 import './main.scss'
+
+import { MDCBanner } from '@material/banner'
 import { MDCIconButtonToggle } from '@material/icon-button'
 import { MDCRipple } from '@material/ripple'
 
 document.addEventListener('DOMContentLoaded', () => {
-    import('material-components-web').then(({ autoInit }) => autoInit())
-    initIconButtons()
+    import('material-components-web').then(({ autoInit }) => {
+        autoInit()
+
+        initIconButtons()
+        initBanners()
+    })
 })
 
-// function initBanners() {
-//     document.querySelectorAll('.mdc-banner').forEach(bannerEl => {
-//         const buttons = bannerEl
-//             .querySelector('.mdc-banner__actions')
-//             .querySelectorAll('button')
-//         buttons.forEach(button =>
-//             button.classList.add('mdc-banner__primary-action'),
-//         )
+/**
+ * Initialize all banners
+ */
+function initBanners() {
+    document.querySelectorAll('.mdc-banner').forEach(bannerEl => {
+        const typedBannerEl = bannerEl as HTMLDivElement & {
+            MDCBanner: MDCBanner
+        }
 
-//         bannerEl.mdc = new mdc.banner.MDCBanner(bannerEl)
+        if (typedBannerEl.classList.contains('mbc-banner--open')) {
+            typedBannerEl.MDCBanner.open()
+        }
+    })
+}
 
-//         bannerEl.mdc.open()
+/**
+ * Initialize all icon buttons
+ */
+function initIconButtons() {
+    document.querySelectorAll('.mdc-icon-button').forEach(button => {
+        if (button.querySelector('.mdc-icon-button__icon--on')) {
+            new MDCIconButtonToggle(button)
+            return
+        }
 
-//         window.addEventListener('resize', () => {
-//             bannerEl.mdc.layout()
-//         })
-//     })
-// }
+        if (button.querySelector('.mdc-icon-button__ripple')) {
+            const temp = new MDCRipple(button)
+            temp.unbounded = true
+        }
+    })
+}
 
 // function initCards() {
 //     document
@@ -91,20 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //         el.MDCDataTable = new mdc.dataTable.MDCDataTable(el)
 //     })
 // }
-
-function initIconButtons() {
-    document.querySelectorAll('.mdc-icon-button').forEach(button => {
-        if (button.querySelector('.mdc-icon-button__icon--on')) {
-            new MDCIconButtonToggle(button)
-            return
-        }
-
-        if (button.querySelector('.mdc-icon-button__ripple')) {
-            const temp = new MDCRipple(button)
-            temp.unbounded = true
-        }
-    })
-}
 
 // function initLinearProgresses() {
 //     document.querySelectorAll('.mdc-linear-progress').forEach(el => {
