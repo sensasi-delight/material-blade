@@ -1,8 +1,11 @@
+@props(['actions'])
+
 <div {{ $attributesPreprocess($attributes) }}>
 
     @if ($isFixed)
         <div class="mdc-banner__fixed">
     @endif
+
     <div
         class="mdc-banner__content"
         role="alertdialog"
@@ -13,8 +16,8 @@
             @if ($icon)
                 <div
                     class="mdc-banner__graphic"
-                    role="img"
                     alt=""
+                    role="img"
                 >
                     <x-mbc::Icon
                         class="mdc-banner__icon"
@@ -24,14 +27,13 @@
             @endif
 
             <div class="mdc-banner__text">
-                {{ $text }}
+                {{ $slot }}
             </div>
         </div>
 
-        @if ($slot)
+        @if ($actions)
             <div class="mdc-banner__actions">
-
-                {{ $slot }}
+                {{ $actions }}
             </div>
         @endif
     </div>
@@ -39,4 +41,5 @@
     @if ($isFixed)
 </div>
 @endif
+
 </div>
