@@ -1,9 +1,3 @@
-<link
-    rel="stylesheet"
-    href="{{ route('material-blade.assets', ['main', 'css']) }}"
->
+<link rel="stylesheet" href="{{ route('material-blade.assets', ['main', 'css']) }}">
 
-<script
-    type="module"
-    src="{{ route('material-blade.assets', ['main', 'js']) }}"
-></script>
+<script type="module" src="{{ route('material-blade.assets', ['main', 'js']) }}"></script>

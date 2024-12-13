@@ -1,18 +1,16 @@
 {
     "arrowParens": "avoid",
-    "singleAttributePerLine": true,
-    "semi": false,
-    "singleQuote": true,
-    "tabWidth": 4,
-    "trailingComma": "all",
-    "plugins": ["@shufo/prettier-plugin-blade"],
+    "endOfLine": "lf",
     "overrides": [
         {
             "files": ["*.blade.php"],
             "options": {
-                "parser": "blade",
-                "tabWidth": 4
+                "parser": "blade"
             }
         }
-    ]
+    ],
+    "plugins": ["@shufo/prettier-plugin-blade"],
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 4
 }

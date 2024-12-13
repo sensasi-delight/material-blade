@@ -26,22 +26,11 @@
             $onColor = null;
         }
     @endphp
-    <x-mbc::Icon
-        class="mdc-icon-button__icon mdc-icon-button__icon--on"
-        :name="$icon"
-        :color="$onColor"
-    />
+    <x-mbc::Icon class="mdc-icon-button__icon mdc-icon-button__icon--on" :name="$icon" :color="$onColor" />
 
-    <x-mbc::Icon
-        class="mdc-icon-button__icon"
-        :name="$offIcon ?: $icon"
-        :color="$isDisabled ? null : ($offColor ?: $color)"
-    />
+    <x-mbc::Icon class="mdc-icon-button__icon" :name="$offIcon ?: $icon" :color="$isDisabled ? null : ($offColor ?: $color)" />
 @else
-    <x-mbc::Icon
-        :name="$icon"
-        :color="$isDisabled ? null : $color"
-    />
+    <x-mbc::Icon :name="$icon" :color="$isDisabled ? null : $color" />
 @endif
 
 @if ($withWrapper)
