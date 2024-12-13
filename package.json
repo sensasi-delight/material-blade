@@ -8,20 +8,25 @@
         "build": "tsc && vite build",
         "preview": "vite preview",
         "lint": "prettier --check .",
-        "lint:fix": "prettier --write ."
+        "lint:fix": "prettier --write .",
+        "check:update": "ncu",
+        "update": "ncu -u -t patch && npm update",
+        "update:minor": "ncu -u -t minor && npm update",
+        "update:major": "ncu -u && npm update"
     },
     "devDependencies": {
-        "@fontsource/material-icons": "^5.0.18",
-        "@fontsource/material-icons-outlined": "^5.0.12",
-        "@fontsource/material-icons-round": "^5.0.12",
-        "@fontsource/material-icons-sharp": "^5.0.12",
-        "@fontsource/material-icons-two-tone": "^5.0.12",
-        "@fontsource/roboto": "^5.0.13",
+        "@fontsource/material-icons": "^5.1.0",
+        "@fontsource/material-icons-outlined": "^5.1.0",
+        "@fontsource/material-icons-round": "^5.1.0",
+        "@fontsource/material-icons-sharp": "^5.1.0",
+        "@fontsource/material-icons-two-tone": "^5.1.0",
+        "@fontsource/roboto": "^5.1.0",
         "@shufo/prettier-plugin-blade": "^1.14.1",
         "material-components-web": "^14.0.0",
-        "prettier": "^3.3.2",
-        "sass": "^1.77.6",
-        "typescript": "^5.5.2",
-        "vite": "^5.3.1"
+        "npm-check-updates": "^17.1.11",
+        "prettier": "^3.4.2",
+        "sass": "^1.83.0",
+        "typescript": "^5.7.2",
+        "vite": "^6.0.3"
     }
 }
