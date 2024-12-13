@@ -2,15 +2,15 @@
 
 Material Blade is a simple package that provides the beautifulness of Google [Material Design](https://material.io/) components as Laravel Blade components. Material Blade aims to make UI/UX development of your Laravel app faster, inspired by [Material UI](https://mui.com/).
 
+> ![WARNING]
+> This package is still under development, please contribute to make it release faster.
+
 ```html
 <!-- from this -->
 <button class="mdc-button">
     <span class="mdc-button__ripple"></span>
     <span class="mdc-button__label">This is a Button</span>
 </button>
-
-<!-- to this -->
-<x-MaterialBlade::button label="This is a Button" />
 
 <!-- or this for more shorter -->
 <x-mbc::button label="This is a Button" />
@@ -20,12 +20,11 @@ General knowledge of Laravel and Blade components i'ts required for using this p
 
 > The examples of package usages can be seen on [this repository](https://github.com/sensasi-delight/material-blade-demo).
 
-## Status
+## Components
 
-This package is still under development, please contribute to make it release faster. The status of [Material Design Web components](https://material.io/components?platform=web) that implemented on this package are shown on the list below.
+The status of [Material Design Web components (v2)](https://m2.material.io/components?platform=web) that implemented on this package are shown on the list below:
 
-### Components
-
+- [x] Alert
 - [x] App bar: Top
 - [x] Banner
 - [x] Button
@@ -39,7 +38,7 @@ This package is still under development, please contribute to make it release fa
 - [ ] Dialog
 - [x] Icon
 - [ ] Image list
-- [ ] List
+- [x] List
 - [ ] Menu
 - [ ] Navigation drawer
 - [x] Progress indicator
@@ -68,15 +67,29 @@ The implementation of these components below are not supported by default for Ma
 - Sheet: side
 - Time picker
 
+## Development
+
+To contribute to this project, you can clone this repository and install the dependencies by running the command below:
+
+```bash
+git clone https://github.com/sensasi-delight/material-blade
+cd material-blade
+composer install
+npm install
+npm run dev
+```
+
 ## Installation
 
-Material Blade is available on [packagist.org](https://packagist.org/packages/sensasi-delight/material-blade), You can import the package to your Laravel project using Composer by command-line below:
+Material Blade is available on [packagist.org](https://packagist.org/packages/sensasi-delight/material-blade), You can install the Material Blade to your Laravel project using Composer by command-line below:
 
 ```bash
 composer require sensasi-delight/material-blade
 ```
 
-After Material Blade has installed on your Laravel project, you have to [registering](https://laravel.com/docs/8.x/providers#registering-providers) the `MaterialBlade\ComponentProvider::class` to the app providers.
+<!-- TODO check auto-discovery on laravel 8.x -->
+
+<!-- After Material Blade has been installed on your Laravel project, you have to [registering](https://laravel.com/docs/8.x/providers#registering-providers) the `MaterialBlade\ComponentProvider::class` to the app providers.
 
 ```php
 // config/app.php
@@ -86,9 +99,9 @@ After Material Blade has installed on your Laravel project, you have to [registe
 
     MaterialBlade\ComponentProvider::class,
 ];
-```
+``` -->
 
-Next step, you must includes once the `<x-MaterialBlade::_assets />` inside `<head>` on your `view`. That's it‼, now you can use the Material Blade components on your `view`🎉. Your `view` should look like code below.
+Next step, you must includes once the `<x-mbc::_assets />` inside `<head>` on your `view`. That's it‼, now you can use the Material Blade components on your `view`🎉. Your `view` should look like code below.
 
 ```html
 <!doctype html>
@@ -100,12 +113,12 @@ Next step, you must includes once the `<x-MaterialBlade::_assets />` inside `<he
         <title>Material Blade Example</title>
 
         <!-- Material Blade required assets -->
-        <x-MaterialBlade::_assets />
+        <x-mbc::_assets />
     </head>
 
     <body>
         <!-- this is Material Blade component -->
-        <x-MaterialBlade::button label="This is a Button" />
+        <x-mbc::button label="This is a Button" />
     </body>
 </html>
 ```
