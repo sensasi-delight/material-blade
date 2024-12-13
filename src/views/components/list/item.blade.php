@@ -5,18 +5,9 @@
 
     @if ($startIcon)
         @if (filter_var($startIcon, FILTER_VALIDATE_URL))
-            <img
-                src="{{ $startIcon }}"
-                class="mdc-deprecated-list-item__graphic"
-                alt="icon"
-            >
+            <img src="{{ $startIcon }}" class="mdc-deprecated-list-item__graphic" alt="icon">
         @else
-            <x-mbc::icon
-                aria-hidden="true"
-                :name="$startIcon"
-                class="mdc-deprecated-list-item__graphic"
-                element="span"
-            />
+            <x-mbc::icon aria-hidden="true" :name="$startIcon" class="mdc-deprecated-list-item__graphic" element="span" />
         @endif
     @endif
 
@@ -37,18 +28,9 @@
     @if ($endIcon)
 
         @if (filter_var($endIcon, FILTER_VALIDATE_URL))
-            <img
-                src="{{ $endIcon }}"
-                class="mdc-deprecated-list-item__meta"
-                alt="icon"
-            >
+            <img src="{{ $endIcon }}" class="mdc-deprecated-list-item__meta" alt="icon">
         @else
-            <x-mbc::icon
-                aria-hidden="true"
-                :name="$endIcon"
-                class="mdc-deprecated-list-item__meta"
-                element="span"
-            />
+            <x-mbc::icon aria-hidden="true" :name="$endIcon" class="mdc-deprecated-list-item__meta" element="span" />
         @endif
     @endif
 

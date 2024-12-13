@@ -9,21 +9,13 @@
     @endif
 
     @if ($startIcon)
-        <x-mbc::Icon
-            :name="$startIcon"
-            class="mdc-button__icon"
-            aria-hidden="true"
-        />
+        <x-mbc::Icon :name="$startIcon" class="mdc-button__icon" aria-hidden="true" />
     @endif
 
     <span class="mdc-button__label">{{ $label ?: $slot }}</span>
 
     @if ($endIcon)
-        <x-mbc::Icon
-            :name="$endIcon"
-            class="mdc-button__icon"
-            aria-hidden="true"
-        />
+        <x-mbc::Icon :name="$endIcon" class="mdc-button__icon" aria-hidden="true" />
     @endif
 
     </{{ $getHtmlTag($attributes) }}>

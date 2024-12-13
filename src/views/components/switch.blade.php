@@ -10,19 +10,11 @@
             @if ($icon || $offIcon)
                 <div class="mdc-switch__icons">
                     @if ($icon)
-                        <x-mbc::Icon
-                            class="mdc-switch__icon mdc-switch__icon--on"
-                            color="#fff"
-                            :name="$icon"
-                        />
+                        <x-mbc::Icon class="mdc-switch__icon mdc-switch__icon--on" color="#fff" :name="$icon" />
                     @endif
 
                     @if ($offIcon)
-                        <x-mbc::Icon
-                            class="mdc-switch__icon mdc-switch__icon--off"
-                            color="#fff"
-                            :name="$offIcon"
-                        />
+                        <x-mbc::Icon class="mdc-switch__icon mdc-switch__icon--off" color="#fff" :name="$offIcon" />
                     @endif
                 </div>
             @endif

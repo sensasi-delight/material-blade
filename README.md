@@ -26,47 +26,47 @@ This package is still under development, please contribute to make it release fa
 
 ### Components
 
--   [x] App bar: Top
--   [x] Banner
--   [x] Button
-    -   [x] Basic Button
-    -   [x] Floating Action Button
-    -   [x] Icon Button
--   [x] Card
--   [x] Checkbox
--   [x] Chip
--   [x] Data table
--   [ ] Dialog
--   [x] Icon
--   [ ] Image list
--   [ ] List
--   [ ] Menu
--   [ ] Navigation drawer
--   [x] Progress indicator
-    -   [x] Linear Progress
-    -   [x] Circular Progress
--   [ ] Radio button
--   [ ] Slider
--   [x] Snackbar
--   [x] Switch
--   [x] Tab Bar
--   [ ] Text field
--   [x] Tooltip
--   [x] Typography
+- [x] App bar: Top
+- [x] Banner
+- [x] Button
+    - [x] Basic Button
+    - [x] Floating Action Button
+    - [x] Icon Button
+- [x] Card
+- [x] Checkbox
+- [x] Chip
+- [x] Data table
+- [ ] Dialog
+- [x] Icon
+- [ ] Image list
+- [ ] List
+- [ ] Menu
+- [ ] Navigation drawer
+- [x] Progress indicator
+    - [x] Linear Progress
+    - [x] Circular Progress
+- [ ] Radio button
+- [ ] Slider
+- [x] Snackbar
+- [x] Switch
+- [x] Tab Bar
+- [ ] Text field
+- [x] Tooltip
+- [x] Typography
 
 ### Unsupported Components
 
 The implementation of these components below are not supported by default for Material Design Web.
 
--   App bar: bottom
--   Backdrop
--   Bottom navigation
--   Date picker
--   Divider
--   Navigation rail
--   Sheet: bottom
--   Sheet: side
--   Time picker
+- App bar: bottom
+- Backdrop
+- Bottom navigation
+- Date picker
+- Divider
+- Navigation rail
+- Sheet: bottom
+- Sheet: side
+- Time picker
 
 ## Installation
 
@@ -95,14 +95,8 @@ Next step, you must includes once the `<x-MaterialBlade::_assets />` inside `<he
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-        />
-        <meta
-            http-equiv="X-UA-Compatible"
-            content="ie=edge"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Material Blade Example</title>
 
         <!-- Material Blade required assets -->
