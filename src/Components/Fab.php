@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MaterialBlade\Components;
 
 use Illuminate\View\Component;
@@ -14,7 +16,7 @@ use MaterialBlade\Helper;
  * @see https://github.com/material-components/material-components-web/blob/v14.0.0/packages/mdc-fab/README.md
  * @see https://material-components.github.io/material-components-web-catalog/#/component/fab
  */
-class FAB extends Component
+class Fab extends Component
 {
     private Variant $variant;
 
