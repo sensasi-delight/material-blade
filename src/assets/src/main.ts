@@ -165,12 +165,6 @@ function initMenus() {
 //     })
 // }
 
-// function initTooltips() {
-//     document.querySelectorAll('.mdc-tooltip').forEach(el => {
-//         el.MBC = new mdc.tooltip.MDCTooltip(el)
-//     })
-// }
-
 // document.addEventListener('DOMContentLoaded', () => {
 //     initBanners()
 //     initButtons()
@@ -184,5 +178,4 @@ function initMenus() {
 //     initSnackbars()
 //     initSwitches()
 //     initTabBars()
-//     initTooltips()
 // })
