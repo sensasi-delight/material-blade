@@ -151,12 +151,6 @@ function initMenus() {
 //     })
 // }
 
-// function initTabBars() {
-//     document.querySelectorAll('.mdc-tab-bar').forEach(el => {
-//         el.MDCTabBar = new mdc.tabBar.MDCTabBar(el)
-//     })
-// }
-
 // document.addEventListener('DOMContentLoaded', () => {
 //     initButtons()
 //     initChipSets()
@@ -167,5 +161,4 @@ function initMenus() {
 //     initLinearProgresses()
 //     initSnackbars()
 //     initSwitches()
-//     initTabBars()
 // })

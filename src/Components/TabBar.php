@@ -1,11 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MaterialBlade\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 use MaterialBlade\Helper;
 
+/**
+ * @see https://mui.com/material-ui/react-tabs/
+ * @see https://m2.material.io/components/tabs/web
+ * @see https://github.com/material-components/material-components-web/tree/v14.0.0/packages/mdc-tab-bar
+ * @see https://material-components.github.io/material-components-web-catalog/#/component/tabs
+ */
 class TabBar extends Component
 {
     public string $color;
@@ -60,11 +68,16 @@ class TabBar extends Component
 
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
+        $mergeAttributes = [
+            'data-mdc-auto-init' => 'MDCTabBar',
+            'role' => 'tablist',
+        ];
+
         if ($this->color !== 'initial') {
-            $attributes = $attributes->merge(['style' => $attributes->prepends('background-color: '.Helper::getColor($this->color))]);
+            $mergeAttributes['style'] = $attributes->prepends('background-color: '.Helper::getColor($this->color));
         }
 
-        $attributes = $attributes->merge(['role' => 'tablist']);
+        $attributes = $attributes->merge($mergeAttributes);
 
         return $attributes->class([
             'mdc-tab-bar',
