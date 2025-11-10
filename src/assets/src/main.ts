@@ -145,12 +145,6 @@ function initMenus() {
 //     })
 // }
 
-// function initSwitches() {
-//     document.querySelectorAll('.mdc-switch').forEach(el => {
-//         el.MDCSwitch = new mdc.switchControl.MDCSwitch(el)
-//     })
-// }
-
 // document.addEventListener('DOMContentLoaded', () => {
 //     initButtons()
 //     initChipSets()
@@ -160,5 +154,4 @@ function initMenus() {
 //     initIconButtons()
 //     initLinearProgresses()
 //     initSnackbars()
-//     initSwitches()
 // })
