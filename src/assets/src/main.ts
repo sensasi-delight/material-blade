@@ -79,26 +79,6 @@ function initMenus() {
     })
 }
 
-// function initCards() {
-//     document
-//         .querySelectorAll('.mdc-card__action-buttons button')
-//         .forEach(el => {
-//             el.classList.add('mdc-card__action', 'mdc-card__action--button')
-//         })
-
-//     document
-//         .querySelectorAll(
-//             '.mdc-card__action-icons button, .mdc-card__action-icons a',
-//         )
-//         .forEach(el => {
-//             el.classList.add('mdc-card__action', 'mdc-card__action--icon')
-//         })
-
-//     document.querySelectorAll('.mdc-card__primary-action').forEach(el => {
-//         mdc.ripple.MDCRipple.attachTo(el)
-//     })
-// }
-
 // function initCheckBoxes() {
 //     document.querySelectorAll('.mdc-checkbox').forEach(el => {
 //         const checkbox = new mdc.checkbox.MDCCheckbox(el)
@@ -194,7 +174,6 @@ function initMenus() {
 // document.addEventListener('DOMContentLoaded', () => {
 //     initBanners()
 //     initButtons()
-//     initCards()
 //     initCheckBoxes()
 //     initChipSets()
 //     initCircularProgresses()
