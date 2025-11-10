@@ -15,3 +15,7 @@
         {{ $slot }}
     </div>
 </aside>
+
+@if ($isModal())
+    <div class="mdc-drawer-scrim"></div>
+@endif

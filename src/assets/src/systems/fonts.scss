@@ -8,13 +8,15 @@
 @use '@fontsource/material-icons-round';
 @use '@fontsource/material-icons-sharp';
 
+@use 'sass:string';
+
 @function str-replace($string, $search, $replace: '') {
-    $index: str-index($string, $search);
+    $index: string.index($string, $search);
 
     @if $index {
-        @return str-slice($string, 1, $index - 1) + $replace +
+        @return string.slice($string, 1, $index - 1) + $replace +
             str-replace(
-                str-slice($string, $index + str-length($search)),
+                string.slice($string, $index + string.length($search)),
                 $search,
                 $replace
             );
@@ -27,7 +29,7 @@ $material-icon-families: 'Material Icons', 'Material Icons Outlined',
     'Material Icons Two Tone', 'Material Icons Round', 'Material Icons Sharp';
 
 @each $family in $material-icon-families {
-    .#{str-replace(to-lower-case($family), ' ', '-')} {
+    .#{str-replace(string.to-lower-case($family), ' ', '-')} {
         font-family: #{$family};
         font-weight: normal;
         font-style: normal;

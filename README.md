@@ -35,21 +35,21 @@ The status of [Material Design Web components (v2)](https://m2.material.io/compo
 - [x] Checkbox
 - [x] Chip
 - [x] Data table
-- [ ] Dialog
+- [x] Dialog
 - [x] Icon
-- [ ] Image list
+- [x] Image list
 - [x] List
-- [ ] Menu
-- [ ] Navigation drawer
+- [x] Menu
+- [x] Navigation drawer
 - [x] Progress indicator
     - [x] Linear Progress
     - [x] Circular Progress
-- [ ] Radio button
-- [ ] Slider
+- [x] Radio button
+- [x] Slider
 - [x] Snackbar
 - [x] Switch
 - [x] Tab Bar
-- [ ] Text field
+- [x] Text field
 - [x] Tooltip
 - [x] Typography
 

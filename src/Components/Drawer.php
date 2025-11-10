@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MaterialBlade\Components;
 
 use Illuminate\View\Component;
@@ -57,5 +59,10 @@ class Drawer extends Component
             'mdc-drawer--modal' => $this->variant === Variant::MODAL,
             'mdc-drawer--dismissible' => $this->variant === Variant::DISMISSIBLE,
         ]);
+    }
+
+    public function isModal(): bool
+    {
+        return $this->variant === Variant::MODAL;
     }
 }
