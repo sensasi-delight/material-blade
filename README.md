@@ -49,7 +49,7 @@ The status of [Material Design Web components (v2)](https://m2.material.io/compo
 - [x] Snackbar
 - [x] Switch
 - [x] Tab Bar
-- [ ] Text field
+- [x] Text field
 - [x] Tooltip
 - [x] Typography
 
