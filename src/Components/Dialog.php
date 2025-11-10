@@ -1,4 +1,6 @@
-<?php declare(strict_types=1); 
+<?php
+
+declare(strict_types=1);
 
 namespace MaterialBlade\Components;
 
@@ -52,7 +54,6 @@ class Dialog extends Component
     /**
      * Preprocess attributes for the dialog container
      *
-     * @param  ComponentAttributeBag  $attributes
      * @return ComponentAttributeBag
      */
     public function attributesPreprocess(ComponentAttributeBag $attributes)

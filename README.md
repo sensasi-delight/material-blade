@@ -35,9 +35,9 @@ The status of [Material Design Web components (v2)](https://m2.material.io/compo
 - [x] Checkbox
 - [x] Chip
 - [x] Data table
-- [ ] Dialog
+- [x] Dialog
 - [x] Icon
-- [ ] Image list
+- [x] Image list
 - [x] List
 - [ ] Menu
 - [ ] Navigation drawer
