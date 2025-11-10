@@ -44,7 +44,7 @@ The status of [Material Design Web components (v2)](https://m2.material.io/compo
 - [x] Progress indicator
     - [x] Linear Progress
     - [x] Circular Progress
-- [ ] Radio button
+- [x] Radio button
 - [ ] Slider
 - [x] Snackbar
 - [x] Switch
