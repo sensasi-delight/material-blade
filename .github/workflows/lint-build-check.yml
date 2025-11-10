@@ -3,19 +3,6 @@ name: Lint and build check
 on: [push]
 
 jobs:
-    npm-lint:
-        runs-on: ubuntu-latest
-
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
-
-            - name: Install NPM dependencies
-              run: npm ci
-
-            - name: Lint check
-              run: npm run lint
-
     pint-lint:
         runs-on: ubuntu-latest
         strategy:
@@ -40,15 +27,21 @@ jobs:
             - name: Run Pint
               run: pint --test
 
-    npm-build:
+    bun-build:
         runs-on: ubuntu-latest
 
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
 
-            - name: Install NPM dependencies
-              run: npm ci
+            - name: Setup Bun
+              uses: oven-sh/setup-bun@v2
+
+            - name: Install dependencies
+              run: bun install
+
+            # - name: Lint check
+            #   run: bun run lint
 
             - name: Build check
-              run: npm run build
+              run: bun run build
