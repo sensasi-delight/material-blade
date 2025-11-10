@@ -11,16 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
         autoInit()
 
         initIconButtons()
-        initBanners()
+        autoOpenBanner()
         initDialogs()
         initMenus()
     })
 })
 
 /**
- * Initialize all banners
+ * Auto open all banners with the `mbc-banner--open` class
  */
-function initBanners() {
+function autoOpenBanner() {
     document.querySelectorAll('.mdc-banner').forEach(bannerEl => {
         const typedBannerEl = bannerEl as HTMLDivElement & {
             MDCBanner: MDCBanner
@@ -158,7 +158,6 @@ function initMenus() {
 // }
 
 // document.addEventListener('DOMContentLoaded', () => {
-//     initBanners()
 //     initButtons()
 //     initChipSets()
 //     initCircularProgresses()
