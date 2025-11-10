@@ -1,6 +1,7 @@
 import './main.scss'
 
 import { MDCBanner } from '@material/banner'
+import { MDCDialog } from '@material/dialog'
 import { MDCIconButtonToggle } from '@material/icon-button'
 import { MDCRipple } from '@material/ripple'
 
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         initIconButtons()
         initBanners()
+        initDialogs()
     })
 })
 
@@ -41,6 +43,21 @@ function initIconButtons() {
         if (button.querySelector('.mdc-icon-button__ripple')) {
             const temp = new MDCRipple(button)
             temp.unbounded = true
+        }
+    })
+}
+
+/**
+ * Initialize all dialogs
+ */
+function initDialogs() {
+    document.querySelectorAll('.mdc-dialog').forEach(dialogEl => {
+        const typedDialogEl = dialogEl as HTMLDivElement & {
+            MDCDialog: MDCDialog
+        }
+
+        if (typedDialogEl.classList.contains('mdc-dialog--open')) {
+            typedDialogEl.MDCDialog.open()
         }
     })
 }
