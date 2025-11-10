@@ -1,7 +1,5 @@
-<div class="mdc-form-field">
-    <div class="mdc-checkbox 
-    {{ $attributes->has('disabled') ? 'mdc-checkbox--disabled' : null }}
-    ">
+<div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
+    <div @foreach ($wrapperAttributesPreprocess($attributes) as $key => $value) {{ $key }}="{{ $value }}" @endforeach>
         <input {{ $attributesPreprocess($attributes) }} />
         <div class="mdc-checkbox__background"
             style="--mdc-checkbox-checked-color: {{ MaterialBlade\Helper::getColor($color) }}">

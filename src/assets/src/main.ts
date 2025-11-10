@@ -79,14 +79,6 @@ function initMenus() {
     })
 }
 
-// function initCheckBoxes() {
-//     document.querySelectorAll('.mdc-checkbox').forEach(el => {
-//         const checkbox = new mdc.checkbox.MDCCheckbox(el)
-//         const formField = new mdc.formField.MDCFormField(el.parentElement)
-//         formField.input = checkbox
-//     })
-// }
-
 // function initChipSets() {
 //     document.querySelectorAll('.mdc-chip-set').forEach(el => {
 //         el.MDCChipSet = new mdc.chips.MDCChipSet(el)
@@ -168,7 +160,6 @@ function initMenus() {
 // document.addEventListener('DOMContentLoaded', () => {
 //     initBanners()
 //     initButtons()
-//     initCheckBoxes()
 //     initChipSets()
 //     initCircularProgresses()
 //     initDataTables()
