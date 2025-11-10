@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MaterialBlade;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use MaterialBlade\Components\Drawer;
 use MaterialBlade\Components\MbcList;
 use MaterialBlade\Components\SwitchToggle;
 
@@ -34,5 +37,6 @@ class ServiceProvider extends BaseServiceProvider
 
         Blade::component('mbc::list', MbcList::class);
         Blade::component('mbc::switch', SwitchToggle::class);
+        Blade::component('mbc::navigation-drawer', Drawer::class);
     }
 }

@@ -40,7 +40,7 @@ The status of [Material Design Web components (v2)](https://m2.material.io/compo
 - [x] Image list
 - [x] List
 - [x] Menu
-- [ ] Navigation drawer
+- [x] Navigation drawer
 - [x] Progress indicator
     - [x] Linear Progress
     - [x] Circular Progress
