@@ -1,12 +1,12 @@
 import './main.scss'
 
-import { MDCBanner } from '@material/banner'
-import { MDCDialog } from '@material/dialog'
+import type { MDCBanner } from '@material/banner'
+import type { MDCDialog } from '@material/dialog'
 import type { MDCSnackbar } from '@material/snackbar'
 import type { MDCCircularProgress } from '@material/circular-progress'
-import { MDCIconButtonToggle } from '@material/icon-button'
-import { MDCMenu } from '@material/menu'
+import type { MDCMenu } from '@material/menu'
 import { MDCRipple } from '@material/ripple'
+import { MDCIconButtonToggle } from '@material/icon-button'
 
 document.addEventListener('DOMContentLoaded', () => {
     import('material-components-web').then(({ autoInit }) => {
