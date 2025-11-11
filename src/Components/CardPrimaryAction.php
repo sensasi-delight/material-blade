@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MaterialBlade\Components;
 
 use Illuminate\View\Component;
@@ -26,7 +28,10 @@ class CardPrimaryAction extends Component
 
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
-        $attributes = $attributes->merge(['tabindex' => 0]);
+        $attributes = $attributes->merge([
+            'tabindex' => 0,
+            'data-mdc-auto-init' => 'MDCRipple',
+        ]);
 
         return $attributes->class([
             'mdc-card__primary-action',

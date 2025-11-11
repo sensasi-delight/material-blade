@@ -2,8 +2,8 @@
     <div class="mdc-touch-target-wrapper">
 @endif
 
-<div class="mdc-form-field">
-    <div class="mdc-radio {{ $attributes->has('disabled') ? 'mdc-radio--disabled' : '' }} {{ $touch ? 'mdc-radio--touch' : '' }}">
+<div class="mdc-form-field" data-mdc-auto-init="MDCFormField">
+    <div @foreach ($wrapperAttributesPreprocess($attributes) as $key => $value) {{ $key }}="{{ $value }}" @endforeach>
         <input {{ $attributesPreprocess($attributes) }}>
         <div class="mdc-radio__background" style="--mdc-radio-selected-color: {{ MaterialBlade\Helper::getColor($color) }}">
             <div class="mdc-radio__outer-circle"></div>

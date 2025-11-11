@@ -1,10 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MaterialBlade\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
+/**
+ * @see https://mui.com/material-ui/react-chip/
+ * @see https://m2.material.io/components/chips/web
+ * @see https://github.com/material-components/material-components-web/tree/v14.0.0/packages/mdc-chips/deprecated
+ * @see https://material-components.github.io/material-components-web-catalog/#/component/chips
+ */
 class ChipSet extends Component
 {
     public string $variant;
@@ -32,7 +40,10 @@ class ChipSet extends Component
 
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
-        $attributes = $attributes->merge(['role' => 'grid']);
+        $attributes = $attributes->merge([
+            'data-mdc-auto-init' => 'MDCChipSet',
+            'role' => 'grid',
+        ]);
 
         return $attributes->class([
             'mdc-chip-set',

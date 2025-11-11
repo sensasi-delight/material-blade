@@ -54,4 +54,17 @@ class Radio extends Component
             'mdc-radio__native-control',
         ]);
     }
+
+    /**
+     * Preprocess attributes for the radio wrapper
+     *
+     * @return ComponentAttributeBag
+     */
+    public function wrapperAttributesPreprocess(ComponentAttributeBag $attributes)
+    {
+        return new ComponentAttributeBag([
+            'class' => 'mdc-radio '.($attributes->has('disabled') ? 'mdc-radio--disabled ' : '').($this->touch ? 'mdc-radio--touch' : ''),
+            'data-mdc-auto-init' => 'MDCRadio',
+        ]);
+    }
 }

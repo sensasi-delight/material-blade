@@ -1,17 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MaterialBlade\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
+/**
+ * @see https://mui.com/material-ui/react-tooltip/
+ * @see https://m2.material.io/components/tooltips/web
+ * @see https://github.com/material-components/material-components-web/tree/v14.0.0/packages/mdc-tooltip
+ * @see https://material-components.github.io/material-components-web-catalog/#/component/tooltip
+ */
 class Tooltip extends Component
 {
     public ?string $title;
 
     public string $id;
 
-    public string $isPersistent;
+    public bool $isPersistent;
     // public $size;
 
     /**
@@ -76,16 +84,19 @@ class Tooltip extends Component
      */
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
+        $mergeAttributes = [
+            'data-mdc-auto-init' => 'MDCTooltip',
+        ];
+
         if ($this->isPersistent) {
-            $attributes = $attributes->merge([
-                'tabindex' => -1,
-                'data-mdc-tooltip-persistent' => 'true',
-            ]);
+            $mergeAttributes['tabindex'] = -1;
+            $mergeAttributes['data-mdc-tooltip-persistent'] = 'true';
         }
 
         return $attributes->class([
             'mdc-tooltip',
         ])->merge([
+            ...$mergeAttributes,
             'id' => $this->id,
             'role' => $attributes->prepends($this->isPersistent ? 'dialog' : 'tooltip'),
             'aria-hidden' => $attributes->prepends('true'),

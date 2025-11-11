@@ -1,11 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MaterialBlade\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 use MaterialBlade\Helper;
 
+/**
+ * @see https://mui.com/material-ui/react-switch/
+ * @see https://m2.material.io/components/switches/web
+ * @see https://github.com/material-components/material-components-web/tree/v14.0.0/packages/mdc-switch
+ * @see https://material-components.github.io/material-components-web-catalog/#/component/switch
+ */
 class SwitchToggle extends Component
 {
     public string $color;
@@ -43,15 +51,18 @@ class SwitchToggle extends Component
 
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
-        $attributes = $attributes->merge([
+        $mergeAttributes = [
+            'data-mdc-auto-init' => 'MDCSwitch',
             'type' => 'button',
             'role' => 'switch',
             'aria-checked' => $this->isOn,
-        ]);
+        ];
 
         if ($this->color !== 'primary') {
-            $attributes = $attributes->merge(['style' => $attributes->prepends('--mdc-theme-primary: '.Helper::getColor($this->color))]);
+            $mergeAttributes['style'] = $attributes->prepends('--mdc-theme-primary: '.Helper::getColor($this->color));
         }
+
+        $attributes = $attributes->merge($mergeAttributes);
 
         return $attributes->class([
             'mdc-switch',

@@ -1,11 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MaterialBlade\Components;
 
 use Illuminate\Support\HtmlString;
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
+/**
+ * @see https://mui.com/material-ui/react-snackbar/
+ * @see https://m2.material.io/components/snackbars/web
+ * @see https://github.com/material-components/material-components-web/tree/v14.0.0/packages/mdc-snackbar
+ * @see https://material-components.github.io/material-components-web-catalog/#/component/snackbar
+ */
 class Snackbar extends Component
 {
     public string $variant;
@@ -35,7 +43,7 @@ class Snackbar extends Component
         return 'mbv::snackbar';
     }
 
-    public function validateComponent(HtmlString $slot)
+    public function validateComponent(string|HtmlString $slot)
     {
         if (! $this->message && $slot->isEmpty()) {
             throw new \Exception('Please fill the "message" attribute or the component slot', 1);
@@ -44,6 +52,10 @@ class Snackbar extends Component
 
     public function attributesPreprocess(ComponentAttributeBag $attributes)
     {
+        $attributes = $attributes->merge([
+            'data-mdc-auto-init' => 'MDCSnackbar',
+        ]);
+
         return $attributes->class([
             'mdc-snackbar',
             "mdc-snackbar--$this->variant" => $this->variant !== 'default',

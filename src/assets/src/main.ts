@@ -1,9 +1,12 @@
 import './main.scss'
 
-import { MDCBanner } from '@material/banner'
-import { MDCDialog } from '@material/dialog'
+import type { MDCBanner } from '@material/banner'
+import type { MDCCircularProgress } from '@material/circular-progress'
+import type { MDCDialog } from '@material/dialog'
+import type { MDCLinearProgress } from '@material/linear-progress'
+import type { MDCMenu } from '@material/menu'
+import type { MDCSnackbar } from '@material/snackbar'
 import { MDCIconButtonToggle } from '@material/icon-button'
-import { MDCMenu } from '@material/menu'
 import { MDCRipple } from '@material/ripple'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,16 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
         autoInit()
 
         initIconButtons()
-        initBanners()
+        autoOpenBanner()
         initDialogs()
         initMenus()
+        initSnackbars()
+        initChipSets()
+        setCircularProgressValues()
+        setLinearProgressValues()
     })
 })
 
 /**
- * Initialize all banners
+ * Auto open all banners with the `mbc-banner--open` class
  */
-function initBanners() {
+function autoOpenBanner() {
     document.querySelectorAll('.mdc-banner').forEach(bannerEl => {
         const typedBannerEl = bannerEl as HTMLDivElement & {
             MDCBanner: MDCBanner
@@ -79,131 +86,65 @@ function initMenus() {
     })
 }
 
-// function initCards() {
-//     document
-//         .querySelectorAll('.mdc-card__action-buttons button')
-//         .forEach(el => {
-//             el.classList.add('mdc-card__action', 'mdc-card__action--button')
-//         })
+/**
+ * TODO: IMPLEMENT REMOVE FUNCTIONALITY. see https://github.com/material-components/material-components-web/blob/v14.0.0/packages/mdc-chips/deprecated/README.md#removing-chips-from-the-dom.
+ * TODO: IMPLEMENT ADD FUNCTIONALITY, https://github.com/material-components/material-components-web/blob/v14.0.0/packages/mdc-chips/deprecated/README.md#removing-chips-from-the-dom.
+ */
+function initChipSets() {
 
-//     document
-//         .querySelectorAll(
-//             '.mdc-card__action-icons button, .mdc-card__action-icons a',
-//         )
-//         .forEach(el => {
-//             el.classList.add('mdc-card__action', 'mdc-card__action--icon')
-//         })
+}
 
-//     document.querySelectorAll('.mdc-card__primary-action').forEach(el => {
-//         mdc.ripple.MDCRipple.attachTo(el)
-//     })
-// }
+/**
+ * Set the progress values for all circular progress indicators
+ */
+function setCircularProgressValues() {
+    document.querySelectorAll('.mdc-circular-progress').forEach((el) => {
+        const typedEl = el as HTMLDivElement & {
+            MDCCircularProgress: MDCCircularProgress
+        }
 
-// function initCheckBoxes() {
-//     document.querySelectorAll('.mdc-checkbox').forEach(el => {
-//         const checkbox = new mdc.checkbox.MDCCheckbox(el)
-//         const formField = new mdc.formField.MDCFormField(el.parentElement)
-//         formField.input = checkbox
-//     })
-// }
+        console.log(typedEl.ariaValueNow);
 
-// function initChipSets() {
-//     document.querySelectorAll('.mdc-chip-set').forEach(el => {
-//         el.MDCChipSet = new mdc.chips.MDCChipSet(el)
+        if (typedEl.dataset.value) {
+            typedEl.MDCCircularProgress.progress = parseFloat(typedEl.dataset.value)
+        }
+    })
+}
 
-//         el.MDCChipSet.listen('MDCChip:removal', event => {
-//             console.log(event)
-//             el.removeChild(event.detail.root)
-//         })
-//     })
+/**
+ * Set the progress values for all linear progress indicators
+ */
+function setLinearProgressValues() {
+    document.querySelectorAll('.mdc-linear-progress').forEach(el => {
+        const typedEl = el as HTMLDivElement & {
+            MDCLinearProgress: MDCLinearProgress
+        }
 
-//     // TODO: Add event listener for adding chips
-//     // input.addEventListener('keydown', function(event) {
-//     //     if (event.key === 'Enter' || event.keyCode === 13) {
-//     //         const chipEl = document.createElement('div')
+        if (typedEl.dataset.value) {
+            typedEl.MDCLinearProgress.progress = parseFloat(typedEl.dataset.value)
+        }
 
-//     //         // ... perform operations to properly populate/decorate chip element ...
-//     //         chipSetEl.appendChild(chipEl)
-//     //         chipSet.addChip(chipEl)
-//     //     }
-//     // })
-// }
+        if (typedEl.dataset.bufferValue) {
+            typedEl.MDCLinearProgress.buffer = parseFloat(typedEl.dataset.bufferValue)
+        }
+    })
+}
 
-// function initCircularProgresses() {
-//     document.querySelectorAll('.mdc-circular-progress').forEach(el => {
-//         el.circularProgress = new mdc.circularProgress.MDCCircularProgress(el)
+function initSnackbars() {
+    document.querySelectorAll('.mdc-snackbar').forEach(el => {
+        const typedEl = el as HTMLDivElement & {
+            MDCSnackbar: MDCSnackbar
+        }
 
-//         if ((value = el.getAttribute('aria-valuenow'))) {
-//             el.circularProgress.progress = value
-//         }
-//     })
-// }
+        if (el.hasAttribute('timeout')) {
+            const timeoutValue = el.getAttribute('timeout')
+            if (timeoutValue !== null) {
+                typedEl.MDCSnackbar.timeoutMs = parseInt(timeoutValue, 10)
+            }
+        }
 
-// function initDataTables() {
-//     document.querySelectorAll('.mdc-data-table').forEach(el => {
-//         el.MDCDataTable = new mdc.dataTable.MDCDataTable(el)
-//     })
-// }
-
-// function initLinearProgresses() {
-//     document.querySelectorAll('.mdc-linear-progress').forEach(el => {
-//         el.linearProgress = new mdc.linearProgress.MDCLinearProgress(el)
-
-//         if ((value = el.getAttribute('aria-valuenow'))) {
-//             el.linearProgress.progress = value
-//         }
-
-//         if (el.dataset.bufferValue && el.dataset.bufferValue != 1) {
-//             el.linearProgress.buffer = el.dataset.bufferValue
-//         }
-//     })
-// }
-
-// function initSnackbars() {
-//     document.querySelectorAll('.mdc-snackbar').forEach(el => {
-//         el.MDCSnackbar = new mdc.snackbar.MDCSnackbar(el)
-
-//         if (el.hasAttribute('timeout')) {
-//             el.MDCSnackbar.foundation.setTimeoutMs(el.getAttribute('timeout'))
-//         }
-
-//         if (el.hasAttribute('open')) {
-//             el.MDCSnackbar.open()
-//         }
-//     })
-// }
-
-// function initSwitches() {
-//     document.querySelectorAll('.mdc-switch').forEach(el => {
-//         el.MDCSwitch = new mdc.switchControl.MDCSwitch(el)
-//     })
-// }
-
-// function initTabBars() {
-//     document.querySelectorAll('.mdc-tab-bar').forEach(el => {
-//         el.MDCTabBar = new mdc.tabBar.MDCTabBar(el)
-//     })
-// }
-
-// function initTooltips() {
-//     document.querySelectorAll('.mdc-tooltip').forEach(el => {
-//         el.MBC = new mdc.tooltip.MDCTooltip(el)
-//     })
-// }
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     initBanners()
-//     initButtons()
-//     initCards()
-//     initCheckBoxes()
-//     initChipSets()
-//     initCircularProgresses()
-//     initDataTables()
-//     initFabs()
-//     initIconButtons()
-//     initLinearProgresses()
-//     initSnackbars()
-//     initSwitches()
-//     initTabBars()
-//     initTooltips()
-// })
+        if (el.hasAttribute('open')) {
+            typedEl.MDCSnackbar.open()
+        }
+    })
+}

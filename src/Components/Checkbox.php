@@ -1,10 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MaterialBlade\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
+/**
+ * @see https://mui.com/material-ui/react-checkbox/
+ * @see https://m2.material.io/components/checkboxes/web
+ * @see https://github.com/material-components/material-components-web/tree/v14.0.0/packages/mdc-checkbox
+ * @see https://material-components.github.io/material-components-web-catalog/#/component/checkbox
+ */
 class Checkbox extends Component
 {
     public ?string $color;
@@ -37,6 +45,14 @@ class Checkbox extends Component
     public function render()
     {
         return 'mbv::checkbox';
+    }
+
+    public function wrapperAttributesPreprocess(ComponentAttributeBag $attributes)
+    {
+        return [
+            'class' => 'mdc-checkbox '.($attributes->has('disabled') ? 'mdc-checkbox--disabled' : ''),
+            'data-mdc-auto-init' => 'MDCCheckbox',
+        ];
     }
 
     public function attributesPreprocess(ComponentAttributeBag $attributes)
