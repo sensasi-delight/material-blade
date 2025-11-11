@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initDialogs()
         initMenus()
         initSnackbars()
+        initChipSets()
     })
 })
 
@@ -81,27 +82,13 @@ function initMenus() {
     })
 }
 
-// function initChipSets() {
-//     document.querySelectorAll('.mdc-chip-set').forEach(el => {
-//         el.MDCChipSet = new mdc.chips.MDCChipSet(el)
+/**
+ * TODO: IMPLEMENT REMOVE FUNCTIONALITY. see https://github.com/material-components/material-components-web/blob/v14.0.0/packages/mdc-chips/deprecated/README.md#removing-chips-from-the-dom.
+ * TODO: IMPLEMENT ADD FUNCTIONALITY, https://github.com/material-components/material-components-web/blob/v14.0.0/packages/mdc-chips/deprecated/README.md#removing-chips-from-the-dom.
+ */
+function initChipSets() {
 
-//         el.MDCChipSet.listen('MDCChip:removal', event => {
-//             console.log(event)
-//             el.removeChild(event.detail.root)
-//         })
-//     })
-
-//     // TODO: Add event listener for adding chips
-//     // input.addEventListener('keydown', function(event) {
-//     //     if (event.key === 'Enter' || event.keyCode === 13) {
-//     //         const chipEl = document.createElement('div')
-
-//     //         // ... perform operations to properly populate/decorate chip element ...
-//     //         chipSetEl.appendChild(chipEl)
-//     //         chipSet.addChip(chipEl)
-//     //     }
-//     // })
-// }
+}
 
 // function initCircularProgresses() {
 //     document.querySelectorAll('.mdc-circular-progress').forEach(el => {
@@ -133,6 +120,7 @@ function initMenus() {
 //     })
 // }
 
+
 function initSnackbars() {
     document.querySelectorAll('.mdc-snackbar').forEach(el => {
         const typedEl = el as HTMLDivElement & {
@@ -153,8 +141,6 @@ function initSnackbars() {
 }
 
 // document.addEventListener('DOMContentLoaded', () => {
-//     initButtons()
-//     initChipSets()
 //     initCircularProgresses()
 //     initDataTables()
 //     initFabs()
