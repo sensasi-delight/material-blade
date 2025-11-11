@@ -2,11 +2,22 @@
 
     <div class="mdc-top-app-bar__row">
 
-        @if ($start)
-            <div {{ $startAttributesPreprocess($start->attributes) }}>
+        <div {{ $startAttributesPreprocess($start->attributes) }}>
+            @if ($start)
                 {{ $start }}
-            </div>
-        @endif
+            @endif
+
+            @if ($title || isset($titleSlot))
+                <span class="mdc-top-app-bar__title">
+                    @isset($titleSlot)
+                        {{ $titleSlot }}
+                    @else
+                        {{ $title }}
+                    @endisset
+                </span>
+            @endif
+        </div>
+
 
         @isset($end)
             <div {{ $endAttributesPreprocess($end->attributes) }}>
