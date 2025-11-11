@@ -1,12 +1,13 @@
 import './main.scss'
 
 import type { MDCBanner } from '@material/banner'
-import type { MDCDialog } from '@material/dialog'
-import type { MDCSnackbar } from '@material/snackbar'
 import type { MDCCircularProgress } from '@material/circular-progress'
+import type { MDCDialog } from '@material/dialog'
+import type { MDCLinearProgress } from '@material/linear-progress'
 import type { MDCMenu } from '@material/menu'
-import { MDCRipple } from '@material/ripple'
+import type { MDCSnackbar } from '@material/snackbar'
 import { MDCIconButtonToggle } from '@material/icon-button'
+import { MDCRipple } from '@material/ripple'
 
 document.addEventListener('DOMContentLoaded', () => {
     import('material-components-web').then(({ autoInit }) => {
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initSnackbars()
         initChipSets()
         setCircularProgressValues()
+        setLinearProgressValues()
     })
 })
 
@@ -115,20 +117,25 @@ function setCircularProgressValues() {
 //     })
 // }
 
-// function initLinearProgresses() {
-//     document.querySelectorAll('.mdc-linear-progress').forEach(el => {
-//         el.linearProgress = new mdc.linearProgress.MDCLinearProgress(el)
 
-//         if ((value = el.getAttribute('aria-valuenow'))) {
-//             el.linearProgress.progress = value
-//         }
+/**
+ * Set the progress values for all linear progress indicators
+ */
+function setLinearProgressValues() {
+    document.querySelectorAll('.mdc-linear-progress').forEach(el => {
+        const typedEl = el as HTMLDivElement & {
+            MDCLinearProgress: MDCLinearProgress
+        }
 
-//         if (el.dataset.bufferValue && el.dataset.bufferValue != 1) {
-//             el.linearProgress.buffer = el.dataset.bufferValue
-//         }
-//     })
-// }
+        if (typedEl.dataset.value) {
+            typedEl.MDCLinearProgress.progress = parseFloat(typedEl.dataset.value)
+        }
 
+        if (typedEl.dataset.bufferValue) {
+            typedEl.MDCLinearProgress.buffer = parseFloat(typedEl.dataset.bufferValue)
+        }
+    })
+}
 
 function initSnackbars() {
     document.querySelectorAll('.mdc-snackbar').forEach(el => {
@@ -151,7 +158,4 @@ function initSnackbars() {
 
 // document.addEventListener('DOMContentLoaded', () => {
 //     initDataTables()
-//     initFabs()
-//     initIconButtons()
-//     initLinearProgresses()
 // })
