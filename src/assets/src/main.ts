@@ -2,6 +2,7 @@ import './main.scss'
 
 import { MDCBanner } from '@material/banner'
 import { MDCDialog } from '@material/dialog'
+import type { MDCSnackbar } from '@material/snackbar'
 import { MDCIconButtonToggle } from '@material/icon-button'
 import { MDCMenu } from '@material/menu'
 import { MDCRipple } from '@material/ripple'
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         autoOpenBanner()
         initDialogs()
         initMenus()
+        initSnackbars()
     })
 })
 
@@ -131,19 +133,24 @@ function initMenus() {
 //     })
 // }
 
-// function initSnackbars() {
-//     document.querySelectorAll('.mdc-snackbar').forEach(el => {
-//         el.MDCSnackbar = new mdc.snackbar.MDCSnackbar(el)
+function initSnackbars() {
+    document.querySelectorAll('.mdc-snackbar').forEach(el => {
+        const typedEl = el as HTMLDivElement & {
+            MDCSnackbar: MDCSnackbar
+        }
 
-//         if (el.hasAttribute('timeout')) {
-//             el.MDCSnackbar.foundation.setTimeoutMs(el.getAttribute('timeout'))
-//         }
+        if (el.hasAttribute('timeout')) {
+            const timeoutValue = el.getAttribute('timeout')
+            if (timeoutValue !== null) {
+                typedEl.MDCSnackbar.timeoutMs = parseInt(timeoutValue, 10)
+            }
+        }
 
-//         if (el.hasAttribute('open')) {
-//             el.MDCSnackbar.open()
-//         }
-//     })
-// }
+        if (el.hasAttribute('open')) {
+            typedEl.MDCSnackbar.open()
+        }
+    })
+}
 
 // document.addEventListener('DOMContentLoaded', () => {
 //     initButtons()
@@ -153,5 +160,4 @@ function initMenus() {
 //     initFabs()
 //     initIconButtons()
 //     initLinearProgresses()
-//     initSnackbars()
 // })
