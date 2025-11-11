@@ -111,13 +111,6 @@ function setCircularProgressValues() {
     })
 }
 
-// function initDataTables() {
-//     document.querySelectorAll('.mdc-data-table').forEach(el => {
-//         el.MDCDataTable = new mdc.dataTable.MDCDataTable(el)
-//     })
-// }
-
-
 /**
  * Set the progress values for all linear progress indicators
  */
@@ -155,7 +148,3 @@ function initSnackbars() {
         }
     })
 }
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     initDataTables()
-// })
